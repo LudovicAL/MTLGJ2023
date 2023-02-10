@@ -11402,7 +11402,7 @@ MonoBehaviour:
     handbrake: 0
     brake: 0
     wheelType: 1
-  maxMotorTorque: 3000
+  maxMotorTorque: 3500
   maxSteeringAngle: 45
   wheelMassOverride: 50
   wheelStiffnessDefault: 1
@@ -11471,7 +11471,7 @@ Rigidbody:
   m_GameObject: {fileID: 7623938157210937836}
   serializedVersion: 4
   m_Mass: 1500
-  m_Drag: 0
+  m_Drag: 0.1
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: -1, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
