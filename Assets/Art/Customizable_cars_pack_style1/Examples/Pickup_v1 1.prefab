@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4755295735070266}
   - component: {fileID: 33630935110686202}
   - component: {fileID: 23639901772247170}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Gas_balloon_v1 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 4707237709607184}
   - component: {fileID: 33039874286394186}
   - component: {fileID: 23217677350012820}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Gas_balloon_v1 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 4372702113753748}
   - component: {fileID: 33163932896925432}
   - component: {fileID: 23474424187087304}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Gas_balloon_v1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 4453723193685932}
   - component: {fileID: 33048918079196568}
   - component: {fileID: 23211076768677504}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Weapon_v1_2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 4507404439499946}
   - component: {fileID: 33881516116287066}
   - component: {fileID: 23926743164921252}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Projector_v1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,8 +426,9 @@ GameObject:
   - component: {fileID: 4796874700353928}
   - component: {fileID: 33255587423664848}
   - component: {fileID: 23139253419905646}
-  m_Layer: 0
-  m_Name: Tire_v1_L
+  - component: {fileID: 908112488615471379}
+  m_Layer: 3
+  m_Name: Tire_v1_FL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -498,6 +499,45 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!146 &908112488615471379
+WheelCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1628218623634054}
+  serializedVersion: 2
+  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.5
+  m_SuspensionSpring:
+    spring: 35000
+    damper: 4500
+    targetPosition: 0.5
+  m_SuspensionDistance: 0.3
+  m_ForceAppPointDistance: 0
+  m_Mass: 20
+  m_WheelDampingRate: 0.25
+  m_ForwardFriction:
+    m_ExtremumSlip: 0.4
+    m_ExtremumValue: 1
+    m_AsymptoteSlip: 0.8
+    m_AsymptoteValue: 0.5
+    m_Stiffness: 1
+  m_SidewaysFriction:
+    m_ExtremumSlip: 0.2
+    m_ExtremumValue: 1
+    m_AsymptoteSlip: 0.5
+    m_AsymptoteValue: 0.75
+    m_Stiffness: 1
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_Enabled: 1
+  m_ProvidesContacts: 0
 --- !u!1 &1640181726270704
 GameObject:
   m_ObjectHideFlags: 0
@@ -509,7 +549,7 @@ GameObject:
   - component: {fileID: 4516168245727552}
   - component: {fileID: 33222492951318564}
   - component: {fileID: 23982760278331952}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Bullbar_v2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -592,7 +632,7 @@ GameObject:
   - component: {fileID: 4306837054612840}
   - component: {fileID: 33822761586241970}
   - component: {fileID: 23258273729266370}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tire_v1_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -675,7 +715,7 @@ GameObject:
   - component: {fileID: 4874950111618796}
   - component: {fileID: 33756206816268782}
   - component: {fileID: 23774095860286106}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Headlight_v1_8 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -758,7 +798,10 @@ GameObject:
   - component: {fileID: 4637200479650686}
   - component: {fileID: 33894033242776766}
   - component: {fileID: 23916617585119752}
-  m_Layer: 0
+  - component: {fileID: 954101430231707866}
+  - component: {fileID: 1799270208}
+  - component: {fileID: 1986070980}
+  m_Layer: 3
   m_Name: Pickup_v1 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -772,7 +815,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1760862073944104}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -844,6 +887,78 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!54 &954101430231707866
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760862073944104}
+  serializedVersion: 4
+  m_Mass: 1500
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: -1, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 0
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!64 &1799270208
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760862073944104}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 1
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300056, guid: 4e242ef32aae8d64d8c16b43e78b149e, type: 3}
+--- !u!114 &1986070980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760862073944104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 410982f72c876fe4ab24710725c62a2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  axleInfos:
+  - leftWheel: {fileID: 908112488615471379}
+    rightWheel: {fileID: 5956984606968952211}
+    motor: 0
+    steering: 1
+  - leftWheel: {fileID: 302127187}
+    rightWheel: {fileID: 1730938667416893550}
+    motor: 1
+    steering: 0
+  maxMotorTorque: 3000
+  maxSteeringAngle: 45
 --- !u!1 &1768104256190042
 GameObject:
   m_ObjectHideFlags: 0
@@ -855,7 +970,8 @@ GameObject:
   - component: {fileID: 4003694099948358}
   - component: {fileID: 33450670277034504}
   - component: {fileID: 23435445251490830}
-  m_Layer: 0
+  - component: {fileID: 302127187}
+  m_Layer: 3
   m_Name: Tire_v1_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -927,6 +1043,45 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!146 &302127187
+WheelCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768104256190042}
+  serializedVersion: 2
+  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.5
+  m_SuspensionSpring:
+    spring: 35000
+    damper: 4500
+    targetPosition: 0.5
+  m_SuspensionDistance: 0.3
+  m_ForceAppPointDistance: 0
+  m_Mass: 20
+  m_WheelDampingRate: 0.25
+  m_ForwardFriction:
+    m_ExtremumSlip: 0.4
+    m_ExtremumValue: 1
+    m_AsymptoteSlip: 0.8
+    m_AsymptoteValue: 0.5
+    m_Stiffness: 1
+  m_SidewaysFriction:
+    m_ExtremumSlip: 0.2
+    m_ExtremumValue: 1
+    m_AsymptoteSlip: 0.5
+    m_AsymptoteValue: 0.75
+    m_Stiffness: 1
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_Enabled: 1
+  m_ProvidesContacts: 0
 --- !u!1 &1838714637379180
 GameObject:
   m_ObjectHideFlags: 0
@@ -938,7 +1093,7 @@ GameObject:
   - component: {fileID: 4935829651923804}
   - component: {fileID: 33356105952922512}
   - component: {fileID: 23547205120601634}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Exhaust_pipe_v1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1021,7 +1176,8 @@ GameObject:
   - component: {fileID: 4846194387023228}
   - component: {fileID: 33052571655556646}
   - component: {fileID: 23279706883314514}
-  m_Layer: 0
+  - component: {fileID: 1730938667416893550}
+  m_Layer: 3
   m_Name: Tire_v1_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1093,6 +1249,45 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!146 &1730938667416893550
+WheelCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887609985490648}
+  serializedVersion: 2
+  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.5
+  m_SuspensionSpring:
+    spring: 35000
+    damper: 4500
+    targetPosition: 0.5
+  m_SuspensionDistance: 0.3
+  m_ForceAppPointDistance: 0
+  m_Mass: 20
+  m_WheelDampingRate: 0.25
+  m_ForwardFriction:
+    m_ExtremumSlip: 0.4
+    m_ExtremumValue: 1
+    m_AsymptoteSlip: 0.8
+    m_AsymptoteValue: 0.5
+    m_Stiffness: 1
+  m_SidewaysFriction:
+    m_ExtremumSlip: 0.2
+    m_ExtremumValue: 1
+    m_AsymptoteSlip: 0.5
+    m_AsymptoteValue: 0.75
+    m_Stiffness: 1
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_Enabled: 1
+  m_ProvidesContacts: 0
 --- !u!1 &1893058777393560
 GameObject:
   m_ObjectHideFlags: 0
@@ -1104,7 +1299,7 @@ GameObject:
   - component: {fileID: 4125941238055036}
   - component: {fileID: 33805463113621932}
   - component: {fileID: 23274169463562024}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Gas_balloon_v1 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1187,8 +1382,9 @@ GameObject:
   - component: {fileID: 4570991442781970}
   - component: {fileID: 33587809389084560}
   - component: {fileID: 23350054699991668}
-  m_Layer: 0
-  m_Name: Tire_v1_R
+  - component: {fileID: 5956984606968952211}
+  m_Layer: 3
+  m_Name: Tire_v1_FR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1259,3 +1455,42 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!146 &5956984606968952211
+WheelCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1900240629810706}
+  serializedVersion: 2
+  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.5
+  m_SuspensionSpring:
+    spring: 35000
+    damper: 4500
+    targetPosition: 0.5
+  m_SuspensionDistance: 0.3
+  m_ForceAppPointDistance: 0
+  m_Mass: 20
+  m_WheelDampingRate: 0.25
+  m_ForwardFriction:
+    m_ExtremumSlip: 0.4
+    m_ExtremumValue: 1
+    m_AsymptoteSlip: 0.8
+    m_AsymptoteValue: 0.5
+    m_Stiffness: 1
+  m_SidewaysFriction:
+    m_ExtremumSlip: 0.2
+    m_ExtremumValue: 1
+    m_AsymptoteSlip: 0.5
+    m_AsymptoteValue: 0.75
+    m_Stiffness: 1
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_Enabled: 1
+  m_ProvidesContacts: 0
