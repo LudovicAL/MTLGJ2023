@@ -397,12 +397,26 @@ MonoBehaviour:
     rightWheel: {fileID: 7397918418277917825}
     motor: 1
     steering: 1
+    handbrake: 0
+    brake: 0
+    wheelType: 0
   - leftWheel: {fileID: 6132291201371214589}
     rightWheel: {fileID: 7515136643924606928}
     motor: 0
     steering: 0
+    handbrake: 0
+    brake: 0
+    wheelType: 1
   maxMotorTorque: 3000
   maxSteeringAngle: 45
+  wheelMassOverride: 50
+  wheelStiffnessDefault: 1
+  wheelSideFrictionAsymptoteOverride: 1
+  frontWheelForwardFrictionOverride: 2.5
+  rearWheelSideFrictionOverride: 1.5
+  springOverride: 60000
+  damperOverride: 6000
+  showDebugDisplay: 1
 --- !u!33 &1760021474624463087
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -618,6 +632,14 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 7c35f251-64fd-4869-bf2f-9b0b18408ce4
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2d874d2a-5498-40aa-8d78-d5596524a985
+    m_ActionName: Player/Handbrake[/Mouse/rightButton,/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: baa9161f-70c8-4554-905d-10558b9503b8
+    m_ActionName: Player/Boost[/Keyboard/e,/Mouse/middleButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
