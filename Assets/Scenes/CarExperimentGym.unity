@@ -440,12 +440,20 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 3060343098563622289, guid: c817e31d55453414299dfd3a1024bc25, type: 3}
-      propertyPath: axleInfos.Array.data[1].wheelType
+      propertyPath: maxBrakeTorque
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3060343098563622289, guid: c817e31d55453414299dfd3a1024bc25, type: 3}
+      propertyPath: axleInfos.Array.data[0].brake
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3060343098563622295, guid: c817e31d55453414299dfd3a1024bc25, type: 3}
-      propertyPath: m_CenterOfMass.y
-      value: -1.55
+    - target: {fileID: 3060343098563622289, guid: c817e31d55453414299dfd3a1024bc25, type: 3}
+      propertyPath: axleInfos.Array.data[1].brake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3060343098563622289, guid: c817e31d55453414299dfd3a1024bc25, type: 3}
+      propertyPath: axleInfos.Array.data[1].wheelType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3060351016758024680, guid: c817e31d55453414299dfd3a1024bc25, type: 3}
       propertyPath: m_Layer
@@ -1240,7 +1248,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1402391027}
-  m_LocalRotation: {x: 0.35743037, y: 0.02020441, z: -0.007734553, w: 0.93368924}
+  m_LocalRotation: {x: 0.35743034, y: 0.020204442, z: -0.0077345655, w: 0.93368924}
   m_LocalPosition: {x: -0.84, y: 19.93, z: -28.29}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1467,7 +1475,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1712644722}
-  m_LocalRotation: {x: 0.35743037, y: 0.02020441, z: -0.007734553, w: 0.93368924}
+  m_LocalRotation: {x: 0.35743034, y: 0.020204442, z: -0.0077345655, w: 0.93368924}
   m_LocalPosition: {x: -0.84, y: 19.93, z: -28.29}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

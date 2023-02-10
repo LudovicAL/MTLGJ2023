@@ -21,13 +21,16 @@ public class PlayerController : MonoBehaviour
     
     private PlayerInput playerInput;
 
-    public float wheelMassOverride = 50.0f;
-    public float wheelStiffnessDefault = 1.0f;
-    public float wheelSideFrictionAsymptoteOverride = 1.0f;
-    public float frontWheelForwardFrictionOverride = 2.5f;
-    public float rearWheelSideFrictionOverride = 1.5f;
-    public float springOverride = 60000f;
-    public float damperOverride = 6000f;
+    private float wheelMassOverride = 50.0f;
+    private float wheelStiffnessDefault = 1.0f;
+    private float wheelSideFrictionAsymptoteOverride = 1.0f;
+    private float frontWheelForwardFrictionOverride = 2.5f;
+    private float rearWheelSideFrictionOverride = 1.5f;
+    private float springOverride = 60000f;
+    private float damperOverride = 6000f;
+    private float brakeToReverseRPMThreshold = 100.0f;
+    private float brakeStiffnessOverride = 5.0f;
+    private float maxBrakeTorque = 3000;
 
     public bool showDebugDisplay = true;
 
@@ -75,6 +78,27 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void UpdateWheelStiffnessForBraking(WheelCollider wheelCollider, bool isFrontWheel)
+    {
+        WheelFrictionCurve forwardFrictionCurve = wheelCollider.forwardFriction;
+        if (wheelCollider.brakeTorque != 0.0f)
+        {
+            forwardFrictionCurve.stiffness = brakeStiffnessOverride;
+        }
+        else
+        {
+            if (isFrontWheel)
+            {
+                forwardFrictionCurve.stiffness = frontWheelForwardFrictionOverride;
+            }
+            else
+            {
+                forwardFrictionCurve.stiffness = wheelStiffnessDefault;
+            }
+        }
+        wheelCollider.forwardFriction = forwardFrictionCurve;
+    }
+
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
@@ -85,7 +109,8 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 inputVector = playerInput.actions["Move"].ReadValue<Vector2>();
 
-        currentMotorAmount = maxMotorTorque * inputVector.y;
+        currentMotorAmount = inputVector.y;
+
         float steering = maxSteeringAngle * inputVector.x;
             
         foreach (AxleInfo axleInfo in axleInfos) {
@@ -93,10 +118,69 @@ public class PlayerController : MonoBehaviour
                 axleInfo.leftWheel.steerAngle = steering;
                 axleInfo.rightWheel.steerAngle = steering;
             }
-            if (axleInfo.motor) {
-                axleInfo.leftWheel.motorTorque = currentMotorAmount;
-                axleInfo.rightWheel.motorTorque = currentMotorAmount;
+
+            if (axleInfo.motor)
+            {
+                axleInfo.leftWheel.motorTorque = 0.0f;
+                axleInfo.rightWheel.motorTorque = 0.0f;
+
+                if (currentMotorAmount > 0.0)
+                {
+                    if (axleInfo.leftWheel.rpm > -brakeToReverseRPMThreshold)
+                    {
+                        axleInfo.leftWheel.motorTorque = currentMotorAmount * maxMotorTorque;
+                    }
+                    if (axleInfo.rightWheel.rpm > -brakeToReverseRPMThreshold)
+                    {
+                        axleInfo.rightWheel.motorTorque = currentMotorAmount * maxMotorTorque;
+                    }
+                }
+                else if (currentMotorAmount < 0.0)
+                {
+                    if (axleInfo.leftWheel.rpm < brakeToReverseRPMThreshold)
+                    {
+                        axleInfo.leftWheel.motorTorque = currentMotorAmount * maxMotorTorque;
+                    }
+                    if (axleInfo.rightWheel.rpm < brakeToReverseRPMThreshold)
+                    {
+                        axleInfo.rightWheel.motorTorque = currentMotorAmount * maxMotorTorque;
+                    }
+                }
             }
+
+            if (axleInfo.brake)
+            {
+                axleInfo.leftWheel.brakeTorque = 0.0f;
+                axleInfo.rightWheel.brakeTorque = 0.0f;
+
+                if (currentMotorAmount > 0.0)
+                {
+                    if (axleInfo.leftWheel.rpm < -brakeToReverseRPMThreshold)
+                    {
+                        axleInfo.leftWheel.brakeTorque = currentMotorAmount * maxBrakeTorque;
+                    }
+                    if (axleInfo.rightWheel.rpm < -brakeToReverseRPMThreshold)
+                    {
+                        axleInfo.rightWheel.brakeTorque = currentMotorAmount * maxBrakeTorque;
+                    }
+                }
+                else if (currentMotorAmount < 0.0)
+                {
+                    if (axleInfo.leftWheel.rpm > brakeToReverseRPMThreshold)
+                    {
+                        axleInfo.leftWheel.brakeTorque = currentMotorAmount * maxBrakeTorque * -1.0f;
+                    }
+                    if (axleInfo.rightWheel.rpm > brakeToReverseRPMThreshold)
+                    {
+                        axleInfo.rightWheel.brakeTorque = currentMotorAmount * maxBrakeTorque * -1.0f;
+                    }
+                }
+
+                UpdateWheelStiffnessForBraking(axleInfo.leftWheel, axleInfo.wheelType == WheelType.FrontWheel);
+                UpdateWheelStiffnessForBraking(axleInfo.rightWheel, axleInfo.wheelType == WheelType.FrontWheel);
+            }
+
+
             ApplyLocalPositionToVisuals(axleInfo.leftWheel);
             ApplyLocalPositionToVisuals(axleInfo.rightWheel);
         }
@@ -136,7 +220,7 @@ public class PlayerController : MonoBehaviour
         if (!showDebugDisplay)
             return;
 
-        style.fontSize = 50;
+        style.fontSize = 25;
         style.normal.textColor = Color.red;
 
         string wheelDebugInfo = "MOTOR:  " + currentMotorAmount + "\n";
@@ -144,14 +228,53 @@ public class PlayerController : MonoBehaviour
         {
             wheelDebugInfo += axleInfo.leftWheel.name + "\n";
             wheelDebugInfo += "RPM:  " + axleInfo.leftWheel.rpm + "\n";
+            wheelDebugInfo += "MOTOR:  ";
+
+            if (axleInfo.leftWheel.motorTorque != 0.0f)
+                wheelDebugInfo += "ON \n";
+            else
+                wheelDebugInfo += "OFF \n";
+
+            wheelDebugInfo += "BRAKE:  ";
+            if (axleInfo.leftWheel.brakeTorque != 0.0f)
+                wheelDebugInfo += "ON \n";
+            else
+                wheelDebugInfo += "OFF \n";
+
+            wheelDebugInfo += "\n";
+
+
+
+            wheelDebugInfo += axleInfo.rightWheel.name + "\n";
+            wheelDebugInfo += "RPM:  " + axleInfo.rightWheel.rpm + "\n";
+            wheelDebugInfo += "MOTOR:  ";
+
+            if (axleInfo.rightWheel.motorTorque != 0.0f)
+                wheelDebugInfo += "ON \n";
+            else
+                wheelDebugInfo += "OFF \n";
+
+            wheelDebugInfo += "BRAKE:  ";
+            if (axleInfo.rightWheel.brakeTorque != 0.0f)
+                wheelDebugInfo += "ON \n";
+            else
+                wheelDebugInfo += "OFF \n";
+
+            wheelDebugInfo += "\n";
+
+
+        }
+
+        foreach (AxleInfo axleInfo in axleInfos)
+        {
             WheelHit hit = new WheelHit();
             if (axleInfo.leftWheel.GetGroundHit(out hit))
             {
-                wheelDebugInfo += "Wheel Forward Slip:  " + hit.forwardSlip + "\n";
-                wheelDebugInfo += "Wheel Side Slip:     " + hit.sidewaysSlip + "\n";
+                //wheelDebugInfo += "Wheel Forward Slip:  " + hit.forwardSlip + "\n";
+                //wheelDebugInfo += "Wheel Side Slip:     " + hit.sidewaysSlip + "\n";
             }
-
         }
+
 
         GUI.Label(new Rect(10, 10, 100, 20), wheelDebugInfo, style);
     }
