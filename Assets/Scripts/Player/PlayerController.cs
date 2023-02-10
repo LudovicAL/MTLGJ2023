@@ -26,11 +26,12 @@ public class PlayerController : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
     }
 
+    private float currentMotorAmount = 0.0f;
     public void FixedUpdate()
     {
         Vector2 inputVector = playerInput.actions["Move"].ReadValue<Vector2>();
 
-        float motor = maxMotorTorque * inputVector.y;
+        currentMotorAmount = maxMotorTorque * inputVector.y;
         float steering = maxSteeringAngle * inputVector.x;
             
         foreach (AxleInfo axleInfo in axleInfos) {
@@ -39,8 +40,8 @@ public class PlayerController : MonoBehaviour
                 axleInfo.rightWheel.steerAngle = steering;
             }
             if (axleInfo.motor) {
-                axleInfo.leftWheel.motorTorque = motor;
-                axleInfo.rightWheel.motorTorque = motor;
+                axleInfo.leftWheel.motorTorque = currentMotorAmount;
+                axleInfo.rightWheel.motorTorque = currentMotorAmount;
             }
             ApplyLocalPositionToVisuals(axleInfo.leftWheel);
             ApplyLocalPositionToVisuals(axleInfo.rightWheel);
@@ -59,6 +60,29 @@ public class PlayerController : MonoBehaviour
      
         visualWheel.transform.position = position;
         visualWheel.transform.rotation = rotation;
+    }
+
+    GUIStyle style = new GUIStyle();
+    public void OnGUI()
+    {
+        style.fontSize = 50;
+        style.normal.textColor = Color.red;
+
+        string wheelDebugInfo = "MOTOR:  " + currentMotorAmount + "\n";
+        foreach (AxleInfo axleInfo in axleInfos)
+        {
+            wheelDebugInfo += axleInfo.leftWheel.name + "\n";
+            wheelDebugInfo += "RPM:  " + axleInfo.leftWheel.rpm + "\n";
+            WheelHit hit = new WheelHit();
+            if (axleInfo.leftWheel.GetGroundHit(out hit))
+            {
+                wheelDebugInfo += "Wheel Forward Slip:  " + hit.forwardSlip + "\n";
+                wheelDebugInfo += "Wheel Side Slip:     " + hit.sidewaysSlip + "\n";
+            }
+
+        }
+
+        GUI.Label(new Rect(10, 10, 100, 20), wheelDebugInfo, style);
     }
 }
     
