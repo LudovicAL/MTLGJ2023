@@ -41,7 +41,7 @@ namespace AI.ZombieStateMachine
             _zombieController.transform.rotation = Quaternion.Slerp(_zombieController.transform.rotation,
                 Quaternion.LookRotation(direction), 0.1f);
             
-            _zombieController.zombieRigidbody.AddForce(direction.normalized * _zombieController.force);
+            _zombieController.locomotionRigidbody.AddForce(direction.normalized * _zombieController.force);
         }
         
     }
