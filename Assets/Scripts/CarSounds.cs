@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CarSounds : MonoBehaviour {
 
@@ -9,6 +10,7 @@ public class CarSounds : MonoBehaviour {
 
     private AudioSource engineAudioSource;
     private AudioSource tireScreechAudioSource;
+    private AudioSource hornAudioSource;
     private Rigidbody carRigidbody;
 
     //TODO: Hooking the two following values to something
@@ -18,6 +20,7 @@ public class CarSounds : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         carRigidbody = GetComponent<Rigidbody>();
+        hornAudioSource = transform.Find("AudioSource Horn").GetComponent<AudioSource>();
         engineAudioSource = transform.Find("AudioSource Engine").GetComponent<AudioSource>();
         tireScreechAudioSource = transform.Find("AudioSource TireScreeching").GetComponent<AudioSource>();
         if (engineAudioSource) {
@@ -32,7 +35,15 @@ public class CarSounds : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (Mouse.current.leftButton.wasPressedThisFrame) {
+            BlowHorn();
+        }
+    }
 
+    private void BlowHorn() {
+        if (!hornAudioSource.isPlaying) {
+            hornAudioSource.Play();
+        }
     }
 
     private void PlayCarSounds() {
