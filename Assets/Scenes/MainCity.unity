@@ -482,28 +482,28 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1712644725, guid: 3338a47cdc4b89a49a55971b84205889, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 6.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1712644725, guid: 3338a47cdc4b89a49a55971b84205889, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -8.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1712644725, guid: 3338a47cdc4b89a49a55971b84205889, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9855631
-      objectReference: {fileID: 0}
-    - target: {fileID: 1712644725, guid: 3338a47cdc4b89a49a55971b84205889, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.16248985
-      objectReference: {fileID: 0}
-    - target: {fileID: 1712644725, guid: 3338a47cdc4b89a49a55971b84205889, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0.0469316
       objectReference: {fileID: 0}
     - target: {fileID: 1712644725, guid: 3338a47cdc4b89a49a55971b84205889, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.0077376156
+      objectReference: {fileID: 0}
+    - target: {fileID: 1088361401850284305, guid: 3338a47cdc4b89a49a55971b84205889, type: 3}
+      propertyPath: m_Emitting
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2267524788941426338, guid: 3338a47cdc4b89a49a55971b84205889, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526381261677014470, guid: 3338a47cdc4b89a49a55971b84205889, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4526381261677014470, guid: 3338a47cdc4b89a49a55971b84205889, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.558439
       objectReference: {fileID: 0}
     - target: {fileID: 6184226555994370391, guid: 3338a47cdc4b89a49a55971b84205889, type: 3}
       propertyPath: m_RootOrder
@@ -549,13 +549,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6186146046410055288, guid: 3338a47cdc4b89a49a55971b84205889, type: 3}
-      propertyPath: m_Drag
-      value: 0.1
-      objectReference: {fileID: 0}
     - target: {fileID: 6186146046410055293, guid: 3338a47cdc4b89a49a55971b84205889, type: 3}
       propertyPath: m_Name
       value: Delorean
+      objectReference: {fileID: 0}
+    - target: {fileID: 7412903443675859362, guid: 3338a47cdc4b89a49a55971b84205889, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

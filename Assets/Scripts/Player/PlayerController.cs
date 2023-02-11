@@ -220,14 +220,14 @@ public class PlayerController : MonoBehaviour
         currentMotorAmount = inputVector.y;
 
         float steering = maxSteeringAngle * inputVector.x;
-        
-        foreach (AxleInfo axleInfo in axleInfos) 
+
+        foreach (AxleInfo axleInfo in axleInfos)
         {
             ResetWheelStiffness(axleInfo.leftWheel, axleInfo.wheelType == WheelType.FrontWheel);
             ResetWheelStiffness(axleInfo.rightWheel, axleInfo.wheelType == WheelType.FrontWheel);
 
 
-            if (axleInfo.steering) 
+            if (axleInfo.steering)
             {
                 axleInfo.leftWheel.steerAngle = steering;
                 axleInfo.rightWheel.steerAngle = steering;
@@ -349,6 +349,26 @@ public class PlayerController : MonoBehaviour
                 {
                     isSecretBoostOn = true;
                     rb.AddForce(transform.forward * secretRocketBoostForce, ForceMode.Impulse);
+                    transform.GetComponent<CarEffects>().PlaySmoke();
+                }
+            }
+        }
+
+        foreach (AxleInfo axleInfo in axleInfos)
+        {
+            WheelHit hit = new WheelHit();
+            if (axleInfo.leftWheel.GetGroundHit(out hit))
+            {
+                if (hit.sidewaysSlip > 0.25f)
+                {
+                    transform.GetComponent<CarEffects>().PlaySmoke();
+                }
+            }
+            if (axleInfo.rightWheel.GetGroundHit(out hit))
+            {
+                if (hit.sidewaysSlip > 0.25f)
+                {
+                    transform.GetComponent<CarEffects>().PlaySmoke();
                 }
             }
         }
@@ -470,7 +490,8 @@ public enum WheelType
 }
 
 [System.Serializable]
-public class AxleInfo {
+public class AxleInfo 
+{
     public WheelCollider leftWheel;
     public WheelCollider rightWheel;
     public bool motor; // is this wheel attached to motor?

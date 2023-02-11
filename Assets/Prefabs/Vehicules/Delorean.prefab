@@ -26,8 +26,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1712644722}
-  m_LocalRotation: {x: 0.1704549, y: 0.048509724, z: -0.00840202, w: 0.98413485}
-  m_LocalPosition: {x: -0.84000015, y: 6.15, z: -8.5}
+  m_LocalRotation: {x: 0.16248985, y: 0.0469316, z: -0.0077376156, w: 0.9855631}
+  m_LocalPosition: {x: -0.84000015, y: 6.15, z: -8.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -143,7 +143,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4502941308813819740
 Transform:
   m_ObjectHideFlags: 0
@@ -932,7 +932,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 0.2}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -5753,7 +5753,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4526381261677014470
 Transform:
   m_ObjectHideFlags: 0
@@ -6149,7 +6149,6 @@ MonoBehaviour:
     wheelType: 1
   maxSteeringAngle: 45
   showDebugDisplay: 1
-  SecretBoost: 0
 --- !u!33 &6173266239300572013
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -6276,6 +6275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minimumSpeedForSmokeEffect: 5
+  smokeTime: 0
 --- !u!1 &6186331658228534869
 GameObject:
   m_ObjectHideFlags: 0
@@ -6582,7 +6582,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 0.2}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
