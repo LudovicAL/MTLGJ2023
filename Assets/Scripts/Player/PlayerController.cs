@@ -7,27 +7,30 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+
+    [SerializeField]
+    private List<AxleInfo> axleInfos; // the information about each individual axle
+
+    [SerializeField]
+    private float maxMotorTorque; // maximum torque the motor can apply to wheel
+
+    [SerializeField]
+    [Range(1.0f, 90.0f)]
+    private float maxSteeringAngle; // maximum steer angle the wheel can have
     
-    public List<AxleInfo> axleInfos; // the information about each individual axle
-    public float maxMotorTorque = 500.0f; // maximum torque the motor can apply to wheel
-    public float maxSteeringAngle = 50.0f; // maximum steer angle the wheel can have
-    
-    private Rigidbody _rigidBody;
     private PlayerInputActions _playerInputActions;
 
     private void Awake()
     {
-        _rigidBody = GetComponent<Rigidbody>();
-
         _playerInputActions = new PlayerInputActions();
     }
 
     private void OnEnable() => _playerInputActions.Player.Enable();
     private void OnDisable() => _playerInputActions.Player.Disable();
+
     public void FixedUpdate()
     {
         Vector2 inputVector = _playerInputActions.Player.Move.ReadValue<Vector2>();
-        Vector3 moveVector = new Vector3(inputVector.x, 0, inputVector.y);
         
         float motor = maxMotorTorque * inputVector.y;
         float steering = maxSteeringAngle * inputVector.x;
@@ -41,8 +44,8 @@ public class PlayerController : MonoBehaviour
                 axleInfo.leftWheel.motorTorque = motor;
                 axleInfo.rightWheel.motorTorque = motor;
             }
-            //ApplyLocalPositionToVisuals(axleInfo.leftWheel);
-            //ApplyLocalPositionToVisuals(axleInfo.rightWheel);
+            ApplyLocalPositionToVisuals(axleInfo.leftWheel);
+            ApplyLocalPositionToVisuals(axleInfo.rightWheel);
         }
     }
     
