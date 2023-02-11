@@ -22,8 +22,6 @@ public class Destructible : MonoBehaviour
         if (other.gameObject != playerObject)
             return;
 
-        Debug.Log("hit");
-
         Vector3 carVelocity = carRigidbody.velocity;
         Vector3 force = new Vector3(carVelocity.x, Random.Range(5, 10), carVelocity.z);
         destructibleRigidBody.AddForceAtPosition(force, other.GetContact(0).point, ForceMode.Impulse);
