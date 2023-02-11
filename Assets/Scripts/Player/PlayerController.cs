@@ -21,6 +21,60 @@ public class PlayerController : MonoBehaviour
     
     private PlayerInput playerInput;
 
+    public float wheelMassOverride = 50.0f;
+    public float wheelStiffnessDefault = 1.0f;
+    public float wheelSideFrictionAsymptoteOverride = 1.0f;
+    public float frontWheelForwardFrictionOverride = 2.5f;
+    public float rearWheelSideFrictionOverride = 1.5f;
+    public float springOverride = 60000f;
+    public float damperOverride = 6000f;
+
+    public bool showDebugDisplay = true;
+
+    private void Start()
+    {
+        foreach (AxleInfo axleInfo in axleInfos)
+        {
+            axleInfo.leftWheel.mass = wheelMassOverride;
+            axleInfo.rightWheel.mass = wheelMassOverride;
+
+            WheelFrictionCurve forwardFrictionCurve = axleInfo.leftWheel.forwardFriction;
+            if (axleInfo.wheelType == WheelType.FrontWheel)
+            {
+                forwardFrictionCurve.stiffness = frontWheelForwardFrictionOverride;
+            }
+            else if (axleInfo.wheelType == WheelType.RearWheel)
+            {
+                forwardFrictionCurve.stiffness = wheelStiffnessDefault;
+            }
+
+            axleInfo.leftWheel.forwardFriction = forwardFrictionCurve;
+            axleInfo.rightWheel.forwardFriction = forwardFrictionCurve;
+
+
+            WheelFrictionCurve sideFrictionCurve = axleInfo.leftWheel.sidewaysFriction;
+            if (axleInfo.wheelType == WheelType.FrontWheel)
+            {
+                sideFrictionCurve.stiffness = wheelStiffnessDefault;
+            }
+            else if (axleInfo.wheelType == WheelType.RearWheel)
+            {
+                sideFrictionCurve.stiffness = rearWheelSideFrictionOverride;
+            }
+            sideFrictionCurve.asymptoteValue = wheelSideFrictionAsymptoteOverride;
+
+            axleInfo.leftWheel.sidewaysFriction = sideFrictionCurve;
+            axleInfo.rightWheel.sidewaysFriction = sideFrictionCurve;
+
+            JointSpring suspensionSpring = axleInfo.leftWheel.suspensionSpring;
+            suspensionSpring.spring = springOverride;
+            suspensionSpring.damper = damperOverride;
+
+            axleInfo.leftWheel.suspensionSpring = suspensionSpring;
+            axleInfo.rightWheel.suspensionSpring = suspensionSpring;
+        }
+    }
+
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
@@ -62,9 +116,26 @@ public class PlayerController : MonoBehaviour
         visualWheel.transform.rotation = rotation;
     }
 
+    void OnDrawGizmosSelected()
+    {
+        if (!showDebugDisplay)
+        {
+            return;
+        }
+
+        Rigidbody rb = transform.GetComponent<Rigidbody>();
+
+        // Draw a yellow sphere at the transform's position
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawSphere(rb.centerOfMass + rb.position, 0.2f);
+    }
+
     GUIStyle style = new GUIStyle();
     public void OnGUI()
     {
+        if (!showDebugDisplay)
+            return;
+
         style.fontSize = 50;
         style.normal.textColor = Color.red;
 
@@ -86,10 +157,19 @@ public class PlayerController : MonoBehaviour
     }
 }
     
+public enum WheelType
+{
+    FrontWheel,
+    RearWheel
+}
+
 [System.Serializable]
 public class AxleInfo {
     public WheelCollider leftWheel;
     public WheelCollider rightWheel;
     public bool motor; // is this wheel attached to motor?
     public bool steering; // does this wheel apply steer angle?
+    public bool handbrake = false;
+    public bool brake = false;
+    public WheelType wheelType = WheelType.FrontWheel;
 }

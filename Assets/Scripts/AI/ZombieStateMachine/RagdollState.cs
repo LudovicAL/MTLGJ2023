@@ -14,11 +14,12 @@ namespace AI.ZombieStateMachine
 
         public void OnEnter()
         {
+            _zombieController.locomotionCollider.enabled = false;
         }
 
         public void OnExit()
         {
-            //Do something once when exiting this state
+            _zombieController.locomotionCollider.enabled = true;
         }
 
         public void Tick()
@@ -28,7 +29,7 @@ namespace AI.ZombieStateMachine
 
         public void FixedTick()
         {
-            
+            //_zombieController.transform.position = _zombieController.ragdollRigidbody.transform.position;
         }
     }
 }
