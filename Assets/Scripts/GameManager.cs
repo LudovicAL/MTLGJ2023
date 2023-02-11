@@ -5,7 +5,7 @@ public class GameManager : Singleton<GameManager>
 {
     public GameObject player;
     public GameState currentState;
-    
+
     private void Awake()
     {
         Application.targetFrameRate = 60;
