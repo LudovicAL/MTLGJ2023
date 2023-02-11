@@ -20,6 +20,7 @@ namespace AI.ZombieStateMachine
         [HideInInspector] public CapsuleCollider locomotionCollider;
         
         private StateMachine _stateMachine;
+        private bool hasCollided;
         
         private void Awake()
         {
@@ -49,7 +50,7 @@ namespace AI.ZombieStateMachine
             void At(IState to, IState from, Func<bool> condition) => _stateMachine.AddTransition(to, from, condition);
             Func<bool> HasGameStarted() => () => GameManager.Instance.currentState == GameState.Started;
             Func<bool> HasTarget() => () => target != null;
-            Func<bool> CollisionWithTarget() => () => tempFakeRagDollState; //TODO: collision w/ vehicule
+            Func<bool> CollisionWithTarget() => () => hasCollided;
             Func<bool> HasNoTarget() => () => target == null;
             Func<bool> IsCloseToTarget() => () => target != null && Vector3.Distance(target.transform.position, transform.position) <= minDistanceToTarget;
         }
@@ -62,6 +63,26 @@ namespace AI.ZombieStateMachine
         private void FixedUpdate()
         {
             _stateMachine.FixedTick();
+        }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                if (collision.relativeVelocity.magnitude >= 10.0f)
+                {
+                    hasCollided = true;
+                }
+            }
+        }
+        
+        private void OnCollisionExit(Collision collision)
+        {
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                hasCollided = false;
+            }
         }
     }
 }
