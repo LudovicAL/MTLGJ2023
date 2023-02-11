@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Bullbar 5
   m_EditorClassIdentifier: 
   powerUpName: Bullbar 5
-  powerUpDescription: 
+  powerUpDescription: A monstruous bullbar!
   model: {fileID: 1738774622852740, guid: 7f3f33a9c6e6c5947b0703acb4c2c6ee, type: 3}

@@ -228,7 +228,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1296545704122657754
 Transform:
   m_ObjectHideFlags: 0
@@ -443,13 +443,6 @@ MonoBehaviour:
     wheelType: 1
   maxMotorTorque: 3500
   maxSteeringAngle: 45
-  wheelMassOverride: 50
-  wheelStiffnessDefault: 1
-  wheelSideFrictionAsymptoteOverride: 1
-  frontWheelForwardFrictionOverride: 2.5
-  rearWheelSideFrictionOverride: 1.5
-  springOverride: 60000
-  damperOverride: 6000
   showDebugDisplay: 1
 --- !u!33 &1268767250233549742
 MeshFilter:
@@ -674,6 +667,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: baa9161f-70c8-4554-905d-10558b9503b8
     m_ActionName: Player/Boost[/Keyboard/e,/Mouse/middleButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2800669427677802557}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: bff8d0d2-6119-4d37-9a6a-7b9d79798619
+    m_ActionName: Player/PowerUp[/Keyboard/u]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -768,7 +777,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1288196771805221390
 Transform:
   m_ObjectHideFlags: 0
@@ -851,7 +860,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1296522907641763642
 Transform:
   m_ObjectHideFlags: 0
@@ -934,7 +943,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1296674154416127128
 Transform:
   m_ObjectHideFlags: 0
@@ -1017,7 +1026,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1288287005489555130
 Transform:
   m_ObjectHideFlags: 0
@@ -1100,7 +1109,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1296759445838993772
 Transform:
   m_ObjectHideFlags: 0

@@ -10323,6 +10323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 182782caaadc0304fb0ab9ed4e2da6c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  powerUpSelectionMode: 0
 --- !u!1 &8624451463999376491
 GameObject:
   m_ObjectHideFlags: 0
@@ -10340,7 +10341,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8628087622160052983
 Transform:
   m_ObjectHideFlags: 0
@@ -10711,7 +10712,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8621010058808098309
 Transform:
   m_ObjectHideFlags: 0
@@ -10854,13 +10855,6 @@ MonoBehaviour:
     wheelType: 1
   maxMotorTorque: 3500
   maxSteeringAngle: 45
-  wheelMassOverride: 50
-  wheelStiffnessDefault: 1
-  wheelSideFrictionAsymptoteOverride: 1
-  frontWheelForwardFrictionOverride: 2.5
-  rearWheelSideFrictionOverride: 1.5
-  springOverride: 60000
-  damperOverride: 6000
   showDebugDisplay: 1
 --- !u!33 &8630802313532880077
 MeshFilter:
@@ -11085,6 +11079,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: baa9161f-70c8-4554-905d-10558b9503b8
     m_ActionName: Player/Boost[/Keyboard/e,/Mouse/middleButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bff8d0d2-6119-4d37-9a6a-7b9d79798619
+    m_ActionName: Player/PowerUp[/Keyboard/u]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -11107,7 +11105,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8620951976372481619
 Transform:
   m_ObjectHideFlags: 0
@@ -11190,7 +11188,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8628172321648326777
 Transform:
   m_ObjectHideFlags: 0
@@ -11439,7 +11437,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8620912115547803933
 Transform:
   m_ObjectHideFlags: 0
@@ -11605,7 +11603,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8620843487604332379
 Transform:
   m_ObjectHideFlags: 0
@@ -11688,7 +11686,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8627825207652884569
 Transform:
   m_ObjectHideFlags: 0
@@ -11854,7 +11852,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8628093326031534273
 Transform:
   m_ObjectHideFlags: 0

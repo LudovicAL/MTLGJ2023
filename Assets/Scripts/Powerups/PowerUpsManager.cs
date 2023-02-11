@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
+using Unity.VisualScripting;
+using System.Linq;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class PowerUpsManager : MonoBehaviour {
 
@@ -35,8 +40,11 @@ public class PowerUpsManager : MonoBehaviour {
 
     public List<ScriptablePowerUp> GetRandomPowerUps() {
         List<ScriptablePowerUp> scriptablePowerUps = new List<ScriptablePowerUp>();
-        for (int i = 0; i < 3 && availablePowerUps.Count > 0; i++) {
-            scriptablePowerUps.Add(availablePowerUps[Random.Range(0, availablePowerUps.Count)].scriptablePowerUp);
+        List<PowerUp> copyOfAvailablePowerUps = availablePowerUps.ToList();
+        for (int i = 0; i < 3 && copyOfAvailablePowerUps.Count > 0; i++) {
+            int randomIndex = Random.Range(0, copyOfAvailablePowerUps.Count);
+            scriptablePowerUps.Add(copyOfAvailablePowerUps[randomIndex].scriptablePowerUp);
+            copyOfAvailablePowerUps.RemoveAt(randomIndex);
         }
         return scriptablePowerUps;
     }
@@ -81,3 +89,14 @@ public class PowerUpsManager : MonoBehaviour {
         Random
     }
 }
+
+#if UNITY_EDITOR
+[CustomEditor(typeof(PowerUpsManager))]
+class PowerUpsManagerEditor : Editor {
+    public override void OnInspectorGUI() {
+        if (GUILayout.Button("GetPowerUpsOffer")) {
+            PowerUpCanvas.instance.OfferPowerUps((PowerUpsManager)target);
+        }
+    }
+}
+#endif

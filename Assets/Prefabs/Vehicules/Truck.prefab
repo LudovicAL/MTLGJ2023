@@ -497,6 +497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 182782caaadc0304fb0ab9ed4e2da6c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  powerUpSelectionMode: 0
 --- !u!1 &3080286288964786108
 GameObject:
   m_ObjectHideFlags: 0
@@ -5867,7 +5868,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5064143181407914474
 Transform:
   m_ObjectHideFlags: 0
@@ -5950,7 +5951,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5064053554330820068
 Transform:
   m_ObjectHideFlags: 0
@@ -6033,7 +6034,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5063742331646684644
 Transform:
   m_ObjectHideFlags: 0
@@ -6116,7 +6117,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5063840817858047224
 Transform:
   m_ObjectHideFlags: 0
@@ -6277,13 +6278,6 @@ MonoBehaviour:
     wheelType: 1
   maxMotorTorque: 3500
   maxSteeringAngle: 45
-  wheelMassOverride: 50
-  wheelStiffnessDefault: 1
-  wheelSideFrictionAsymptoteOverride: 1
-  frontWheelForwardFrictionOverride: 2.5
-  rearWheelSideFrictionOverride: 1.5
-  springOverride: 60000
-  damperOverride: 6000
   showDebugDisplay: 1
 --- !u!33 &5057026368708234700
 MeshFilter:
@@ -6508,6 +6502,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: baa9161f-70c8-4554-905d-10558b9503b8
     m_ActionName: Player/Boost[/Keyboard/e,/Mouse/middleButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bff8d0d2-6119-4d37-9a6a-7b9d79798619
+    m_ActionName: Player/PowerUp[/Keyboard/u]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -6530,7 +6528,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5069146167401825884
 Transform:
   m_ObjectHideFlags: 0
@@ -6613,7 +6611,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5069117578276781280
 Transform:
   m_ObjectHideFlags: 0
@@ -6696,7 +6694,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5069240040056096204
 Transform:
   m_ObjectHideFlags: 0
@@ -6779,7 +6777,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5069113144701167060
 Transform:
   m_ObjectHideFlags: 0
@@ -6862,7 +6860,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5068947509543612322
 Transform:
   m_ObjectHideFlags: 0
@@ -6945,7 +6943,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5068911284198478508
 Transform:
   m_ObjectHideFlags: 0
@@ -7028,7 +7026,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5063911935307020686
 Transform:
   m_ObjectHideFlags: 0
@@ -7111,7 +7109,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5064047575368302772
 Transform:
   m_ObjectHideFlags: 0
@@ -7194,7 +7192,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5069045478567046688
 Transform:
   m_ObjectHideFlags: 0
@@ -7277,7 +7275,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5064003412821316804
 Transform:
   m_ObjectHideFlags: 0
@@ -7360,7 +7358,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5064009739826081000
 Transform:
   m_ObjectHideFlags: 0
@@ -7443,7 +7441,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5063817607636363410
 Transform:
   m_ObjectHideFlags: 0
@@ -7526,7 +7524,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5069294695115736018
 Transform:
   m_ObjectHideFlags: 0
@@ -7609,7 +7607,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5063845596027551636
 Transform:
   m_ObjectHideFlags: 0

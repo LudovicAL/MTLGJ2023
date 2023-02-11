@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -41,13 +42,19 @@ public class PowerUpCanvas : MonoBehaviour {
             return;
         }
 
+        foreach (Transform transform in panelHorizontalLayout) {
+            Destroy(transform.gameObject);
+        }
+
         PauseGame();
 
         foreach (ScriptablePowerUp scriptablePowerUp in scriptablePowerUps) {
             GameObject panelModelShowcase = Instantiate(panelModelShowcasePrefab, panelHorizontalLayout);
+            TextMeshProUGUI textMeshProUGUI = panelModelShowcase.transform.Find("Text PowerUpName").GetComponent<TextMeshProUGUI>();
+            textMeshProUGUI.text = scriptablePowerUp.powerUpName;
             Transform panelRotationTransform = panelModelShowcase.transform.Find("Panel Rotation");
             GameObject model = Instantiate(scriptablePowerUp.model, panelRotationTransform);
-            model.transform.localScale = new Vector3(50, 50, 50);
+            model.transform.localScale = new Vector3(100.0f, 100.0f, 100.0f);
             Button button = panelModelShowcase.GetComponentInChildren<Button>();
             button.onClick.AddListener(delegate {
                 Debug.Log("You chose " + scriptablePowerUp.powerUpName);
@@ -57,13 +64,18 @@ public class PowerUpCanvas : MonoBehaviour {
         }
     }
 
-    public void PauseGame() {
+    private void PauseGame() {
         TweenManager.instance.StopTween(lastTweenId);
+        panelPowerUpTransform.gameObject.SetActive(true);
         lastTweenId = TweenManager.instance.TweenScale(panelPowerUpTransform, TweenManager.instance.tweenZoomInDefault, null);
     }
 
-    public void ResumeGame() {
+    private void ResumeGame() {
         TweenManager.instance.StopTween(lastTweenId);
-        lastTweenId = TweenManager.instance.TweenScale(panelPowerUpTransform, TweenManager.instance.tweenZoomOutDefault, null);
+        lastTweenId = TweenManager.instance.TweenScale(panelPowerUpTransform, TweenManager.instance.tweenZoomOutDefault, DeactivatePanelPowerUps);
+    }
+
+    public void DeactivatePanelPowerUps() {
+        panelPowerUpTransform.gameObject.SetActive(false);
     }
 }
