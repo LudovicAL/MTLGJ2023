@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(PlayerInput))]
 public class PlayerController : MonoBehaviour
 {
 
@@ -18,20 +19,17 @@ public class PlayerController : MonoBehaviour
     [Range(1.0f, 90.0f)]
     private float maxSteeringAngle; // maximum steer angle the wheel can have
     
-    private PlayerInputActions _playerInputActions;
+    private PlayerInput playerInput;
 
     private void Awake()
     {
-        _playerInputActions = new PlayerInputActions();
+        playerInput = GetComponent<PlayerInput>();
     }
-
-    private void OnEnable() => _playerInputActions.Player.Enable();
-    private void OnDisable() => _playerInputActions.Player.Disable();
 
     public void FixedUpdate()
     {
-        Vector2 inputVector = _playerInputActions.Player.Move.ReadValue<Vector2>();
-        
+        Vector2 inputVector = playerInput.actions["Move"].ReadValue<Vector2>();
+
         float motor = maxMotorTorque * inputVector.y;
         float steering = maxSteeringAngle * inputVector.x;
             

@@ -12,10 +12,15 @@ public class CarSounds : MonoBehaviour {
     private AudioSource tireScreechAudioSource;
     private AudioSource hornAudioSource;
     private Rigidbody carRigidbody;
+    private PlayerInput playerInput;
 
     //TODO: Hooking the two following values to something
     private bool isDrifting = false;
     private float carMaxSpeed = 100f;
+
+    private void Awake() {
+        playerInput = GetComponent<PlayerInput>();
+    }
 
     // Start is called before the first frame update
     void Start() {
@@ -33,14 +38,7 @@ public class CarSounds : MonoBehaviour {
         InvokeRepeating("PlayCarSounds", 0f, 0.1f);
     }
 
-    // Update is called once per frame
-    void Update() {
-        if (Mouse.current.leftButton.wasPressedThisFrame) {
-            BlowHorn();
-        }
-    }
-
-    private void BlowHorn() {
+    public void BlowHorn() {
         if (hornAudioSource && !hornAudioSource.isPlaying) {
             hornAudioSource.Play();
         }
