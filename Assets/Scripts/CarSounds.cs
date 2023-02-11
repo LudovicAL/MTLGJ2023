@@ -38,8 +38,11 @@ public class CarSounds : MonoBehaviour {
         InvokeRepeating("PlayCarSounds", 0f, 0.1f);
     }
 
-    public void BlowHorn() {
-        if (hornAudioSource && !hornAudioSource.isPlaying) {
+    public void BlowHorn(InputAction.CallbackContext context) {
+        if (hornAudioSource && context.started) {
+            if (hornAudioSource.isPlaying) {
+                hornAudioSource.Stop();
+            }
             hornAudioSource.Play();
         }
     }

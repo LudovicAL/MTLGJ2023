@@ -296,6 +296,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 670484000813343220, guid: 3bdb67cd5c58e044ea87cce63c019e8e, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7828993047062187250, guid: 3bdb67cd5c58e044ea87cce63c019e8e, type: 3}
       propertyPath: m_Name
       value: Mini
@@ -410,7 +414,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 887154686d160c24ba9a6fc5a1f7ab75, type: 2}
+  - {fileID: 2100000, guid: 1d70a59582e549e4d83117f3a4730350, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

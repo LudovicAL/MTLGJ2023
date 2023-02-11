@@ -5333,7 +5333,7 @@ MonoBehaviour:
       - m_Target: {fileID: 6586341951328643273}
         m_TargetAssemblyTypeName: CarSounds, Assembly-CSharp
         m_MethodName: BlowHorn
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
