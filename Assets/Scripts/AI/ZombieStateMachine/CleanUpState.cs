@@ -15,7 +15,8 @@ namespace AI.ZombieStateMachine
         public void OnEnter()
         {
             Debug.Log("Entered cleanup state");
-            _zombieController.gameObject.SetActive(false);
+            _zombieController.ragdollRigidbody.Sleep();
+            _zombieController.locomotionRigidbody.Sleep();
         }
 
         public void OnExit()

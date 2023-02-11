@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 3328734}
   - component: {fileID: 2390926}
   - component: {fileID: 8694669162256259220}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plaza01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1498,7 +1498,8 @@ GameObject:
   - component: {fileID: 497906}
   - component: {fileID: 3333070}
   - component: {fileID: 2381042}
-  m_Layer: 0
+  - component: {fileID: 2082201344}
+  m_Layer: 7
   m_Name: Building3H (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1570,6 +1571,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2082201344
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102114}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.151769, y: 12.825039, z: 5.7175984}
+  m_Center: {x: -0.92364275, y: 6.3917036, z: -1.4924048}
 --- !u!1 &102168
 GameObject:
   m_ObjectHideFlags: 0
@@ -2080,7 +2102,7 @@ GameObject:
   - component: {fileID: 3393810}
   - component: {fileID: 2353522}
   - component: {fileID: 8000557954008019365}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Building3B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5092,7 +5114,8 @@ GameObject:
   - component: {fileID: 417572}
   - component: {fileID: 3314694}
   - component: {fileID: 2304980}
-  m_Layer: 0
+  - component: {fileID: 1909446352}
+  m_Layer: 7
   m_Name: Building3A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5164,6 +5187,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1909446352
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108048}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.8314278, y: 4.9057727, z: 13.354964}
+  m_Center: {x: -1.7358474, y: 1.8776605, z: 6.677482}
 --- !u!1 &108150
 GameObject:
   m_ObjectHideFlags: 0
@@ -5341,7 +5385,8 @@ GameObject:
   - component: {fileID: 435260}
   - component: {fileID: 3367610}
   - component: {fileID: 2388538}
-  m_Layer: 0
+  - component: {fileID: 2061117353}
+  m_Layer: 7
   m_Name: Building2B (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5413,6 +5458,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2061117353
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108244}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.698304, y: 10.362768, z: 4.951264}
+  m_Center: {x: -1.6509624, y: 5.181384, z: -1.4400276}
 --- !u!1 &108492
 GameObject:
   m_ObjectHideFlags: 0
@@ -11793,7 +11859,7 @@ GameObject:
   - component: {fileID: 3374484}
   - component: {fileID: 2355604}
   - component: {fileID: 496983410}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Dinner01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12097,7 +12163,7 @@ GameObject:
   - component: {fileID: 3302980}
   - component: {fileID: 2301306}
   - component: {fileID: 2021361611}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plaza01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12901,7 +12967,8 @@ GameObject:
   - component: {fileID: 457532}
   - component: {fileID: 3339880}
   - component: {fileID: 2316542}
-  m_Layer: 0
+  - component: {fileID: 445432369}
+  m_Layer: 7
   m_Name: PlazaB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12973,6 +13040,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &445432369
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118122}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 8.624023, y: 9.22546, z: 14.828019}
+  m_Center: {x: -3.1756794, y: 3.4610841, z: 7.4140096}
 --- !u!1 &118180
 GameObject:
   m_ObjectHideFlags: 0
@@ -25102,7 +25190,8 @@ GameObject:
   - component: {fileID: 483328}
   - component: {fileID: 3341856}
   - component: {fileID: 2330780}
-  m_Layer: 0
+  - component: {fileID: 1037956921}
+  m_Layer: 7
   m_Name: Building3G (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25174,6 +25263,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1037956921
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135212}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.8393939, y: 13.963278, z: 6.218199}
+  m_Center: {x: -1.7434593, y: 6.969288, z: -1.1777058}
 --- !u!1 &135280
 GameObject:
   m_ObjectHideFlags: 0
@@ -25385,7 +25495,7 @@ GameObject:
   - component: {fileID: 3366346}
   - component: {fileID: 2378794}
   - component: {fileID: 1755034948}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plaza01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31139,7 +31249,7 @@ GameObject:
   - component: {fileID: 3391400}
   - component: {fileID: 2316794}
   - component: {fileID: 588686358}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Building2A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33588,7 +33698,8 @@ GameObject:
   - component: {fileID: 486864}
   - component: {fileID: 3393454}
   - component: {fileID: 2398472}
-  m_Layer: 0
+  - component: {fileID: 1870665098}
+  m_Layer: 7
   m_Name: PlazaB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33660,6 +33771,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1870665098
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146534}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 7.651966, y: 8.076249, z: 14.828018}
+  m_Center: {x: -3.6617084, y: 4.0356894, z: 7.414009}
 --- !u!1 &146600
 GameObject:
   m_ObjectHideFlags: 0
@@ -37091,7 +37223,7 @@ GameObject:
   - component: {fileID: 3374868}
   - component: {fileID: 2307728}
   - component: {fileID: 1600902508}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plaza01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39207,7 +39339,8 @@ GameObject:
   - component: {fileID: 443904}
   - component: {fileID: 3303360}
   - component: {fileID: 2340600}
-  m_Layer: 0
+  - component: {fileID: 232560836}
+  m_Layer: 7
   m_Name: PlazaB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39279,6 +39412,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &232560836
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155700}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 7.4144826, y: 8.154911, z: 14.828018}
+  m_Center: {x: -3.78045, y: 3.9963605, z: 7.4140096}
 --- !u!1 &155834
 GameObject:
   m_ObjectHideFlags: 0
@@ -39457,7 +39611,7 @@ GameObject:
   - component: {fileID: 3327780}
   - component: {fileID: 2370794}
   - component: {fileID: 4324672618989444268}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Building3B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39866,7 +40020,7 @@ GameObject:
   - component: {fileID: 3343446}
   - component: {fileID: 2393636}
   - component: {fileID: 660102117}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Building3F
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43486,7 +43640,7 @@ GameObject:
   - component: {fileID: 3340604}
   - component: {fileID: 2373562}
   - component: {fileID: 7199002423930396884}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Building3A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52329,7 +52483,7 @@ GameObject:
   - component: {fileID: 3355130}
   - component: {fileID: 2321758}
   - component: {fileID: 1088536733}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HardwareStore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52773,7 +52927,8 @@ GameObject:
   - component: {fileID: 458940}
   - component: {fileID: 3357106}
   - component: {fileID: 2379006}
-  m_Layer: 0
+  - component: {fileID: 1535734189}
+  m_Layer: 7
   m_Name: Building3D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52845,6 +53000,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1535734189
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177672}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.7657735, y: 4.711442, z: 14.299913}
+  m_Center: {x: -1.7299408, y: 1.4807299, z: 7.1499567}
 --- !u!1 &177760
 GameObject:
   m_ObjectHideFlags: 0
@@ -53023,7 +53199,7 @@ GameObject:
   - component: {fileID: 3382586}
   - component: {fileID: 2307546}
   - component: {fileID: 1878949266}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Building3B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53460,7 +53636,8 @@ GameObject:
   - component: {fileID: 408566}
   - component: {fileID: 3328566}
   - component: {fileID: 2367220}
-  m_Layer: 0
+  - component: {fileID: 2146268276}
+  m_Layer: 7
   m_Name: Building3D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53532,6 +53709,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2146268276
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179488}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.7657735, y: 4.711442, z: 14.299913}
+  m_Center: {x: -1.7299412, y: 1.4807299, z: 7.1499567}
 --- !u!1 &179702
 GameObject:
   m_ObjectHideFlags: 0
@@ -60966,7 +61164,7 @@ GameObject:
   - component: {fileID: 3329726}
   - component: {fileID: 2323760}
   - component: {fileID: 4644055146656491005}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Building3B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61261,7 +61459,7 @@ GameObject:
   - component: {fileID: 3376654}
   - component: {fileID: 2314350}
   - component: {fileID: 1083321048672093982}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Building3B
   m_TagString: Untagged
   m_Icon: {fileID: 0}

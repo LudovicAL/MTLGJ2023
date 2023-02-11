@@ -25,16 +25,14 @@ public class PlayerControllerEditor : Editor
             Collider[] colliders = Physics.OverlapSphere(explosionPos, 50.0f);
             foreach (Collider hit in colliders)
             {
-                Rigidbody rb = hit.GetComponent<Rigidbody>();
                 ZombieController zb = hit.GetComponent<ZombieController>();
 
-                if (rb != null && zb != null)
+                if (zb != null)
                 {
-                    zb.locomotionCollider.enabled = false;
-                    zb.animator.enabled = false;
+                    Debug.Log("has ZB");
                     zb.forceRagdoll = true;
-                    rb.AddExplosionForce(5000.0f, explosionPos, 50.0f, 30.0F);
-                    
+                    zb.StateMachine.Tick();
+                    zb.ragdollRigidbody.AddExplosionForce(5000.0f, explosionPos, 50.0f, 30.0F);
                 }
                     
             }
