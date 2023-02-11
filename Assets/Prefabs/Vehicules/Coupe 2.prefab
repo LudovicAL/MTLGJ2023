@@ -5329,6 +5329,53 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &2921631699159104303
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8102436548314414918}
+  - component: {fileID: 4636093763407631056}
+  m_Layer: 0
+  m_Name: PowerUps
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8102436548314414918
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2921631699159104303}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.9, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7096495564186739974}
+  - {fileID: 7090130469539478874}
+  - {fileID: 7090045681202670464}
+  m_Father: {fileID: 7090073713910531160}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4636093763407631056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2921631699159104303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182782caaadc0304fb0ab9ed4e2da6c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3080639107236753234
 GameObject:
   m_ObjectHideFlags: 0
@@ -10785,7 +10832,7 @@ GameObject:
   - component: {fileID: 7062677650286998078}
   - component: {fileID: 7072573853755409332}
   m_Layer: 0
-  m_Name: Bullbar_v1
+  m_Name: Bullbar 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10799,12 +10846,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7093373439276618340}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.4229999, z: 2.1259995}
+  m_LocalPosition: {x: 0, y: -1.3229998, z: 2.1259995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7090073713910531160}
-  m_RootOrder: 2
+  m_Father: {fileID: 8102436548314414918}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7062677650286998078
 MeshFilter:
@@ -10868,7 +10915,7 @@ GameObject:
   - component: {fileID: 7062700022218776490}
   - component: {fileID: 7072722511754441540}
   m_Layer: 0
-  m_Name: Exhaust_pipe_v1
+  m_Name: Exhaust pipe 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10882,12 +10929,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7093652957128479568}
   m_LocalRotation: {x: 0.021094399, y: -0.7067921, z: 0.021094399, w: 0.7067921}
-  m_LocalPosition: {x: 0.23899984, y: -0.010000094, z: -2.368}
+  m_LocalPosition: {x: 0.23899984, y: -0.9100001, z: -2.368}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7090073713910531160}
-  m_RootOrder: 1
+  m_Father: {fileID: 8102436548314414918}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 3.4190001, y: -90, z: 0}
 --- !u!33 &7062700022218776490
 MeshFilter:
@@ -10975,9 +11022,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7096495564186739974}
-  - {fileID: 7090130469539478874}
-  - {fileID: 7090045681202670464}
   - {fileID: 6604090558972483945}
   - {fileID: 6310933833609161519}
   - {fileID: 2487439406213285697}
@@ -10986,6 +11030,7 @@ Transform:
   - {fileID: 2325329851910811887}
   - {fileID: 131282797842962563}
   - {fileID: 8693864201099886009}
+  - {fileID: 8102436548314414918}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11244,7 +11289,7 @@ GameObject:
   - component: {fileID: 7062769531056514064}
   - component: {fileID: 7072829924209586816}
   m_Layer: 0
-  m_Name: Headlight_v1_17
+  m_Name: Headlight 1 17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11258,12 +11303,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7095054161018266296}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.001999855, y: 0.862, z: -0.052000083}
+  m_LocalPosition: {x: -0.001999855, y: -0.037999988, z: -0.052000083}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7090073713910531160}
-  m_RootOrder: 0
+  m_Father: {fileID: 8102436548314414918}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7062769531056514064
 MeshFilter:

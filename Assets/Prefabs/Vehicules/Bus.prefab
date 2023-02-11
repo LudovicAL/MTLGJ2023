@@ -1,5 +1,52 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &29828474752148813
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1832405781428802190}
+  - component: {fileID: 7691722449883767200}
+  m_Layer: 0
+  m_Name: PowerUps
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1832405781428802190
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29828474752148813}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7349632916878969729}
+  - {fileID: 7349451556903628637}
+  - {fileID: 7349409165483998405}
+  m_Father: {fileID: 7341126233102506007}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7691722449883767200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29828474752148813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182782caaadc0304fb0ab9ed4e2da6c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &294337630818273470
 GameObject:
   m_ObjectHideFlags: 0
@@ -10783,9 +10830,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7349632916878969729}
-  - {fileID: 7349451556903628637}
-  - {fileID: 7349409165483998405}
   - {fileID: 7349874002502454089}
   - {fileID: 7349736125707629611}
   - {fileID: 7341347415232020139}
@@ -10794,6 +10838,7 @@ Transform:
   - {fileID: 739193933150961535}
   - {fileID: 8210630317835086257}
   - {fileID: 7208206749876332932}
+  - {fileID: 1832405781428802190}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11124,7 +11169,7 @@ GameObject:
   - component: {fileID: 7316027848866610321}
   - component: {fileID: 7323906685865929079}
   m_Layer: 0
-  m_Name: Roof_attachments_v1 (1)
+  m_Name: Roof attachments 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11142,8 +11187,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7341126233102506007}
-  m_RootOrder: 0
+  m_Father: {fileID: 1832405781428802190}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7316027848866610321
 MeshFilter:
@@ -11279,7 +11324,7 @@ GameObject:
   - component: {fileID: 7316187796380661635}
   - component: {fileID: 7323477846708562039}
   m_Layer: 0
-  m_Name: Bullbar_v5 (1)
+  m_Name: Bullbar 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11297,8 +11342,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7341126233102506007}
-  m_RootOrder: 1
+  m_Father: {fileID: 1832405781428802190}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7316187796380661635
 MeshFilter:
@@ -11362,7 +11407,7 @@ GameObject:
   - component: {fileID: 7315538731914458697}
   - component: {fileID: 7324007251297640383}
   m_Layer: 0
-  m_Name: Gas_balloon_v1 (6)
+  m_Name: Gas balloon 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11380,8 +11425,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7341126233102506007}
-  m_RootOrder: 2
+  m_Father: {fileID: 1832405781428802190}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7315538731914458697
 MeshFilter:

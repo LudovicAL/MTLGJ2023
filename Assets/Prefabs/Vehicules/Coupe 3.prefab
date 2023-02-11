@@ -5292,6 +5292,54 @@ WheelCollider:
   m_LayerOverridePriority: 0
   m_Enabled: 1
   m_ProvidesContacts: 0
+--- !u!1 &3379695522645334436
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 451336146807220986}
+  - component: {fileID: 616103547}
+  m_Layer: 0
+  m_Name: PowerUps
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &451336146807220986
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3379695522645334436}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7856727667017420208}
+  - {fileID: 7856722841233653900}
+  - {fileID: 7860842151095173742}
+  - {fileID: 7856696768674515820}
+  m_Father: {fileID: 7856840572259978154}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &616103547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3379695522645334436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182782caaadc0304fb0ab9ed4e2da6c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4256199511838512076
 GameObject:
   m_ObjectHideFlags: 0
@@ -10903,7 +10951,7 @@ GameObject:
   - component: {fileID: 7886831400958811818}
   - component: {fileID: 7877395013546409450}
   m_Layer: 0
-  m_Name: Exhaust_pipe_v1 (2)
+  m_Name: Exhaust pipe 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10917,12 +10965,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7854616164776130930}
   m_LocalRotation: {x: 0.021094399, y: -0.7067921, z: 0.021094399, w: 0.7067921}
-  m_LocalPosition: {x: 0.23899984, y: -0.010000094, z: -2.368}
+  m_LocalPosition: {x: 0.23899984, y: -0.01000011, z: -2.368}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7856840572259978154}
-  m_RootOrder: 1
+  m_Father: {fileID: 451336146807220986}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 3.4190001, y: -90, z: 0}
 --- !u!33 &7886831400958811818
 MeshFilter:
@@ -10986,7 +11034,7 @@ GameObject:
   - component: {fileID: 7889874827206455482}
   - component: {fileID: 7877703331997595322}
   m_Layer: 0
-  m_Name: Engine_v1 (3)
+  m_Name: Engine 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11000,12 +11048,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7855052367903890288}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.010000229, y: 0.8780001, z: 1.2399998}
+  m_LocalPosition: {x: 0.010000229, y: 0.87800014, z: 1.2399998}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7856840572259978154}
-  m_RootOrder: 5
+  m_Father: {fileID: 451336146807220986}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7889874827206455482
 MeshFilter:
@@ -11069,7 +11117,7 @@ GameObject:
   - component: {fileID: 7886920818928104274}
   - component: {fileID: 7878393307622263352}
   m_Layer: 0
-  m_Name: Headlight_v1_17 (1)
+  m_Name: Headlight 1 17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11087,8 +11135,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7856840572259978154}
-  m_RootOrder: 0
+  m_Father: {fileID: 451336146807220986}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7886920818928104274
 MeshFilter:
@@ -11152,7 +11200,7 @@ GameObject:
   - component: {fileID: 7886818164292322390}
   - component: {fileID: 7877637699608329766}
   m_Layer: 0
-  m_Name: Bullbar_v1 (1)
+  m_Name: Bullbar 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11170,8 +11218,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7856840572259978154}
-  m_RootOrder: 2
+  m_Father: {fileID: 451336146807220986}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7886818164292322390
 MeshFilter:
@@ -11259,10 +11307,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7856696768674515820}
-  - {fileID: 7860842151095173742}
-  - {fileID: 7856722841233653900}
-  - {fileID: 7856727667017420208}
   - {fileID: 9183506855250902094}
   - {fileID: 9217269822373014125}
   - {fileID: 8305349794164645806}
@@ -11271,6 +11315,7 @@ Transform:
   - {fileID: 2173563615088219604}
   - {fileID: 9021138138403749694}
   - {fileID: 3041107999089988684}
+  - {fileID: 451336146807220986}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

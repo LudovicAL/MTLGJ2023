@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1674158808352681678}
   - component: {fileID: 1664434464285565028}
   m_Layer: 0
-  m_Name: Weapon_v2_2
+  m_Name: Weapon 2 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,8 +30,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1676133018455957874}
-  m_RootOrder: 0
+  m_Father: {fileID: 749387177689672075}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1674158808352681678
 MeshFilter:
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 1673671612450947550}
   - component: {fileID: 1664350451822229186}
   m_Layer: 0
-  m_Name: Exhaust_pipe_v1 (3)
+  m_Name: Exhaust pipe 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109,12 +109,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1677851577952612122}
   m_LocalRotation: {x: 0.23250046, y: 0.023800297, z: -0.45773697, w: 0.8578193}
-  m_LocalPosition: {x: -0.7650013, y: 0.45399997, z: -0.67700005}
+  m_LocalPosition: {x: -0.7650013, y: 0.454, z: -0.67700005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1676133018455957874}
-  m_RootOrder: 6
+  m_Father: {fileID: 749387177689672075}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 24.877, y: -10.93, z: -58.587}
 --- !u!33 &1673671612450947550
 MeshFilter:
@@ -202,11 +202,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1676110127471593114}
-  - {fileID: 1675910937149509196}
-  - {fileID: 1676372560415912338}
-  - {fileID: 1676254018107569808}
-  - {fileID: 1676015515226435296}
   - {fileID: 8915814108113297167}
   - {fileID: 8915814106282003731}
   - {fileID: 8915814107512588620}
@@ -215,6 +210,7 @@ Transform:
   - {fileID: 5251791126751345377}
   - {fileID: 3937413225386461926}
   - {fileID: 807657462269443197}
+  - {fileID: 749387177689672075}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -473,7 +469,7 @@ GameObject:
   - component: {fileID: 1673522356841826788}
   - component: {fileID: 1664277171183940572}
   m_Layer: 0
-  m_Name: Weapon_v1_2
+  m_Name: Weapon 1 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -491,8 +487,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1676133018455957874}
-  m_RootOrder: 5
+  m_Father: {fileID: 749387177689672075}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1673522356841826788
 MeshFilter:
@@ -556,7 +552,7 @@ GameObject:
   - component: {fileID: 1672231334218312268}
   - component: {fileID: 1664132094512702004}
   m_Layer: 0
-  m_Name: Gas_balloon_v1
+  m_Name: Gas balloon 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -570,12 +566,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1678418496208019150}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.050001144, y: 0.1629999, z: -2.1639996}
+  m_LocalPosition: {x: -0.050001144, y: 0.16299987, z: -2.1639996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1676133018455957874}
-  m_RootOrder: 2
+  m_Father: {fileID: 749387177689672075}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1672231334218312268
 MeshFilter:
@@ -639,7 +635,7 @@ GameObject:
   - component: {fileID: 1672068893094814392}
   - component: {fileID: 1666234505633861554}
   m_Layer: 0
-  m_Name: Weapon_v2_2_M
+  m_Name: Weapon 2 2 M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -657,8 +653,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1676133018455957874}
-  m_RootOrder: 1
+  m_Father: {fileID: 749387177689672075}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1672068893094814392
 MeshFilter:
@@ -1001,6 +997,55 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &3349193758794803534
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 749387177689672075}
+  - component: {fileID: 4740170624297680952}
+  m_Layer: 0
+  m_Name: PowerUps
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &749387177689672075
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3349193758794803534}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1676110127471593114}
+  - {fileID: 1675910937149509196}
+  - {fileID: 1676372560415912338}
+  - {fileID: 1676254018107569808}
+  - {fileID: 1676015515226435296}
+  m_Father: {fileID: 1676133018455957874}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4740170624297680952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3349193758794803534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182782caaadc0304fb0ab9ed4e2da6c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3427888913606216947
 GameObject:
   m_ObjectHideFlags: 0
