@@ -6011,16 +6011,15 @@ MonoBehaviour:
     motor: 1
     steering: 1
     handbrake: 0
-    brake: 0
+    brake: 1
     wheelType: 0
   - leftWheel: {fileID: 3917186649648603759}
     rightWheel: {fileID: 334637933540916699}
     motor: 0
     steering: 0
-    handbrake: 0
-    brake: 0
+    handbrake: 1
+    brake: 1
     wheelType: 1
-  maxMotorTorque: 3500
   maxSteeringAngle: 45
   showDebugDisplay: 1
 --- !u!33 &6173266239300572013
@@ -6239,7 +6238,19 @@ MonoBehaviour:
     m_ActionId: 7c35f251-64fd-4869-bf2f-9b0b18408ce4
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6186146046410055294}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: ActivateHandbrake
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 2d874d2a-5498-40aa-8d78-d5596524a985
     m_ActionName: Player/Handbrake[/Mouse/rightButton,/Keyboard/space]
   - m_PersistentCalls:

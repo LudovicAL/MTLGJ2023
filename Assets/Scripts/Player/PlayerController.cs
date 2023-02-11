@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
     private bool isHandbrake = false;
     private float handbrakeWheelStiffnessOverride = .75f;
 
-    private float secretRocketBoostForce = 50.0f;
+    private float secretRocketBoostForce = 500.0f;
 
     public bool showDebugDisplay = true;
 
@@ -102,7 +102,7 @@ public class PlayerController : MonoBehaviour
         if (callbackContext.canceled)
             isHandbrake = false;
 
-        //Debug.Log(callbackContext);
+        Debug.Log(callbackContext);
     }
 
     private void ResetWheelStiffness(WheelCollider wheelCollider, bool isFrontWheel)
@@ -329,6 +329,7 @@ public class PlayerController : MonoBehaviour
                 UpdateWheelStiffnessForAcceleration(axleInfo.rightWheel, axleInfo.wheelType == WheelType.FrontWheel);
             }
 
+            //Debug.Log(isHandbrake);
             if (isHandbrake)
             {
                 if (axleInfo.handbrake)
@@ -348,7 +349,7 @@ public class PlayerController : MonoBehaviour
             if (rb.velocity.magnitude < 10.0f)
             {
                 isSecretBoostOn = true;
-                rb.AddForce(transform.forward * secretRocketBoostForce, ForceMode.Acceleration);
+                rb.AddForce(transform.forward * secretRocketBoostForce, ForceMode.Impulse);
             }
         }
     }
