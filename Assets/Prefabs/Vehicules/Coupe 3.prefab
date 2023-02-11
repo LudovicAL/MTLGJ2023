@@ -11290,7 +11290,7 @@ GameObject:
   - component: {fileID: 7745267609663435558}
   m_Layer: 0
   m_Name: Coupe 3
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -10796,7 +10796,7 @@ GameObject:
   - component: {fileID: 8825504855135045485}
   m_Layer: 0
   m_Name: Estate
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

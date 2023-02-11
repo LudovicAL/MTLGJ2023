@@ -6390,7 +6390,7 @@ GameObject:
   - component: {fileID: 4313935645400932884}
   m_Layer: 0
   m_Name: Delorean 2
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
