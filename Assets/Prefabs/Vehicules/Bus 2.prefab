@@ -496,6 +496,7 @@ MonoBehaviour:
     wheelType: 1
   maxSteeringAngle: 45
   showDebugDisplay: 1
+  SecretBoost: 0
 --- !u!33 &3029556883039521900
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -554,7 +555,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3060343098563622288}
   serializedVersion: 4
-  m_Mass: 850
+  m_Mass: 750
   m_Drag: 0.1
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: -1.55, z: 0}

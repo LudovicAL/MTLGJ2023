@@ -47,6 +47,8 @@ public class PlayerController : MonoBehaviour
 
     private bool isSecretBoostOn = false;
 
+    public bool SecretBoost = false;
+
     private void Start()
     {
         foreach (AxleInfo axleInfo in axleInfos)
@@ -334,14 +336,17 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        isSecretBoostOn = false;
-        if (gearState == 1)
+        if (SecretBoost)
         {
-            Rigidbody rb = transform.GetComponent<Rigidbody>();
-            if (rb.velocity.magnitude < 10.0f)
+            isSecretBoostOn = false;
+            if (gearState == 1)
             {
-                isSecretBoostOn = true;
-                rb.AddForce(transform.forward * secretRocketBoostForce, ForceMode.Impulse);
+                Rigidbody rb = transform.GetComponent<Rigidbody>();
+                if (rb.velocity.magnitude < 10.0f)
+                {
+                    isSecretBoostOn = true;
+                    rb.AddForce(transform.forward * secretRocketBoostForce, ForceMode.Impulse);
+                }
             }
         }
     }
