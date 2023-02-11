@@ -170,7 +170,7 @@ public class PlayerController : MonoBehaviour
     private void UpdateWheelStiffnessForAcceleration(WheelCollider wheelCollider, bool isFrontWheel)
     {
         WheelFrictionCurve forwardFrictionCurve = wheelCollider.forwardFriction;
-        if (wheelCollider.motorTorque != 0.0f)
+        //if (wheelCollider.motorTorque != 0.0f)
         {
             /*
             switch(currentGear)
@@ -320,10 +320,21 @@ public class PlayerController : MonoBehaviour
                 UpdateWheelStiffnessForBraking(axleInfo.leftWheel, axleInfo.wheelType == WheelType.FrontWheel);
                 UpdateWheelStiffnessForBraking(axleInfo.rightWheel, axleInfo.wheelType == WheelType.FrontWheel);
             }
-            else if (gearState == 1)
+            else if (gearState == 1 || gearState == 0)
             {
                 UpdateWheelStiffnessForAcceleration(axleInfo.leftWheel, axleInfo.wheelType == WheelType.FrontWheel);
                 UpdateWheelStiffnessForAcceleration(axleInfo.rightWheel, axleInfo.wheelType == WheelType.FrontWheel);
+            }
+
+            if (gearState == 0 && !isHandbrake && axleInfo.wheelType == WheelType.FrontWheel)
+            {
+                WheelFrictionCurve leftSideFrictionCurve = axleInfo.leftWheel.sidewaysFriction;
+                leftSideFrictionCurve.stiffness = 2.0f;
+                axleInfo.leftWheel.sidewaysFriction = leftSideFrictionCurve;
+
+                WheelFrictionCurve rightSideFrictionCurve = axleInfo.rightWheel.sidewaysFriction;
+                rightSideFrictionCurve.stiffness = 2.0f;
+                axleInfo.rightWheel.sidewaysFriction = rightSideFrictionCurve;
             }
 
             //Debug.Log(isHandbrake);
