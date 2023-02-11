@@ -490,20 +490,12 @@ PrefabInstance:
       value: -0.0077376156
       objectReference: {fileID: 0}
     - target: {fileID: 1088361401850284305, guid: 3338a47cdc4b89a49a55971b84205889, type: 3}
-      propertyPath: m_Emitting
+      propertyPath: m_SortingOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2267524788941426338, guid: 3338a47cdc4b89a49a55971b84205889, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.a
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4526381261677014470, guid: 3338a47cdc4b89a49a55971b84205889, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4526381261677014470, guid: 3338a47cdc4b89a49a55971b84205889, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1.558439
+    - target: {fileID: 4348426833588582330, guid: 3338a47cdc4b89a49a55971b84205889, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6184226555994370391, guid: 3338a47cdc4b89a49a55971b84205889, type: 3}
       propertyPath: m_RootOrder
@@ -552,10 +544,6 @@ PrefabInstance:
     - target: {fileID: 6186146046410055293, guid: 3338a47cdc4b89a49a55971b84205889, type: 3}
       propertyPath: m_Name
       value: Delorean
-      objectReference: {fileID: 0}
-    - target: {fileID: 7412903443675859362, guid: 3338a47cdc4b89a49a55971b84205889, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.a
-      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
