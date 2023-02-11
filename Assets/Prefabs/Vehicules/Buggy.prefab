@@ -652,6 +652,14 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 7c35f251-64fd-4869-bf2f-9b0b18408ce4
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2d874d2a-5498-40aa-8d78-d5596524a985
+    m_ActionName: Player/Handbrake[/Mouse/rightButton,/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: baa9161f-70c8-4554-905d-10558b9503b8
+    m_ActionName: Player/Boost[/Keyboard/e,/Mouse/middleButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -6294,6 +6302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 182782caaadc0304fb0ab9ed4e2da6c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  powerUpSelectionMode: 0
 --- !u!1 &4520685933574265877
 GameObject:
   m_ObjectHideFlags: 0
