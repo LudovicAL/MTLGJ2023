@@ -41,7 +41,7 @@ public class CarSounds : MonoBehaviour {
     }
 
     private void BlowHorn() {
-        if (!hornAudioSource.isPlaying) {
+        if (hornAudioSource && !hornAudioSource.isPlaying) {
             hornAudioSource.Play();
         }
     }
