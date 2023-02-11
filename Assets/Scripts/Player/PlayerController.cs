@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
     private int currentGear = 0;
     private int gearState = 0; //too lazy for an enum, 1 is accelerate, 0 neutral, -1 is brake, -2 is reverse.
     private bool isHandbrake = false;
-    private float handbrakeWheelStiffnessOverride = .75f;
+    private float handbrakeWheelStiffnessOverride = 1.5f;
 
     private float secretRocketBoostForce = 500.0f;
 
@@ -47,10 +47,13 @@ public class PlayerController : MonoBehaviour
 
     private bool isSecretBoostOn = false;
 
-    public bool SecretBoost = false;
+    private bool SecretBoost = true;
 
     private void Start()
     {
+        PlayerInputConveyer.Instance.playerInput.actions["Handbrake"].started += ActivateHandbrake;
+        PlayerInputConveyer.Instance.playerInput.actions["Handbrake"].canceled += ActivateHandbrake;
+
         foreach (AxleInfo axleInfo in axleInfos)
         {
             axleInfo.leftWheel.mass = wheelMassOverride;
