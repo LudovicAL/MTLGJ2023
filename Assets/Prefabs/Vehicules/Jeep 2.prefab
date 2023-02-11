@@ -11090,7 +11090,7 @@ GameObject:
   - component: {fileID: 7615957892142510280}
   - component: {fileID: 7609905290832273850}
   m_Layer: 0
-  m_Name: Engine_v1 (1)
+  m_Name: Engine 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11173,7 +11173,7 @@ GameObject:
   - component: {fileID: 7619928213611473752}
   - component: {fileID: 7609875252559418596}
   m_Layer: 0
-  m_Name: Gas_balloon_v1 (4)
+  m_Name: Gas balloon 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11796,7 +11796,7 @@ GameObject:
   - component: {fileID: 7620084914211841290}
   - component: {fileID: 7609547193106881626}
   m_Layer: 0
-  m_Name: Gas_balloon_v1 (3)
+  m_Name: Gas balloon 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1b00ea540508a04eaa4dbaf76dfc762, type: 3}
+  m_Name: Protection 2 3
+  m_EditorClassIdentifier: 
+  powerUpName: Protection 2 3
+  powerUpDescription: 
+  model: {fileID: 1324580770307130, guid: a348a4cb3cae66b48b1a5ea318a04253, type: 3}

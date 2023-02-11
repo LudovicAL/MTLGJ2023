@@ -10443,7 +10443,7 @@ GameObject:
   - component: {fileID: 6905310199371870387}
   - component: {fileID: 6914022443095403629}
   m_Layer: 3
-  m_Name: Gas_balloon_v1 (4)
+  m_Name: Gas balloon 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
