@@ -1355,6 +1355,7 @@ GameObject:
   - component: {fileID: 3509763082065549222}
   - component: {fileID: 3509763082065549223}
   - component: {fileID: 449170063531328704}
+  - component: {fileID: -5665998873197296155}
   m_Layer: 0
   m_Name: Truck 2
   m_TagString: Untagged
@@ -1547,6 +1548,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialCarEnginePitch: 1
   minimumSpeedForDriftingSounds: 5
+--- !u!114 &-5665998873197296155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3514544472202210415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49af49b361aed6940aa5f5dab9f9c966, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minimumSpeedForSmokeEffect: 5
 --- !u!1 &3514622949679329875
 GameObject:
   m_ObjectHideFlags: 0

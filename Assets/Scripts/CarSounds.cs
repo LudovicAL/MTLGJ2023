@@ -11,6 +11,7 @@ public class CarSounds : MonoBehaviour {
     private AudioSource tireScreechAudioSource;
     private Rigidbody carRigidbody;
 
+    //TODO: Hooking the two following values to something
     private bool isDrifting = false;
     private float carMaxSpeed = 100f;
 
