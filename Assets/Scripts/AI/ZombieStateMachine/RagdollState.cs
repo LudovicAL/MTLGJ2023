@@ -7,9 +7,9 @@ namespace AI.ZombieStateMachine
     {
         private ZombieController _zombieController;
 
-        public RagdollState(ZombieController aiController)
+        public RagdollState(ZombieController zombieController)
         {
-            _zombieController = aiController;
+            _zombieController = zombieController;
         }
 
         public void OnEnter()

@@ -6,9 +6,9 @@ namespace AI.ZombieStateMachine
     {
         private ZombieController _zombieController;
 
-        public MoveToTargetState(ZombieController aiController)
+        public MoveToTargetState(ZombieController zombieController)
         {
-            _zombieController = aiController;
+            _zombieController = zombieController;
         }
 
         public void OnEnter()
@@ -41,7 +41,7 @@ namespace AI.ZombieStateMachine
             _zombieController.transform.rotation = Quaternion.Slerp(_zombieController.transform.rotation,
                 Quaternion.LookRotation(direction), 0.1f);
             
-            _zombieController.zombieRigidbody.AddForce(direction.normalized * _zombieController.movementSpeed);
+            _zombieController.zombieRigidbody.AddForce(direction.normalized * _zombieController.force);
         }
         
     }

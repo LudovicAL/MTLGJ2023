@@ -10,9 +10,9 @@ namespace AI.ZombieStateMachine
         private Transform _playerTransform;
         private int _updateInterval = 10;
 
-        public LookForTargetState(ZombieController aiController)
+        public LookForTargetState(ZombieController zombieController)
         {
-            _zombieController = aiController;
+            _zombieController = zombieController;
         }
 
         public void OnEnter()
