@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -86,19 +85,12 @@ public class NavFlow : Singleton<NavFlow>
         return wantedPos;
     }
     
-    //void OnDrawGizmos()
-    //{
-    //    if (nodes.Length == 0)
-    //        return;
-    //    
-    //    Gizmos.color = Color.yellow;
-    //    foreach (NavFlowNode node in nodes)
-    //    {
-    //        Vector3 nodePos = node.transform.position;
-    //        foreach (NavFlowNode neighbour in node.neighbours)
-    //        {
-    //            Gizmos.DrawLine(nodePos, neighbour.transform.position);
-    //        }
-    //    }
-    //}
+    // how to call NavFlow.Instance.UpdateListOfZombies
+    public void UpdateListOfZombies(List<ZombieBoidInfo> zombies)
+    {
+        foreach (ZombieBoidInfo info in zombies)
+        {
+            info.destination = FindBestPosition(info.position);
+        }
+    }
 }
