@@ -104,7 +104,7 @@ public class PlayerController : MonoBehaviour
         if (callbackContext.canceled)
             isHandbrake = false;
 
-        Debug.Log(callbackContext);
+        //Debug.Log(callbackContext);
     }
 
     private void ResetWheelStiffness(WheelCollider wheelCollider, bool isFrontWheel)
