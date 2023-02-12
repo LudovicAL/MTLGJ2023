@@ -7,7 +7,8 @@ public class NavFlow : MonoBehaviour
     NavFlowNode[] nodes;
 
     private Transform player;
-
+    private float refreshTimer;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +28,15 @@ public class NavFlow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (refreshTimer > 0) // for perf, no need to do this every frame
+        {
+            refreshTimer -= Time.deltaTime;
+            if (refreshTimer > 0)
+                return;
+
+            refreshTimer = 0.4f;
+        }
+        
         Vector3 playerPos = player.position;
         NavFlowNode closestToPlayer = null;
         float closestSqrDist = float.MaxValue;
