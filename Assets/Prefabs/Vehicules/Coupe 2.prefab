@@ -5338,7 +5338,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8102436548314414918}
-  - component: {fileID: 4636093763407631056}
   m_Layer: 0
   m_Name: PowerUps
   m_TagString: Untagged
@@ -5364,19 +5363,6 @@ Transform:
   m_Father: {fileID: 7090073713910531160}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4636093763407631056
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2921631699159104303}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182782caaadc0304fb0ab9ed4e2da6c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  powerUpSelectionMode: 0
 --- !u!1 &3080639107236753234
 GameObject:
   m_ObjectHideFlags: 0

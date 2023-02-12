@@ -1,22 +1,20 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
-using Unity.VisualScripting;
 using System.Linq;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
 
-public class PowerUpsManager : MonoBehaviour {
+public class PowerUpsManager : Singleton<PowerUpsManager> {
 
     [SerializeField]
     private PowerUpSelectionMode powerUpSelectionMode;
     private List<PowerUp> availablePowerUps = new List<PowerUp>();
 
     void Start() {
-        availablePowerUps = GetAvailablePowerUps();
-        Debug.Log("The car has " + availablePowerUps.Count + " available powerups: " + GetAvailablePowerUpsAsString());
+        PlayerData.Instance.playerVehicleChanged.AddListener(UpdateAvailablePowerUpsList);
+        UpdateAvailablePowerUpsList();
     }
 
     // Update is called once per frame
@@ -49,18 +47,20 @@ public class PowerUpsManager : MonoBehaviour {
         return scriptablePowerUps;
     }
 
-    private List<PowerUp> GetAvailablePowerUps() {
-        List<PowerUp> result = new List<PowerUp>();
+    public void UpdateAvailablePowerUpsList() {
+        availablePowerUps = new List<PowerUp>();
+        if (PlayerData.Instance.playerVehicle == null) {
+            return;
+        }
         ScriptablePowerUp[] scriptablePowerUps = Resources.LoadAll<ScriptablePowerUp>("ScriptablePowerUps");
-        foreach (Transform childTransform in transform) {
+        foreach (Transform childTransform in PlayerData.Instance.playerVehicle.transform.Find("PowerUps")) {
             foreach (ScriptablePowerUp spu in scriptablePowerUps) {
                 if (spu.powerUpName == childTransform.name) {
-                    result.Add(new PowerUp(spu, childTransform.gameObject));
+                    availablePowerUps.Add(new PowerUp(spu, childTransform.gameObject));
                     break;
                 }
             }
         }
-        return result;
     }
 
     private string GetAvailablePowerUpsAsString() {
