@@ -1,7 +1,7 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ScriptablePowerUp", menuName = "ScriptablePowerUp")]
-public class ScriptablePowerUp : ScriptableObject {
+[CreateAssetMenu(fileName = "PowerUpData", menuName = "Data/PowerUpData")]
+public class PowerUpData : ScriptableObject {
     public string powerUpName;
     [Multiline(3)]
     public string powerUpDescription;

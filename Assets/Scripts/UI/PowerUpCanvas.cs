@@ -38,7 +38,7 @@ public class PowerUpCanvas : Singleton<PowerUpCanvas> {
     }
 
     public void OfferPowerUps() {
-        List<ScriptablePowerUp> scriptablePowerUps = PowerUpsManager.Instance.GetRandomPowerUps();
+        List<PowerUpData> scriptablePowerUps = PowerUpsManager.Instance.GetRandomPowerUps();
         if (scriptablePowerUps.Count == 0) {
             Debug.Log("There are no more powerups for this vehicule");
             return;
@@ -50,7 +50,7 @@ public class PowerUpCanvas : Singleton<PowerUpCanvas> {
 
         PauseGame();
 
-        foreach (ScriptablePowerUp scriptablePowerUp in scriptablePowerUps) {
+        foreach (PowerUpData scriptablePowerUp in scriptablePowerUps) {
             GameObject panelModelShowcase = Instantiate(panelModelShowcasePrefab, panelHorizontalLayout);
             TextMeshProUGUI textMeshProUGUI = panelModelShowcase.transform.Find("Text PowerUpName").GetComponent<TextMeshProUGUI>();
             textMeshProUGUI.text = scriptablePowerUp.powerUpName;
