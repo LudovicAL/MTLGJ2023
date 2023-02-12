@@ -14,7 +14,7 @@ public class CameraPlayerVisibilityHandler : MonoBehaviour
     [SerializeField] Material hiddenMaterial;
     
     private GameObject player;
-    private Camera camera;
+    private Camera cam;
 
     private int layerMask;
     private RaycastHit[] hitResults = new RaycastHit[5];
@@ -26,7 +26,7 @@ public class CameraPlayerVisibilityHandler : MonoBehaviour
     void Start()
     {
         player = FindObjectOfType<PlayerController>().gameObject;
-        camera = Camera.main;
+        cam = Camera.main;
 
         layerMask = 1 << 7;
     }
@@ -34,7 +34,7 @@ public class CameraPlayerVisibilityHandler : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        Vector3 cameraPos = camera.transform.position;
+        Vector3 cameraPos = cam.transform.position;
         Vector3 playerPos = player.transform.position;
         Vector3 playerToCamera = cameraPos - playerPos;
         Vector3 playerToCameraNormalized = playerToCamera.normalized;

@@ -42,28 +42,3 @@ public class PlayerLevelManager : Singleton<PlayerLevelManager> {
         return Mathf.RoundToInt(Mathf.Pow((level / constant), 2));
     }
 }
-
-#if UNITY_EDITOR
-[CustomEditor(typeof(PlayerLevelManager))]
-public class PlayerLevelManagerEditor : Editor {
-    public override void OnInspectorGUI() {
-        var playerLevelManager = (PlayerLevelManager)target;
-        if (playerLevelManager == null) {
-            return;
-        }
-
-        if (GUILayout.Button("Log xp required for each levels")) {
-            int XpRequiredForPreviousLevel = 0;
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0, max = 30; i < max; i++) {
-                int XpRequiredForCurrentLevel = playerLevelManager.GetXpRequiredForLevel(i);
-                sb.Append("Level " + i + ": " + XpRequiredForCurrentLevel
-                    + "xp (Diff: " + (XpRequiredForCurrentLevel - XpRequiredForPreviousLevel) + ")\n");
-                XpRequiredForPreviousLevel = XpRequiredForCurrentLevel;
-            }
-            Debug.Log(sb.ToString());
-        }
-        DrawDefaultInspector();
-    }
-}
-#endif

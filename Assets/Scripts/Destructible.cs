@@ -3,7 +3,7 @@ using Random = UnityEngine.Random;
 
 public class Destructible : MonoBehaviour
 {
-    [SerializeField] private float impactMultiplier = 100;
+    //[SerializeField] private float impactMultiplier = 100;
     
     private GameObject playerObject;
     private Rigidbody carRigidbody;
