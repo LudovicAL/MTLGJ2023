@@ -15,7 +15,7 @@ public class PlayerLevelManager : Singleton<PlayerLevelManager> {
 
     private void Start() {
         xpRequiredForNextLevel = GetXpRequiredForNextLevel();
-        PlayerData.Instance.xpChanged.AddListener(XpChanged);
+        PlayerData.Instance.Xp.OnCurrentChanged.AddListener(XpChanged);
     }
 
     private void LevelUp() {
@@ -25,14 +25,14 @@ public class PlayerLevelManager : Singleton<PlayerLevelManager> {
         playerLeveledUpEvent.Invoke();
     }
 
-    private void XpChanged() {
-        if (PlayerData.Instance.xp > xpRequiredForNextLevel) {
+    private void XpChanged(int currentXp) {
+        if (currentXp > xpRequiredForNextLevel) {
             LevelUp();
         }
     }
 
     public int GetPlayerCurrentLevel() {
-        return (int)(Mathf.Sqrt(PlayerData.Instance.xp) * constant);
+        return (int)(Mathf.Sqrt(PlayerData.Instance.Xp.Current) * constant);
     }
 
     public int GetXpRequiredForNextLevel() {
