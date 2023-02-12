@@ -8,7 +8,11 @@ public class MeshRendererTest : MonoBehaviour
     public Material materialToDraw;
     public Material fakeZombieMaterial;
     List<ZombieBoidInfo> m_ZombieBoids = new List<ZombieBoidInfo>();
-    //List<ZombieBoidInfo> m_
+    List<ZombieBoidInfo> m_PotentialRealZombies = new List<ZombieBoidInfo>();
+    List<ZombieBoidInfo> m_TriagedPotentialRealZombies = new List<ZombieBoidInfo>();
+
+    List<ZombieBoidInfo> m_PreviousFrameRealZombies = new List<ZombieBoidInfo>();
+    List<ZombieBoidInfo> m_CurrentFrameRealZombies = new List<ZombieBoidInfo>();
 
     private Transform playerCar;
 
@@ -48,13 +52,18 @@ public class MeshRendererTest : MonoBehaviour
     private float zombieAccelerationRandomRange = 0.01f;
 
     private int RealZombieLimit = 200;
-    private float RealZombieRadius = 20;
+    private float RealZombieRadius = 40;
 
     // Update is called once per frame
     void Update()
     {
-        foreach(ZombieBoidInfo zombidBoid in m_ZombieBoids)
+        m_PotentialRealZombies.Clear();
+        m_TriagedPotentialRealZombies.Clear();
+        Vector3 zombieHeightOffset = new Vector3(0.0f, 2.5f, 0.0f);
+
+        foreach (ZombieBoidInfo zombidBoid in m_ZombieBoids)
         {
+            zombidBoid.isRealZombie = false;
             if (!zombidBoid.zombieDead)
             {
                 zombidBoid.acceleration += new Vector3(Random.Range(-zombieAccelerationRandomRange, zombieAccelerationRandomRange), 0.0f, Random.Range(-zombieAccelerationRandomRange, zombieAccelerationRandomRange));
@@ -81,12 +90,89 @@ public class MeshRendererTest : MonoBehaviour
             //    zombidBoid.velocity.y = 20.0f;
             //    zombidBoid.velocity.z = Random.Range(-15.0f, 15.0f);
             //}
+
+            zombidBoid.zombieDistanceFromPlayer = (playerCar.position - zombidBoid.position).magnitude;
+            if (zombidBoid.zombieDistanceFromPlayer < RealZombieRadius)
+            {
+                Vector3 screenPosition = Camera.main.WorldToViewportPoint(zombidBoid.position + zombieHeightOffset);
+                if (screenPosition.x >= -0.2f && screenPosition.x <= 1.2f
+                    && screenPosition.y >= 0.0f && screenPosition.y <= 1.0f
+                    && screenPosition.z >= 0.0f)
+                {
+                    m_PotentialRealZombies.Add(zombidBoid);
+                }
+            }
+        }
+
+        float cutOffDistance = 999999.9f;
+        if (m_PotentialRealZombies.Count > RealZombieLimit)
+        {
+            foreach (ZombieBoidInfo potentialZombidBoid in m_PotentialRealZombies)
+            {
+                if (potentialZombidBoid.zombieDistanceFromPlayer > cutOffDistance)
+                    continue;
+
+                if (m_TriagedPotentialRealZombies.Count == 0)
+                {
+                    m_TriagedPotentialRealZombies.Add(potentialZombidBoid);
+                }
+                else
+                {
+                    int index = 0;
+                    bool zombieAdded = false;
+                    foreach (ZombieBoidInfo triagedPotentialZombidBoid in m_TriagedPotentialRealZombies)
+                    {
+                        if (potentialZombidBoid.zombieDistanceFromPlayer < triagedPotentialZombidBoid.zombieDistanceFromPlayer)
+                        {
+                            m_TriagedPotentialRealZombies.Insert(index, potentialZombidBoid);
+                            zombieAdded = true;
+                            break;
+                        }
+                        ++index;
+                        if (index >= RealZombieLimit)
+                            break;
+                    }
+
+                    if (!zombieAdded && index < RealZombieLimit)
+                    {
+                        m_TriagedPotentialRealZombies.Add(potentialZombidBoid);
+                    }
+                }
+               
+
+                if (m_TriagedPotentialRealZombies.Count > RealZombieLimit)
+                {
+                    m_TriagedPotentialRealZombies.RemoveAt(RealZombieLimit);
+                    cutOffDistance = m_TriagedPotentialRealZombies[RealZombieLimit - 1].zombieDistanceFromPlayer;
+                }
+
+            }
+
+            foreach (ZombieBoidInfo triagedPotentialZombidBoid in m_TriagedPotentialRealZombies)
+            {
+                triagedPotentialZombidBoid.isRealZombie = true;
+            }
+        }
+        else
+        {
+            foreach (ZombieBoidInfo potentialZombidBoid in m_PotentialRealZombies)
+            {
+                potentialZombidBoid.isRealZombie = true;
+            }
         }
 
         foreach (ZombieBoidInfo zombidBoid in m_ZombieBoids)
         {
-            Matrix4x4 m = Matrix4x4.TRS(zombidBoid.position, zombidBoid.rotation, Vector3.one * 2.0f);
-            Graphics.DrawMesh(meshToDraw, m, fakeZombieMaterial, 0);
+            if (zombidBoid.isRealZombie)
+            {
+                Matrix4x4 m = Matrix4x4.TRS(zombidBoid.position, zombidBoid.rotation, Vector3.one * 2.0f);
+                Graphics.DrawMesh(meshToDraw, m, materialToDraw, 0);
+            }
+            else
+            {
+                Matrix4x4 m = Matrix4x4.TRS(zombidBoid.position, zombidBoid.rotation, Vector3.one * 2.0f);
+                Graphics.DrawMesh(meshToDraw, m, fakeZombieMaterial, 0);
+            }
         }
     }
 }
@@ -99,10 +185,6 @@ public class ZombieBoidInfo
     public Quaternion rotation;
     public Vector3 velocity;
     public bool zombieDead = false;
-}
-
-public class ZombiePriorityInfo
-{
-    float ZombieDistance = 0.0f;
-    ZombieBoidInfo myZombieBoid;
+    public float zombieDistanceFromPlayer = 0.0f;
+    public bool isRealZombie = false;
 }
