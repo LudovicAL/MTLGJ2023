@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class PowerUpCanvas : MonoBehaviour {
+public class PowerUpCanvas : Singleton<PowerUpCanvas> {
 
     public static PowerUpCanvas instance { get; private set; }
 
@@ -70,6 +71,7 @@ public class PowerUpCanvas : MonoBehaviour {
         panelPowerUpTransform.gameObject.SetActive(true);
         lastTweenId = TweenManager.instance.TweenScale(panelPowerUpTransform, TweenManager.instance.tweenZoomInDefault, null);
         Time.timeScale = 0;
+        
     }
 
     private void ResumeGame() {

@@ -12,18 +12,15 @@ public class CarSounds : MonoBehaviour {
     private AudioSource tireScreechAudioSource;
     private AudioSource hornAudioSource;
     private Rigidbody carRigidbody;
-    private PlayerInput playerInput;
 
     //TODO: Hooking the two following values to something
     private bool isDrifting = false;
     private float carMaxSpeed = 100f;
 
-    private void Awake() {
-        playerInput = GetComponent<PlayerInput>();
-    }
-
     // Start is called before the first frame update
     void Start() {
+        PlayerInputConveyer.Instance.playerInput.actions["Handbrake"].started += HandbrakeActivated;
+        PlayerInputConveyer.Instance.playerInput.actions["Handbrake"].canceled += HandbrakeDeactivated;
         carRigidbody = GetComponent<Rigidbody>();
         hornAudioSource = transform.Find("AudioSource Horn").GetComponent<AudioSource>();
         engineAudioSource = transform.Find("AudioSource Engine").GetComponent<AudioSource>();
@@ -36,6 +33,22 @@ public class CarSounds : MonoBehaviour {
         }
         engineAudioSource.pitch = initialCarEnginePitch;
         InvokeRepeating("PlayCarSounds", 0f, 0.1f);
+    }
+
+    private void Update() {
+        if (Time.timeScale == 0) {
+            if (engineAudioSource != null && engineAudioSource.isPlaying) {
+                engineAudioSource.Stop();
+            }
+            if (tireScreechAudioSource != null && tireScreechAudioSource.isPlaying) {
+                tireScreechAudioSource.Stop();
+            }
+            return;
+        } else {
+            if (engineAudioSource != null && !engineAudioSource.isPlaying) {
+                engineAudioSource.Play();
+            }
+        }
     }
 
     public void BlowHorn(InputAction.CallbackContext context) {
@@ -62,5 +75,13 @@ public class CarSounds : MonoBehaviour {
                 tireScreechAudioSource.Stop();
             }
         }
+    }
+
+    private void HandbrakeActivated(InputAction.CallbackContext callbackContext) {
+        isDrifting = true;
+    }
+
+    private void HandbrakeDeactivated(InputAction.CallbackContext callbackContext) {
+        isDrifting = false;
     }
 }

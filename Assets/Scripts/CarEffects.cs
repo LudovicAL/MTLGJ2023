@@ -11,13 +11,11 @@ public class CarEffects : MonoBehaviour {
     private ParticleSystem rightTireSmoke;
     private TrailRenderer leftTireSkid;
     private TrailRenderer rightTireSkid;
-    private Rigidbody carRigidbody;
     public float smokeTime = 0.0f;
     private bool smokeRequested = false;
 
     // Start is called before the first frame update
     void Start() {
-        carRigidbody = GetComponent<Rigidbody>();
         leftTireSmoke = transform.Find("Effects").Find("LeftTireSmoke").GetComponentInChildren<ParticleSystem>();
         rightTireSmoke = transform.Find("Effects").Find("RightTireSmoke").GetComponentInChildren<ParticleSystem>();
 

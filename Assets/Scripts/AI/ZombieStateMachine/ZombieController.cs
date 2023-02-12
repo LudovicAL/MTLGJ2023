@@ -69,7 +69,7 @@ namespace AI.ZombieStateMachine
         private void Update()
         {
             StateMachine.Tick();
-            Debug.Log(StateMachine._currentState.GetType());
+            //Debug.Log(StateMachine._currentState.GetType());
         }
 
         private void FixedUpdate()

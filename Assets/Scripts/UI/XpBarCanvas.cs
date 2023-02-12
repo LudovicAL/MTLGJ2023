@@ -20,8 +20,12 @@ public class XpBarCanvas : MonoBehaviour {
 
     private void OnDisable()
     {
-        PlayerLevelManager.Instance.playerLeveledUpEvent.RemoveListener(PlayerLeveledUp);
-        PlayerData.Instance.Xp.OnCurrentChanged.RemoveListener(XpChanged);
+        if (PlayerLevelManager.Instance != null) {
+            PlayerLevelManager.Instance.playerLeveledUpEvent.RemoveListener(PlayerLeveledUp);
+        }
+        if (PlayerData.Instance != null) {
+            PlayerData.Instance.Xp.OnCurrentChanged.RemoveListener(XpChanged);
+        }
     }
 
     private void PlayerLeveledUp() {
