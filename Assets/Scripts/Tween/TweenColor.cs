@@ -15,8 +15,8 @@ public class TweenColor : TweenManager.Tween {
             this.initialValues = targetImage.color;
             this.animationCurve = animationCurve;
             this.targetColor = targetColor;
-            this.beginTime = Time.time;
-            this.endTime = Time.time + animationCurve.keys[animationCurve.length - 1].time;
+            this.beginTime = Time.realtimeSinceStartup;
+            this.endTime = Time.realtimeSinceStartup + animationCurve.keys[animationCurve.length - 1].time;
             this.managerCallBackFunction = managerCallBackFunction;
             this.callBackFunction = callBackFunction;
         } else {
@@ -29,8 +29,8 @@ public class TweenColor : TweenManager.Tween {
     }
 
     void Update() {
-        if (Time.time <= endTime) {
-            float evaluation = Mathf.Clamp01(animationCurve.Evaluate((Time.time - beginTime) / (endTime - beginTime)));
+        if (Time.realtimeSinceStartup <= endTime) {
+            float evaluation = Mathf.Clamp01(animationCurve.Evaluate((Time.realtimeSinceStartup - beginTime) / (endTime - beginTime)));
             targetImage.color = (initialValues * (1 - evaluation)) + (targetColor * evaluation);
         } else {
             Stop();

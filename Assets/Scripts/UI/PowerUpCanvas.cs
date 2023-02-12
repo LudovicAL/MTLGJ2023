@@ -69,11 +69,13 @@ public class PowerUpCanvas : MonoBehaviour {
         TweenManager.instance.StopTween(lastTweenId);
         panelPowerUpTransform.gameObject.SetActive(true);
         lastTweenId = TweenManager.instance.TweenScale(panelPowerUpTransform, TweenManager.instance.tweenZoomInDefault, null);
+        Time.timeScale = 0;
     }
 
     private void ResumeGame() {
         TweenManager.instance.StopTween(lastTweenId);
         lastTweenId = TweenManager.instance.TweenScale(panelPowerUpTransform, TweenManager.instance.tweenZoomOutDefault, DeactivatePanelPowerUps);
+        Time.timeScale = 1;
     }
 
     public void DeactivatePanelPowerUps() {

@@ -13,8 +13,8 @@ public class TweenPosition : TweenManager.Tween {
             this.initialValues = targetTransform.position;
             this.horizontalAnimationCurve = horizontalAnimationCurve;
             this.verticalAnimationCurve = verticalAnimationCurve;
-            this.beginTime = Time.time;
-            this.endTime = Time.time + Mathf.Min(horizontalAnimationCurve.keys[horizontalAnimationCurve.length - 1].time, verticalAnimationCurve.keys[verticalAnimationCurve.length - 1].time);
+            this.beginTime = Time.realtimeSinceStartup;
+            this.endTime = Time.realtimeSinceStartup + Mathf.Min(horizontalAnimationCurve.keys[horizontalAnimationCurve.length - 1].time, verticalAnimationCurve.keys[verticalAnimationCurve.length - 1].time);
             this.managerCallBackFunction = managerCallBackFunction;
             this.callBackFunction = callBackFunction;
         } else {
@@ -26,9 +26,9 @@ public class TweenPosition : TweenManager.Tween {
     }
 
     void Update() {
-        if (Time.time <= endTime) {
-            float x = initialValues.x * (horizontalAnimationCurve.Evaluate((Time.time - beginTime) / (endTime - beginTime)));
-            float y = initialValues.y * (verticalAnimationCurve.Evaluate((Time.time - beginTime) / (endTime - beginTime)));
+        if (Time.realtimeSinceStartup <= endTime) {
+            float x = initialValues.x * (horizontalAnimationCurve.Evaluate((Time.realtimeSinceStartup - beginTime) / (endTime - beginTime)));
+            float y = initialValues.y * (verticalAnimationCurve.Evaluate((Time.realtimeSinceStartup - beginTime) / (endTime - beginTime)));
             targetTransform.position = new Vector3(x, y, 0f);
         } else {
             Stop();

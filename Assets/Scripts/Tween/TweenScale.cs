@@ -10,8 +10,8 @@ public class TweenScale : TweenManager.Tween {
             this.targetTransform = targetTransform;
             this.initialValues = targetTransform.localScale;
             this.animationCurve = animationCurve;
-            this.beginTime = Time.time;
-            this.endTime = Time.time + animationCurve.keys[animationCurve.length - 1].time;
+            this.beginTime = Time.realtimeSinceStartup;
+            this.endTime = Time.realtimeSinceStartup + animationCurve.keys[animationCurve.length - 1].time;
             this.managerCallBackFunction = managerCallBackFunction;
             this.callBackFunction = callBackFunction;
         } else {
@@ -23,8 +23,8 @@ public class TweenScale : TweenManager.Tween {
     }
 
     void Update() {
-        if (Time.time <= endTime) {
-            targetTransform.localScale = initialValues * (animationCurve.Evaluate((Time.time - beginTime) / (endTime - beginTime)));
+        if (Time.realtimeSinceStartup <= endTime) {
+            targetTransform.localScale = initialValues * (animationCurve.Evaluate((Time.realtimeSinceStartup - beginTime) / (endTime - beginTime)));
         } else {
             Stop();
         }
