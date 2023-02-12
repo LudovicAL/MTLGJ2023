@@ -12,6 +12,7 @@ namespace AI.ZombieStateMachine
         public GameObject target;
         public Rigidbody ragdollRigidbody;
         public float force = 100.0f;
+        public float jumpForce = 100;
         public float minDistanceToTarget = 3.5f;
         public float dissolveDelay = 100.0f;
         public int xpValue = 1;

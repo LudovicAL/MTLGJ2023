@@ -31,7 +31,6 @@ namespace AI.ZombieStateMachine
             Vector3 zombiePosition = _zombieController.transform.position;
             Vector3 direction = playerPosition - zombiePosition;
             
-            
             /*if (!Helpers.HasLineOfSight(_zombieController.transform.position,direction, "Player" ))
             {
                 _zombieController.target = null;
@@ -40,7 +39,12 @@ namespace AI.ZombieStateMachine
             direction.y = 0;
             _zombieController.transform.rotation = Quaternion.Slerp(_zombieController.transform.rotation,
                 Quaternion.LookRotation(direction), 0.1f);
-            
+
+            float velocitySqr = _zombieController.locomotionRigidbody.velocity.sqrMagnitude;
+            if (velocitySqr < 2)
+            {
+                _zombieController.locomotionRigidbody.AddForce(Vector3.up * _zombieController.jumpForce, ForceMode.Impulse);
+            }
             _zombieController.locomotionRigidbody.AddForce(direction.normalized * _zombieController.force);
         }
         

@@ -2234,7 +2234,6 @@ GameObject:
   - component: {fileID: 8266962596457092161}
   - component: {fileID: 1760232644597861639}
   - component: {fileID: 1760232644597861636}
-  - component: {fileID: 6607167702585886728}
   m_Layer: 6
   m_Name: Zombie_01
   m_TagString: Zombie
@@ -2296,6 +2295,7 @@ MonoBehaviour:
   target: {fileID: 0}
   ragdollRigidbody: {fileID: 987038856}
   force: 500
+  jumpForce: 100
   minDistanceToTarget: 4
   dissolveDelay: 100
   xpValue: 1
@@ -2375,23 +2375,6 @@ CapsuleCollider:
   m_Height: 1.35
   m_Direction: 1
   m_Center: {x: 0, y: 0.7, z: 0}
---- !u!114 &6607167702585886728
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1760232644686883686}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a412d18b1791f734d868b55a0d97aab7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onDissolveDone:
-    m_PersistentCalls:
-      m_Calls: []
-  material: {fileID: 0}
-  skinnedMeshRenderers: []
 --- !u!1 &1760232644686885896
 GameObject:
   m_ObjectHideFlags: 0
