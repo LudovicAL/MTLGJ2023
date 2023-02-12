@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,24 +6,30 @@ public class XpBarCanvas : MonoBehaviour {
 
     private Image xpBarImage;
 
-    // Start is called before the first frame update
-    void Start() {
+    private void Awake()
+    {
         xpBarImage = GetComponent<Image>();
-        PlayerLevelManager.Instance.playerLeveledUpEvent.AddListener(PlayerLeveledUp);
-        PlayerData.Instance.xpChanged.AddListener(XpChanged);
         xpBarImage.fillAmount = 0.0f;
     }
 
-    // Update is called once per frame
-    void Update() {
+    private void OnEnable() {
         
+        PlayerLevelManager.Instance.playerLeveledUpEvent.AddListener(PlayerLeveledUp);
+        PlayerData.Instance.Xp.OnCurrentChanged.AddListener(XpChanged);
+    }
+
+    private void OnDisable()
+    {
+        PlayerLevelManager.Instance.playerLeveledUpEvent.RemoveListener(PlayerLeveledUp);
+        PlayerData.Instance.Xp.OnCurrentChanged.RemoveListener(XpChanged);
     }
 
     private void PlayerLeveledUp() {
 
     }
 
-    private void XpChanged() {
-        xpBarImage.fillAmount = ((PlayerData.Instance.xp - PlayerLevelManager.Instance.xpAtStartOfLevel) / PlayerLevelManager.Instance.xpRequiredForNextLevel);
+    private void XpChanged(int currentXp) {
+        xpBarImage.fillAmount = currentXp * 1.0f / (PlayerLevelManager.Instance.xpRequiredForNextLevel - PlayerLevelManager.Instance.xpAtStartOfLevel);
     }
+    
 }

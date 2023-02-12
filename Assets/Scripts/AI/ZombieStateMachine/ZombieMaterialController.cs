@@ -12,7 +12,7 @@ namespace AI.ZombieStateMachine
    
     public class ZombieMaterialController : MonoBehaviour
     {
-        public UnityEvent onDissolveDone;
+        public UnityEvent onDissolveDone = new();
         
         public Material material;
         public SkinnedMeshRenderer[] skinnedMeshRenderers;
@@ -47,7 +47,7 @@ namespace AI.ZombieStateMachine
                 yield return null;
             }
             
-            onDissolveDone.Invoke();
+            onDissolveDone?.Invoke();
 
         }
         

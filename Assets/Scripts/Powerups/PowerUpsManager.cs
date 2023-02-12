@@ -14,7 +14,7 @@ public class PowerUpsManager : Singleton<PowerUpsManager> {
 
     void Start() {
         PlayerData.Instance.playerVehicleChanged.AddListener(UpdateAvailablePowerUpsList);
-        UpdateAvailablePowerUpsList();
+        UpdateAvailablePowerUpsList(PlayerData.Instance.playerVehicle);
     }
 
     // Update is called once per frame
@@ -47,13 +47,13 @@ public class PowerUpsManager : Singleton<PowerUpsManager> {
         return scriptablePowerUps;
     }
 
-    public void UpdateAvailablePowerUpsList() {
+    public void UpdateAvailablePowerUpsList(GameObject playerVehicle) {
         availablePowerUps = new List<PowerUp>();
-        if (PlayerData.Instance.playerVehicle == null) {
+        if (playerVehicle == null) {
             return;
         }
         ScriptablePowerUp[] scriptablePowerUps = Resources.LoadAll<ScriptablePowerUp>("ScriptablePowerUps");
-        foreach (Transform childTransform in PlayerData.Instance.playerVehicle.transform.Find("PowerUps")) {
+        foreach (Transform childTransform in playerVehicle.transform.Find("PowerUps")) {
             foreach (ScriptablePowerUp spu in scriptablePowerUps) {
                 if (spu.powerUpName == childTransform.name) {
                     availablePowerUps.Add(new PowerUp(spu, childTransform.gameObject));
