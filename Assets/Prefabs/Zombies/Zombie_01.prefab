@@ -466,7 +466,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2b31685618cedc247acdea43a85292f7, type: 2}
+  - {fileID: 2100000, guid: 0c03d3c29bead2a43a91beddc1fdf0d1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1501,7 +1501,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2b31685618cedc247acdea43a85292f7, type: 2}
+  - {fileID: 2100000, guid: 0c03d3c29bead2a43a91beddc1fdf0d1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1759,7 +1759,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2b31685618cedc247acdea43a85292f7, type: 2}
+  - {fileID: 2100000, guid: 0c03d3c29bead2a43a91beddc1fdf0d1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2231,10 +2231,12 @@ GameObject:
   - component: {fileID: 1760232644687042818}
   - component: {fileID: 1760232644677415344}
   - component: {fileID: 1760232644597861638}
+  - component: {fileID: 8266962596457092161}
   - component: {fileID: 1760232644597861639}
   - component: {fileID: 1760232644597861636}
+  - component: {fileID: 6607167702585886728}
   m_Layer: 6
-  m_Name: ProtoZombie
+  m_Name: Zombie_01
   m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2248,7 +2250,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1760232644686883686}
   m_LocalRotation: {x: -0.010826626, y: -0.99794817, z: 0.012911289, w: 0.061769333}
-  m_LocalPosition: {x: -9.81, y: -2.13, z: -70.32}
+  m_LocalPosition: {x: -8.798, y: -0.906, z: -64.629}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -2295,10 +2297,34 @@ MonoBehaviour:
   ragdollRigidbody: {fileID: 987038856}
   force: 500
   minDistanceToTarget: 4
-  tempFakeRagDollState: 0
+  dissolveDelay: 100
+  xpValue: 1
+  forceRagdoll: 0
   animator: {fileID: 0}
   locomotionRigidbody: {fileID: 0}
   locomotionCollider: {fileID: 0}
+  zombieMaterialController: {fileID: 0}
+  isColliding: 0
+--- !u!114 &8266962596457092161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760232644686883686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a412d18b1791f734d868b55a0d97aab7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onDissolveDone:
+    m_PersistentCalls:
+      m_Calls: []
+  material: {fileID: 2100000, guid: 0c03d3c29bead2a43a91beddc1fdf0d1, type: 2}
+  skinnedMeshRenderers:
+  - {fileID: 1760232644681457032}
+  - {fileID: 1760232644681416812}
+  - {fileID: 1760232644681447928}
 --- !u!54 &1760232644597861639
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2349,6 +2375,23 @@ CapsuleCollider:
   m_Height: 1.64
   m_Direction: 1
   m_Center: {x: 0, y: 0.7, z: 0}
+--- !u!114 &6607167702585886728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760232644686883686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a412d18b1791f734d868b55a0d97aab7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onDissolveDone:
+    m_PersistentCalls:
+      m_Calls: []
+  material: {fileID: 0}
+  skinnedMeshRenderers: []
 --- !u!1 &1760232644686885896
 GameObject:
   m_ObjectHideFlags: 0
