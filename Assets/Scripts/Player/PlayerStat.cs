@@ -1,30 +1,12 @@
-using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PlayerData : Singleton<PlayerData> {
-    
-    public UnityEvent<GameObject> playerVehicleChanged = new();
-    
-    public int zombiesKilled = 0;
-    [Tooltip("Minimum velocity magnitude required to kill a zombie")]
-    public float murderSpeed = 10.0f;
-
-    public Stats Hp = new (10);
-    public Stats Xp = new ();
-    public Stats Fuel = new (100);
-
-    //PlayerVehicle
-    public GameObject playerVehicle { get; private set; }
-    public void SetPlayerVehicle(GameObject go) {
-        playerVehicle = go;
-        playerVehicleChanged.Invoke(go);
-    }
-}
-
-public class Stats
+public class PlayerStat
 {
-    public Stats(int max = -1)
+    //TODO: Make it generic at some point
+    public PlayerStat(int max = -1)
     {
         Max = max;
         Current = Mathf.Max(0, Max);
