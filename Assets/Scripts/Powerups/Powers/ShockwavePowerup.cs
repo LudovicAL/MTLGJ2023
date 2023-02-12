@@ -1,9 +1,7 @@
 using UnityEngine;
 
-public class JerricanPowerUp : PowerUp
+public class ShockwavePowerUp : PowerUp
 {
-    [SerializeField] private int fuelBoost = 25;
-
     public override void Acquire()
     {
         foreach (var model in models)
@@ -16,7 +14,7 @@ public class JerricanPowerUp : PowerUp
 
     public override void Execute()
     {
-        PlayerData.Instance.Fuel.AddMax(fuelBoost);
+        
     }
 
     public override bool CanExecute()

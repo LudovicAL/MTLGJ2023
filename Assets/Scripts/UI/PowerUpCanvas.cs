@@ -26,8 +26,7 @@ public class PowerUpCanvas : Singleton<PowerUpCanvas> {
             instance = this;
         }
     }
-
-    // Start is called before the first frame update
+    
     void OnEnable() {
         PlayerLevelManager.Instance.playerLeveledUpEvent.AddListener(OfferPowerUps);
     }
@@ -55,7 +54,7 @@ public class PowerUpCanvas : Singleton<PowerUpCanvas> {
             TextMeshProUGUI textMeshProUGUI = panelModelShowcase.transform.Find("Text PowerUpName").GetComponent<TextMeshProUGUI>();
             textMeshProUGUI.text = offeredPowerUp.powerUpData.powerUpName;
             Transform panelRotationTransform = panelModelShowcase.transform.Find("Panel Rotation");
-            GameObject model = Instantiate(offeredPowerUp.model, panelRotationTransform);
+            GameObject model = Instantiate(offeredPowerUp.models[0], panelRotationTransform);
             model.transform.localScale = new Vector3(100, 100, 100);
             model.SetActive(true);
             Button button = panelModelShowcase.GetComponentInChildren<Button>();

@@ -8,5 +8,5 @@ public class PowerUpData : ScriptableObject {
 
     [Space(10)]
     public bool isPassive; 
-    public bool isAcquire;
+    public bool isAcquired;
 }

@@ -16,7 +16,26 @@ public class PowerUpController : MonoBehaviour
         _powerUps = GetComponentsInChildren<PowerUp>().ToList();
         AvailablePowers = _powerUps;
     }
+
+    private void OnEnable()
+    {
+        foreach (PowerUp powerUp in _powerUps)
+        {
+            powerUp.OnAcquire.AddListener(PowerAcquired);
+        }
+    }
+
+    private void OnDisable()
+    {
+        foreach (PowerUp powerUp in _powerUps)
+        {
+            powerUp.OnAcquire.RemoveListener(PowerAcquired);
+        }
+    }
     
-    
-    
+    private void PowerAcquired(PowerUp powerUp)
+    {
+        AvailablePowers.Remove(powerUp);
+        AcquiredPowers.Add(powerUp);
+    }
 }

@@ -314,10 +314,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 401821003, guid: c817e31d55453414299dfd3a1024bc25, type: 3}
-      propertyPath: m_Name
-      value: Jerrican
-      objectReference: {fileID: 0}
     - target: {fileID: 3056940728454087580, guid: c817e31d55453414299dfd3a1024bc25, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -366,10 +362,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bus 2
       objectReference: {fileID: 0}
-    - target: {fileID: 3060351016758024680, guid: c817e31d55453414299dfd3a1024bc25, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 8985476559905260540, guid: c817e31d55453414299dfd3a1024bc25, type: 3}
+      propertyPath: models.Array.size
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8985476559905260540, guid: c817e31d55453414299dfd3a1024bc25, type: 3}
+      propertyPath: models.Array.data[0]
+      value: 
+      objectReference: {fileID: 1355263999}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -911,6 +911,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eddb23a05e1d7704e9ebec871ea49dd8, type: 3}
+--- !u!1 &1355263999 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3060351016758024680, guid: c817e31d55453414299dfd3a1024bc25, type: 3}
+  m_PrefabInstance: {fileID: 310504411}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1409207378
 PrefabInstance:
   m_ObjectHideFlags: 0

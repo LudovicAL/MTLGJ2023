@@ -17,17 +17,22 @@ public static class Helpers
 
     public static int[] GetRandomNumbers(int min, int maxExclusive, int qty)
     {
-        if (maxExclusive - min > qty)
+
+        if (maxExclusive - min < qty)
         {
             Debug.LogError("Woah! Don't do that");
         }
         
         int[] numbers = new int[qty];
+        //Init array with non-zero value;
+        numbers = numbers.Select(x => -9999).ToArray();
         
         for (int i = 0; i < qty; i++)
         {
-            int failsafe = qty;
+            
+            int failsafe = 50;
             int number = Random.Range(min, maxExclusive);
+            
             while (numbers.Contains(number) && failsafe >= 0)
             {
                 number = Random.Range(min, maxExclusive);
@@ -36,7 +41,7 @@ public static class Helpers
 
             numbers[i] = number;
         }
-
+        
         return numbers;
     }
 }

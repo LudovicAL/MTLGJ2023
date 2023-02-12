@@ -5,6 +5,8 @@ public class ModelRotation : MonoBehaviour {
     [SerializeField]
     private float rotationSpeed;
 
+    private float _previousTime;
+
     // Start is called before the first frame update
     void Start() {
         foreach (Transform t in transform) {
@@ -14,6 +16,7 @@ public class ModelRotation : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime);
+        
+        transform.Rotate(Vector3.up * rotationSpeed * 0.008f);
     }
 }

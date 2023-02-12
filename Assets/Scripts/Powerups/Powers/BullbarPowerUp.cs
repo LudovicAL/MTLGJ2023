@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class JerricanPowerUp : PowerUp
+public class BullbarPowerUp : PowerUp
 {
-    [SerializeField] private int fuelBoost = 25;
+    [SerializeField] private float murderSpeedBonus = 2.5f;
 
     public override void Acquire()
     {
@@ -16,7 +16,7 @@ public class JerricanPowerUp : PowerUp
 
     public override void Execute()
     {
-        PlayerData.Instance.Fuel.AddMax(fuelBoost);
+        PlayerData.Instance.murderSpeed -= murderSpeedBonus;
     }
 
     public override bool CanExecute()
