@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class XpBarCanvas : MonoBehaviour {
 
-    [SerializeField]
     private Image xpBarImage;
 
     // Start is called before the first frame update
@@ -13,6 +12,7 @@ public class XpBarCanvas : MonoBehaviour {
         xpBarImage = GetComponent<Image>();
         PlayerLevelManager.Instance.playerLeveledUpEvent.AddListener(PlayerLeveledUp);
         PlayerData.Instance.xpChanged.AddListener(XpChanged);
+        xpBarImage.fillAmount = 0.0f;
     }
 
     // Update is called once per frame
