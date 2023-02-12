@@ -18,13 +18,13 @@ namespace AI.ZombieStateMachine
         [HideInInspector] public Rigidbody locomotionRigidbody;
         [HideInInspector] public CapsuleCollider locomotionCollider;
         [HideInInspector] public  bool isColliding;
-        
-        private StateMachine _stateMachine;
 
-        
+        public StateMachine StateMachine { get; private set; }
+
+
         private void Awake()
         {
-            _stateMachine = new StateMachine();
+            StateMachine = new StateMachine();
             animator = GetComponent<Animator>();
             locomotionRigidbody = GetComponent<Rigidbody>();
             locomotionCollider = GetComponent<CapsuleCollider>();
@@ -46,12 +46,12 @@ namespace AI.ZombieStateMachine
             At(ragdoll, cleanup, IsNotMoving());
 
             //Set anystate->to state transition condition
-            _stateMachine.AddAnyTransition(ragdoll, CollisionWithTarget());
+            StateMachine.AddAnyTransition(ragdoll, CollisionWithTarget());
 
             //Set starting state
-            _stateMachine.SetState(standby);
+            StateMachine.SetState(standby);
             
-            void At(IState to, IState from, Func<bool> condition) => _stateMachine.AddTransition(to, from, condition);
+            void At(IState to, IState from, Func<bool> condition) => StateMachine.AddTransition(to, from, condition);
             Func<bool> HasGameStarted() => () => GameManager.Instance.currentState == GameState.Started;
             Func<bool> HasTarget() => () => target != null;//Needs to be changed based on lod
             Func<bool> CollisionWithTarget() => () => isColliding || forceRagdoll;
@@ -62,13 +62,13 @@ namespace AI.ZombieStateMachine
 
         private void Update()
         {
-            _stateMachine.Tick();
-            Debug.Log(_stateMachine._currentState.GetType());
+            StateMachine.Tick();
+            Debug.Log(StateMachine._currentState.GetType());
         }
 
         private void FixedUpdate()
         {
-            _stateMachine.FixedTick();
+            StateMachine.FixedTick();
         }
 
         private void OnCollisionEnter(Collision collision)
@@ -76,7 +76,7 @@ namespace AI.ZombieStateMachine
             
             if (collision.gameObject.CompareTag("Player"))
             {
-                if (collision.relativeVelocity.magnitude >= 10.0f)
+                if (collision.relativeVelocity.magnitude >= PlayerData.Instance.murderSpeed)
                 {
                     isColliding = true;
                 }

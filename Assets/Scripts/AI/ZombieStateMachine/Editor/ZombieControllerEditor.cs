@@ -23,6 +23,8 @@ namespace AI.ZombieStateMachine
         {
             base.OnInspectorGUI();
 
+            EditorGUILayout.LabelField(_zombieController.StateMachine._currentState.GetType().ToString());
+            
             if (GUILayout.Button("Fake collision"))
             {
                 _initialPosition = _zombieController.transform.position;

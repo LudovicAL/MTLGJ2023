@@ -25,7 +25,6 @@ namespace AI.ZombieStateMachine
 
         public void OnExit()
         {
-            _zombieController.locomotionCollider.enabled = true;
         }
 
         public void Tick()
@@ -51,6 +50,7 @@ namespace AI.ZombieStateMachine
             _zombieController.ragdollRigidbody.AddForce(impactForce * impactDirection.normalized, ForceMode.Impulse);
             
             _zombieController.isColliding = false;
+            _zombieController.forceRagdoll = false;
         }
     }
 }
