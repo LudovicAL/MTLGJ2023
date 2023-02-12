@@ -1,9 +1,9 @@
+using Cinemachine;
 using TMPro;
 using UnityEngine;
 
 public class Speedometer : MonoBehaviour {
 
-    [SerializeField]
     private Rigidbody carRigidbody;
     
     [SerializeField]
@@ -17,6 +17,10 @@ public class Speedometer : MonoBehaviour {
         speedometer = GetComponent<TextMeshProUGUI>();
         if (apparentSpeedMultiplier == 0.0f) {
             Debug.Log("For the speedometer to work properly, enter an Apparent Speed Multiplier value.");
+        }
+        PlayerData.Instance.playerVehicleChanged.AddListener(PlayerVehiculeChanged);
+        if (PlayerData.Instance.playerVehicle != null) {
+            PlayerVehiculeChanged(PlayerData.Instance.playerVehicle);
         }
     }
 
@@ -33,5 +37,9 @@ public class Speedometer : MonoBehaviour {
             }
             speedometer.text = ((int)(Mathf.Abs(carRigidbody.velocity.magnitude) * apparentSpeedMultiplier)).ToString() + " kph";
         }
+    }
+
+    private void PlayerVehiculeChanged(GameObject playerVehicle) {
+        carRigidbody = playerVehicle.GetComponent<Rigidbody>();
     }
 }
