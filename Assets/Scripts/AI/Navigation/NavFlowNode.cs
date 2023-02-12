@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
@@ -99,12 +100,25 @@ public class NavFlowNode : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Vector3 nodePos = transform.position;
+        //foreach (NavFlowNode neighbour in neighbours)
+        //{
+        //    Gizmos.DrawLine(nodePos, neighbour.transform.position);
+        //}
+        
+        Gizmos.color = Color.Lerp(Color.red, Color.yellow, score/100f);
+        Gizmos.DrawSphere(nodePos, 1f);
+        
+        Gizmos.color = Color.white;
+        Handles.Label(nodePos, score.ToString());
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Vector3 nodePos = transform.position;
         foreach (NavFlowNode neighbour in neighbours)
         {
             Gizmos.DrawLine(nodePos, neighbour.transform.position);
         }
-        
-        Gizmos.color = Color.Lerp(Color.red, Color.yellow, score/100f);
-        Gizmos.DrawSphere(nodePos, 3f);
     }
 }
