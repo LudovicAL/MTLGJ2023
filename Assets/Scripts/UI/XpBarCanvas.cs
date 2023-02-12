@@ -25,11 +25,10 @@ public class XpBarCanvas : MonoBehaviour {
     }
 
     private void PlayerLeveledUp() {
-
+        XpChanged(PlayerData.Instance.Xp.Current);
     }
 
     private void XpChanged(int currentXp) {
-        xpBarImage.fillAmount = currentXp * 1.0f / (PlayerLevelManager.Instance.xpRequiredForNextLevel - PlayerLevelManager.Instance.xpAtStartOfLevel);
+        xpBarImage.fillAmount = ((float)(currentXp - PlayerLevelManager.Instance.xpAtStartOfLevel)) / ((float)(PlayerLevelManager.Instance.xpRequiredForNextLevel - PlayerLevelManager.Instance.xpAtStartOfLevel));
     }
-    
 }
