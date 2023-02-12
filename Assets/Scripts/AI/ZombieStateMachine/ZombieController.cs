@@ -6,17 +6,21 @@ namespace AI.ZombieStateMachine
     [RequireComponent(typeof(Animator))]
     [RequireComponent(typeof(Rigidbody))]
     [RequireComponent(typeof(CapsuleCollider))]
+    [RequireComponent(typeof(ZombieMaterialController))]
     public class ZombieController : MonoBehaviour
     {
         public GameObject target;
         public Rigidbody ragdollRigidbody;
         public float force = 100.0f;
         public float minDistanceToTarget = 3.5f;
+        public float dissolveDelay = 100.0f;
+        public int xpValue = 1;
         public bool forceRagdoll;
 
         [HideInInspector] public Animator animator;
         [HideInInspector] public Rigidbody locomotionRigidbody;
         [HideInInspector] public CapsuleCollider locomotionCollider;
+        [HideInInspector] public ZombieMaterialController zombieMaterialController;
         [HideInInspector] public  bool isColliding;
 
         public StateMachine StateMachine { get; private set; }
@@ -28,6 +32,7 @@ namespace AI.ZombieStateMachine
             animator = GetComponent<Animator>();
             locomotionRigidbody = GetComponent<Rigidbody>();
             locomotionCollider = GetComponent<CapsuleCollider>();
+            zombieMaterialController = GetComponent<ZombieMaterialController>();
 
             var standby = new StandbyState(this);
             var wandering = new WanderingState(this);
