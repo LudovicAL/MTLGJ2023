@@ -2,8 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerData : Singleton<PlayerData> {
+public class PlayerData : Singleton<PlayerData>
+{
+    public int hp;
+    public int xp = 0;
+    public int zombieKilled = 0;
 
+    public float murderSpeed = 10.0f;
+    
+    
     public static bool hasBullbar1 = false;
     public static bool hasBullbar2 = false;
     public static bool hasBullbar3 = false;
