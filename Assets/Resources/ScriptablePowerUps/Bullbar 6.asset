@@ -15,4 +15,4 @@ MonoBehaviour:
   powerUpName: Bullbar 6
   powerUpDescription: 
   model: {fileID: 1624467098730626, guid: 85a5c5183fb9a0d4c9e899a116d83fcd, type: 3}
-  modelScaleMultiplier: 100
+  modelScaleMultiplier: 50

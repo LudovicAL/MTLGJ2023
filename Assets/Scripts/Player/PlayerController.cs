@@ -5,7 +5,6 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(PlayerInput))]
 public class PlayerController : MonoBehaviour
 {
 
@@ -18,8 +17,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     [Range(1.0f, 90.0f)]
     private float maxSteeringAngle; // maximum steer angle the wheel can have
-    
-    private PlayerInput playerInput;
 
     private float wheelMassOverride = 50.0f;
     private float wheelStiffnessDefault = 1.0f;
@@ -208,17 +205,12 @@ public class PlayerController : MonoBehaviour
         wheelCollider.sidewaysFriction = sideFrictionCurve;
     }
 
-    private void Awake()
-    {
-        playerInput = GetComponent<PlayerInput>();
-    }
-
     private float currentMotorAmount = 0.0f;
     public void FixedUpdate()
     {
         gearState = 0;
 
-        Vector2 inputVector = playerInput.actions["Move"].ReadValue<Vector2>();
+        Vector2 inputVector = PlayerInputConveyer.Instance.playerInput.actions["Move"].ReadValue<Vector2>();
 
         currentMotorAmount = inputVector.y;
 

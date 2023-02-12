@@ -5,10 +5,7 @@ using UnityEngine.Events;
 
 public class PlayerData : Singleton<PlayerData> {
 
-    public GameObject playerVehicle { get; private set; }
-
     public int hp;
-    public int xp { get; private set; } = 0;
 
     public int zombieKilled = 0;
     public float murderSpeed = 10.0f;
@@ -60,7 +57,10 @@ public class PlayerData : Singleton<PlayerData> {
     public float boostReserve = 0.0f;
     public int bulletsReserve = 0;
 
-
+    //***************
+    //XP
+    //***************
+    public int xp { get; private set; } = 0;
     public UnityEvent xpChanged = new UnityEvent();
     public void AddXp(int amountToAdd) {
         this.xp += amountToAdd;
@@ -71,6 +71,10 @@ public class PlayerData : Singleton<PlayerData> {
         xpChanged.Invoke();
     }
 
+    //***************
+    //PlayerVehicle
+    //***************
+    public GameObject playerVehicle { get; private set; }
     public UnityEvent playerVehicleChanged = new UnityEvent();
     public void SetPlayerVehicle(GameObject go) {
         this.playerVehicle = go;
