@@ -5,6 +5,7 @@ namespace AI.ZombieStateMachine
     public class AgressiveState : IState
     {
         private ZombieController _zombieController;
+        private int _updateInterval = 10;
 
         public AgressiveState(ZombieController zombieController)
         {
@@ -27,24 +28,25 @@ namespace AI.ZombieStateMachine
         }
         public void FixedTick()
         {
+            if (_zombieController.target == null) return; // can be null, anim state may not update that tick
+            
             Vector3 playerPosition = _zombieController.target.transform.position;
             Vector3 zombiePosition = _zombieController.transform.position;
             Vector3 direction = playerPosition - zombiePosition;
-            
-            /*if (!Helpers.HasLineOfSight(_zombieController.transform.position,direction, "Player" ))
+
+            if (Time.frameCount % _updateInterval == 0)
             {
-                _zombieController.target = null;
-                return;
-            }*/
+                if (!Helpers.HasLineOfSight(zombiePosition, direction, "Player"))
+                {
+                    _zombieController.target = null;
+                    return;
+                }
+            }
+
             direction.y = 0;
             _zombieController.transform.rotation = Quaternion.Slerp(_zombieController.transform.rotation,
                 Quaternion.LookRotation(direction), 0.1f);
-
-            float velocitySqr = _zombieController.locomotionRigidbody.velocity.sqrMagnitude;
-            if (velocitySqr < 2)
-            {
-                _zombieController.locomotionRigidbody.AddForce(Vector3.up * _zombieController.jumpForce, ForceMode.Impulse);
-            }
+            
             _zombieController.locomotionRigidbody.AddForce(direction.normalized * _zombieController.force);
         }
         

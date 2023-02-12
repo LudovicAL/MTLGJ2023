@@ -10,6 +10,8 @@ namespace AI.ZombieStateMachine
         private Transform _playerTransform;
         private int _updateInterval = 10;
 
+        private Vector3 _wantedPosition;
+        
         public WanderingState(ZombieController zombieController)
         {
             _zombieController = zombieController;
@@ -19,6 +21,7 @@ namespace AI.ZombieStateMachine
         {
             _zombieController.animator.SetBool("isIdle", true);
             _playerTransform = GameManager.Instance.player.transform;
+            // TODO: sleep physics
         }
 
         public void OnExit()
@@ -38,11 +41,18 @@ namespace AI.ZombieStateMachine
             Vector3 targetPosition = _playerTransform.position;
             Vector3 zombiePosition = _zombieController.transform.position;
             Vector3 direction = targetPosition - zombiePosition;
-            if (Helpers.HasLineOfSight(_zombieController.transform.position,direction, "Player" ))
+            if (Helpers.HasLineOfSight(zombiePosition, direction, "Player", 15)) // arbitrary distance
             {
                 _zombieController.target = GameManager.Instance.player;
+                return;
             }
+
+            _wantedPosition = NavFlow.Instance.FindBestPosition(zombiePosition);
+            _zombieController.MoveTowards(_wantedPosition);
         }
+        
+        
+        
         public void FixedTick()
         {
             

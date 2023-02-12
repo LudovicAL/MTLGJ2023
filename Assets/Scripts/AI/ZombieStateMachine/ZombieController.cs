@@ -17,6 +17,7 @@ namespace AI.ZombieStateMachine
         public float dissolveDelay = 100.0f;
         public int xpValue = 1;
         public bool forceRagdoll;
+        public float wanderingSpeed = 5f;
 
         [HideInInspector] public Animator animator;
         [HideInInspector] public Rigidbody locomotionRigidbody;
@@ -79,7 +80,6 @@ namespace AI.ZombieStateMachine
 
         private void OnCollisionEnter(Collision collision)
         {
-            
             if (collision.gameObject.CompareTag("Player"))
             {
                 if (collision.relativeVelocity.magnitude >= PlayerData.Instance.murderSpeed)
@@ -87,6 +87,11 @@ namespace AI.ZombieStateMachine
                     isColliding = true;
                 }
             }
+        }
+
+        public void MoveTowards(Vector3 wantedPosition)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, wantedPosition, wanderingSpeed * Time.deltaTime);
         }
     }
 }

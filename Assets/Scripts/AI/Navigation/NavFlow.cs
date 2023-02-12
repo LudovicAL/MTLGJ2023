@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NavFlow : MonoBehaviour
+public class NavFlow : Singleton<NavFlow>
 {
     NavFlowNode[] nodes;
 
@@ -58,6 +58,34 @@ public class NavFlow : MonoBehaviour
         closestToPlayer.MarkAsBestNode();
     }
 
+    public Vector3 FindBestPosition(Vector3 querierPos)
+    {
+        NavFlowNode closestToQuerier = null;
+        float closestSqrDist = float.MaxValue;
+        
+        // could optimize with spatial partition
+        foreach (NavFlowNode node in nodes)
+        {
+            Vector3 candidateNodePos = node.transform.position;
+            float sqrDist = (querierPos - candidateNodePos).sqrMagnitude;
+
+            if (sqrDist < closestSqrDist)
+            {
+                closestSqrDist = sqrDist;
+                closestToQuerier = node;
+            }
+        }
+
+        Vector3 nodeScale = closestToQuerier.transform.localScale;
+        float randomX = Random.Range(0, nodeScale.x);
+        float randomY = Random.Range(0, nodeScale.y);
+
+        Vector3 nodePos = closestToQuerier.transform.position;
+        Vector3 wantedPos = nodePos + new Vector3(randomX - nodeScale.x/2f, randomY - nodeScale.y/2f);
+        
+        return wantedPos;
+    }
+    
     //void OnDrawGizmos()
     //{
     //    if (nodes.Length == 0)

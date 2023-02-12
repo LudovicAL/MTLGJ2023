@@ -5,10 +5,10 @@ using UnityEngine;
 
 public static class Helpers
 {
-    public static bool HasLineOfSight(Vector3 origin, Vector3 direction, string targetTag)
+    public static bool HasLineOfSight(Vector3 origin, Vector3 direction, string targetTag, float maxDistance = Mathf.Infinity)
     {
         bool hasHit = Physics.Raycast(origin,
-            direction, out RaycastHit hit, Mathf.Infinity);
+            direction, out RaycastHit hit, maxDistance);
         
         //Debug.DrawRay(origin, direction * 1000, Color.yellow);
         
