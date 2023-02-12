@@ -10,22 +10,15 @@ public class PlayerData : Singleton<PlayerData> {
     [Tooltip("Minimum velocity magnitude required to kill a zombie")]
     public float murderSpeed = 10.0f;
 
-    public Stats Hp;
-    public Stats Xp;
-    public Stats Fuel;
+    public Stats Hp = new (10);
+    public Stats Xp = new ();
+    public Stats Fuel = new (100);
 
     //PlayerVehicle
     public GameObject playerVehicle { get; private set; }
     public void SetPlayerVehicle(GameObject go) {
         playerVehicle = go;
         playerVehicleChanged.Invoke(go);
-    }
-
-    private void Awake()
-    {
-        Hp = new Stats(10);
-        Xp = new Stats();
-        Fuel = new Stats(100);
     }
 }
 
