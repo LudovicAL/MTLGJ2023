@@ -4,13 +4,13 @@ using UnityEngine;
 
 namespace AI.ZombieStateMachine
 {
-    public class LookForTargetState : IState
+    public class WanderingState : IState
     {
         private ZombieController _zombieController;
         private Transform _playerTransform;
         private int _updateInterval = 10;
 
-        public LookForTargetState(ZombieController zombieController)
+        public WanderingState(ZombieController zombieController)
         {
             _zombieController = zombieController;
         }

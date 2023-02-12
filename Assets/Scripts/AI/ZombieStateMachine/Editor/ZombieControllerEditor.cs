@@ -27,7 +27,7 @@ namespace AI.ZombieStateMachine
             {
                 _initialPosition = _zombieController.transform.position;
                 _zombieController.animator.enabled = false;
-                _zombieController.tempFakeRagDollState = true;
+                _zombieController.forceRagdoll = true;
                 if (_zombieController.target != null)
                 {
                     impactDirection = (_zombieController.target.transform.position - _initialPosition) * -1;
@@ -45,7 +45,8 @@ namespace AI.ZombieStateMachine
             {
                 _zombieController.transform.position = _initialPosition;
                 _zombieController.animator.enabled = true;
-                _zombieController.tempFakeRagDollState = false;
+                
+                _zombieController.forceRagdoll = true;
                 _zombieController.target = null;
             }
         }

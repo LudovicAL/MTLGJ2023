@@ -39,6 +39,8 @@ namespace AI.ZombieStateMachine
 
         private void ExecuteCollision()
         {
+            if (_zombieController.target == null || _zombieController.forceRagdoll) return;
+            
             float impactForce = Random.Range(_minForce, _maxForce);
             float verticalImpact = Random.Range(_minVerticalForce, _maxVerticalForce);
             
@@ -47,6 +49,8 @@ namespace AI.ZombieStateMachine
             Vector3 impactDirection = (_zombieController.target.transform.position - _zombieController.transform.position) * -1;
             impactDirection.y = verticalImpact;
             _zombieController.ragdollRigidbody.AddForce(impactForce * impactDirection.normalized, ForceMode.Impulse);
+            
+            _zombieController.isColliding = false;
         }
     }
 }

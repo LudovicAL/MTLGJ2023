@@ -2,11 +2,11 @@ using UnityEngine;
 
 namespace AI.ZombieStateMachine
 {
-    public class MoveToTargetState : IState
+    public class AgressiveState : IState
     {
         private ZombieController _zombieController;
 
-        public MoveToTargetState(ZombieController zombieController)
+        public AgressiveState(ZombieController zombieController)
         {
             _zombieController = zombieController;
         }
