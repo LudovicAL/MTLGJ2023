@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,7 +28,7 @@ public class PowerUpCanvas : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
-
+        PlayerLevelManager.Instance.playerLeveledUpEvent.AddListener(OfferPowerUps);
     }
 
     // Update is called once per frame
@@ -35,8 +36,8 @@ public class PowerUpCanvas : MonoBehaviour {
         
     }
 
-    public void OfferPowerUps(PowerUpsManager powerUpsManager) {
-        List<ScriptablePowerUp> scriptablePowerUps = powerUpsManager.GetRandomPowerUps();
+    public void OfferPowerUps() {
+        List<ScriptablePowerUp> scriptablePowerUps = PowerUpsManager.Instance.GetRandomPowerUps();
         if (scriptablePowerUps.Count == 0) {
             Debug.Log("There are no more powerups for this vehicule");
             return;
@@ -58,7 +59,7 @@ public class PowerUpCanvas : MonoBehaviour {
             Button button = panelModelShowcase.GetComponentInChildren<Button>();
             button.onClick.AddListener(delegate {
                 Debug.Log("You chose " + scriptablePowerUp.powerUpName);
-                powerUpsManager.ActivatePowerUp(scriptablePowerUp);
+                PowerUpsManager.Instance.ActivatePowerUp(scriptablePowerUp);
                 ResumeGame();
             });
         }
@@ -79,3 +80,14 @@ public class PowerUpCanvas : MonoBehaviour {
         panelPowerUpTransform.gameObject.SetActive(false);
     }
 }
+
+#if UNITY_EDITOR
+[CustomEditor(typeof(PowerUpCanvas))]
+class PowerUpsCanvasEditor : Editor {
+    public override void OnInspectorGUI() {
+        if (GUILayout.Button("GetPowerUpsOffer")) {
+            PowerUpCanvas.instance.OfferPowerUps();
+        }
+    }
+}
+#endif

@@ -583,10 +583,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4162280355446874865, guid: 357c1bb6d4326e44a913368d7111bdee, type: 3}
-      propertyPath: carRigidbody
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 5071512082788378853, guid: 357c1bb6d4326e44a913368d7111bdee, type: 3}
       propertyPath: m_Name
       value: UI

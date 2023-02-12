@@ -89,14 +89,3 @@ public class PowerUpsManager : Singleton<PowerUpsManager> {
         Random
     }
 }
-
-#if UNITY_EDITOR
-[CustomEditor(typeof(PowerUpsManager))]
-class PowerUpsManagerEditor : Editor {
-    public override void OnInspectorGUI() {
-        if (GUILayout.Button("GetPowerUpsOffer")) {
-            PowerUpCanvas.instance.OfferPowerUps((PowerUpsManager)target);
-        }
-    }
-}
-#endif
