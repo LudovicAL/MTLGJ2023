@@ -10780,6 +10780,7 @@ GameObject:
   - component: {fileID: 8630802313532880079}
   - component: {fileID: 2137143762758496773}
   - component: {fileID: 6288057137528345193}
+  - component: {fileID: 1968139378105523355}
   m_Layer: 0
   m_Name: Estate
   m_TagString: Player
@@ -10840,7 +10841,6 @@ MonoBehaviour:
     wheelType: 1
   maxSteeringAngle: 45
   showDebugDisplay: 1
-  SecretBoost: 0
 --- !u!33 &8630802313532880077
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -10967,6 +10967,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minimumSpeedForSmokeEffect: 5
+  smokeTime: 0
+--- !u!114 &1968139378105523355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8625994373241454611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac19bfb468a344349b18bcd545fb2eaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8626041478871296777
 GameObject:
   m_ObjectHideFlags: 0

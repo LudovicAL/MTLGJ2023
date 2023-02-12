@@ -10989,6 +10989,7 @@ GameObject:
   - component: {fileID: 7090073713910531158}
   - component: {fileID: 2080563956339212330}
   - component: {fileID: 2941659237707766588}
+  - component: {fileID: 2325612732389071070}
   m_Layer: 0
   m_Name: Coupe 2
   m_TagString: Player
@@ -11049,7 +11050,6 @@ MonoBehaviour:
     wheelType: 1
   maxSteeringAngle: 45
   showDebugDisplay: 1
-  SecretBoost: 0
 --- !u!33 &7062232322209113034
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -11176,6 +11176,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minimumSpeedForSmokeEffect: 5
+  smokeTime: 0
+--- !u!114 &2325612732389071070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7093842435368653608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac19bfb468a344349b18bcd545fb2eaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7095054161018266296
 GameObject:
   m_ObjectHideFlags: 0

@@ -6374,6 +6374,7 @@ GameObject:
   - component: {fileID: 4832962689377704724}
   - component: {fileID: 2359375815323147883}
   - component: {fileID: -3935670060808163049}
+  - component: {fileID: -1286071358746054150}
   m_Layer: 0
   m_Name: Delorean 2
   m_TagString: Player
@@ -6434,7 +6435,6 @@ MonoBehaviour:
     wheelType: 1
   maxSteeringAngle: 45
   showDebugDisplay: 1
-  SecretBoost: 0
 --- !u!33 &4843415468185442972
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -6561,6 +6561,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minimumSpeedForSmokeEffect: 5
+  smokeTime: 0
+--- !u!114 &-1286071358746054150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4847937110510972380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac19bfb468a344349b18bcd545fb2eaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4847955177769503912
 GameObject:
   m_ObjectHideFlags: 0

@@ -10430,6 +10430,7 @@ GameObject:
   - component: {fileID: 6157789259754825618}
   - component: {fileID: -6346628929858711221}
   - component: {fileID: -4647471453793607309}
+  - component: {fileID: -5707320351435201515}
   m_Layer: 0
   m_Name: Military
   m_TagString: Player
@@ -10490,7 +10491,6 @@ MonoBehaviour:
     wheelType: 1
   maxSteeringAngle: 45
   showDebugDisplay: 1
-  SecretBoost: 0
 --- !u!33 &6147585052831751644
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -10617,6 +10617,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minimumSpeedForSmokeEffect: 5
+  smokeTime: 0
+--- !u!114 &-5707320351435201515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6134710770107769170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac19bfb468a344349b18bcd545fb2eaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6134836771294447402
 GameObject:
   m_ObjectHideFlags: 0

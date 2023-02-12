@@ -10797,6 +10797,7 @@ GameObject:
   - component: {fileID: 7346693507083501335}
   - component: {fileID: 1252786936256540036}
   - component: {fileID: 5753788603562063590}
+  - component: {fileID: 7047266639846012779}
   m_Layer: 0
   m_Name: Bus
   m_TagString: Player
@@ -10857,7 +10858,6 @@ MonoBehaviour:
     wheelType: 1
   maxSteeringAngle: 45
   showDebugDisplay: 1
-  SecretBoost: 0
 --- !u!33 &7315277692860611311
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -10984,6 +10984,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minimumSpeedForSmokeEffect: 5
+  smokeTime: 0
+--- !u!114 &7047266639846012779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7346693507083501333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac19bfb468a344349b18bcd545fb2eaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7346788655576310007
 GameObject:
   m_ObjectHideFlags: 0

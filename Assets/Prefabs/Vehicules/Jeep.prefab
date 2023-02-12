@@ -10932,6 +10932,7 @@ GameObject:
   - component: {fileID: 6891060059024655545}
   - component: {fileID: 2086630213352835286}
   - component: {fileID: 4069000269984776963}
+  - component: {fileID: -8084819837647189119}
   m_Layer: 3
   m_Name: Jeep
   m_TagString: Player
@@ -10992,7 +10993,6 @@ MonoBehaviour:
     wheelType: 1
   maxSteeringAngle: 45
   showDebugDisplay: 1
-  SecretBoost: 0
 --- !u!33 &6906724045140676423
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -11119,6 +11119,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minimumSpeedForSmokeEffect: 5
+  smokeTime: 0
+--- !u!114 &-8084819837647189119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6892679943744443345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac19bfb468a344349b18bcd545fb2eaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6892687253306285475
 GameObject:
   m_ObjectHideFlags: 0

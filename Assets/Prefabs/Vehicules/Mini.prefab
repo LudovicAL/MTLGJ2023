@@ -6147,6 +6147,7 @@ GameObject:
   - component: {fileID: 7842310747468486708}
   - component: {fileID: 3066406355005088928}
   - component: {fileID: 33305908667500432}
+  - component: {fileID: -9054291521216300749}
   m_Layer: 0
   m_Name: Mini
   m_TagString: Player
@@ -6207,7 +6208,6 @@ MonoBehaviour:
     wheelType: 1
   maxSteeringAngle: 45
   showDebugDisplay: 1
-  SecretBoost: 0
 --- !u!33 &7842310747468486710
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -6334,6 +6334,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minimumSpeedForSmokeEffect: 5
+  smokeTime: 0
+--- !u!114 &-9054291521216300749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7828993047062187250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac19bfb468a344349b18bcd545fb2eaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7829026873057719038
 GameObject:
   m_ObjectHideFlags: 0

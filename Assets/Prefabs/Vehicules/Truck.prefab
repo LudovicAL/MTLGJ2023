@@ -6185,6 +6185,7 @@ GameObject:
   - component: {fileID: 5044923350142103974}
   - component: {fileID: 3935742334595799317}
   - component: {fileID: -8010173617194683402}
+  - component: {fileID: 1105181706743852548}
   m_Layer: 0
   m_Name: Truck
   m_TagString: Player
@@ -6263,7 +6264,6 @@ MonoBehaviour:
     wheelType: 1
   maxSteeringAngle: 45
   showDebugDisplay: 1
-  SecretBoost: 0
 --- !u!33 &5057026368708234700
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -6390,6 +6390,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minimumSpeedForSmokeEffect: 5
+  smokeTime: 0
+--- !u!114 &1105181706743852548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5066726273886802566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac19bfb468a344349b18bcd545fb2eaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5066819810198767428
 GameObject:
   m_ObjectHideFlags: 0

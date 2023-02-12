@@ -182,6 +182,7 @@ GameObject:
   - component: {fileID: 1676133018455957875}
   - component: {fileID: 3614242800646499975}
   - component: {fileID: 6184651684512466351}
+  - component: {fileID: -7564472645569001825}
   m_Layer: 0
   m_Name: Buggy 2
   m_TagString: Player
@@ -242,7 +243,6 @@ MonoBehaviour:
     wheelType: 1
   maxSteeringAngle: 45
   showDebugDisplay: 1
-  SecretBoost: 0
 --- !u!33 &1673430231658162940
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -369,6 +369,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minimumSpeedForSmokeEffect: 5
+  smokeTime: 0
+--- !u!114 &-7564472645569001825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677905389793237166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac19bfb468a344349b18bcd545fb2eaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1678010418133942104
 GameObject:
   m_ObjectHideFlags: 0
