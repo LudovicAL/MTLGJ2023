@@ -6,14 +6,14 @@ using UnityEngine;
 
 public class PowerUpController : MonoBehaviour
 {
-    private List<IPowerUp> _powerUps;
+    private List<PowerUp> _powerUps;
 
-    public List<IPowerUp> AcquiredPowers = new();
-    public List<IPowerUp> AvailablePowers = new();
+    public List<PowerUp> AcquiredPowers = new();
+    public List<PowerUp> AvailablePowers = new();
     
     private void Awake()
     {
-        _powerUps = GetComponentsInChildren<IPowerUp>().ToList();
+        _powerUps = GetComponentsInChildren<PowerUp>().ToList();
         AvailablePowers = _powerUps;
     }
     

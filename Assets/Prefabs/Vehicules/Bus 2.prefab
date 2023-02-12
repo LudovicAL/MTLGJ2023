@@ -45,8 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bfab7ae7fd239d4a8920171179f518d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fuelBoost: 25
+  powerUpData: {fileID: 11400000, guid: 72d7374a973a4f045a541ddbf9495f97, type: 2}
   model: {fileID: 3060351016758024680}
+  fuelBoost: 25
 --- !u!1 &277147215722791500
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,6 +409,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3cbea4bce3bfe5449ae7ca5b4335afa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AcquiredPowers: []
+  AvailablePowers: []
 --- !u!1 &2617872285505641824
 GameObject:
   m_ObjectHideFlags: 0
@@ -526,7 +529,7 @@ Transform:
   - {fileID: 281065916166734809}
   - {fileID: 4800303990860543422}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3060343098563622289
 MonoBehaviour:
@@ -707,7 +710,6 @@ GameObject:
   - component: {fileID: 3058839599535645384}
   - component: {fileID: 3029512254515355624}
   - component: {fileID: 3037909422060018944}
-  - component: {fileID: 2751146310219185290}
   m_Layer: 3
   m_Name: Jerrican 1 2
   m_TagString: Player
@@ -780,20 +782,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2751146310219185290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3060351016758024680}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bfab7ae7fd239d4a8920171179f518d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fuelBoost: 25
-  model: {fileID: 0}
 --- !u!1 &3060509231640925988
 GameObject:
   m_ObjectHideFlags: 0

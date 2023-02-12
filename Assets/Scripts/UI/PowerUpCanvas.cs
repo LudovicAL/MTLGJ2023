@@ -28,39 +28,40 @@ public class PowerUpCanvas : Singleton<PowerUpCanvas> {
     }
 
     // Start is called before the first frame update
-    void Start() {
+    void OnEnable() {
+        PlayerLevelManager.Instance.playerLeveledUpEvent.AddListener(OfferPowerUps);
+    }
+    
+    void OnDisable() {
         PlayerLevelManager.Instance.playerLeveledUpEvent.AddListener(OfferPowerUps);
     }
 
-    // Update is called once per frame
-    void Update() {
-        
-    }
-
     public void OfferPowerUps() {
-        List<PowerUpData> scriptablePowerUps = PowerUpsManager.Instance.GetRandomPowerUps();
-        if (scriptablePowerUps.Count == 0) {
+        List<PowerUp> offeredPowerUps = PowerUpsManager.Instance.GetRandomPowerUps(3);
+        if (offeredPowerUps.Count == 0) {
             Debug.Log("There are no more powerups for this vehicule");
             return;
         }
 
+        //TODO: investigate why we destroy stuff.
         foreach (Transform transform in panelHorizontalLayout) {
             Destroy(transform.gameObject);
         }
 
         PauseGame();
 
-        foreach (PowerUpData scriptablePowerUp in scriptablePowerUps) {
+        foreach (PowerUp offeredPowerUp in offeredPowerUps) {
             GameObject panelModelShowcase = Instantiate(panelModelShowcasePrefab, panelHorizontalLayout);
             TextMeshProUGUI textMeshProUGUI = panelModelShowcase.transform.Find("Text PowerUpName").GetComponent<TextMeshProUGUI>();
-            textMeshProUGUI.text = scriptablePowerUp.powerUpName;
+            textMeshProUGUI.text = offeredPowerUp.powerUpData.powerUpName;
             Transform panelRotationTransform = panelModelShowcase.transform.Find("Panel Rotation");
-            GameObject model = Instantiate(scriptablePowerUp.model, panelRotationTransform);
-            model.transform.localScale = new Vector3(scriptablePowerUp.modelScaleMultiplier, scriptablePowerUp.modelScaleMultiplier, scriptablePowerUp.modelScaleMultiplier);
+            GameObject model = Instantiate(offeredPowerUp.model, panelRotationTransform);
+            model.transform.localScale = new Vector3(100, 100, 100);
+            model.SetActive(true);
             Button button = panelModelShowcase.GetComponentInChildren<Button>();
             button.onClick.AddListener(delegate {
-                Debug.Log("You chose " + scriptablePowerUp.powerUpName);
-                PowerUpsManager.Instance.ActivatePowerUp(scriptablePowerUp);
+                Debug.Log("You chose " + offeredPowerUp.powerUpData.powerUpName);
+                PowerUpsManager.Instance.AcquirePowerUp(offeredPowerUp);
                 ResumeGame();
             });
         }

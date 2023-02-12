@@ -12,45 +12,20 @@ public class PowerUpsManager : Singleton<PowerUpsManager> {
 
     [SerializeField]
     private PowerUpSelectionMode powerUpSelectionMode;
-    private List<IPowerUp> _availablePowerUps;
+    private List<PowerUp> _availablePowerUps;
     private PowerUpController _powerUpController;
 
     private void OnEnable() {
-        PlayerData.Instance.playerVehicleChanged.AddListener(GetAvailablePowerUpsList);
-        GetAvailablePowerUpsList(PlayerData.Instance.playerVehicle);
+        PlayerData.Instance.playerVehicleChanged.AddListener(GetAvailablePowerUps);
+        GetAvailablePowerUps(PlayerData.Instance.playerVehicle);
     }
-
+    
     private void OnDisable()
     {
-        PlayerData.Instance.playerVehicleChanged.RemoveListener(GetAvailablePowerUpsList);
+        PlayerData.Instance.playerVehicleChanged.RemoveListener(GetAvailablePowerUps);
     }
-
-    public void ActivatePowerUp(PowerUpData powerUpData) {
-        int index = 0;
-        int max = _availablePowerUps.Count;
-        for (; index < max; index++) {
-            if (_availablePowerUps[index].PowerUpData == powerUpData) {
-                break;
-            }
-        }
-        if (index < max) {
-            _availablePowerUps[index].go.SetActive(true);
-            _availablePowerUps.RemoveAt(index);
-        }
-    }
-
-    public List<PowerUpData> GetRandomPowerUps() {
-        List<PowerUpData> scriptablePowerUps = new List<PowerUpData>();
-        List<PowerUp> copyOfAvailablePowerUps = _availablePowerUps.ToList();
-        for (int i = 0; i < 3 && copyOfAvailablePowerUps.Count > 0; i++) {
-            int randomIndex = Random.Range(0, copyOfAvailablePowerUps.Count);
-            scriptablePowerUps.Add(copyOfAvailablePowerUps[randomIndex].PowerUpData);
-            copyOfAvailablePowerUps.RemoveAt(randomIndex);
-        }
-        return scriptablePowerUps;
-    }
-
-    private void GetAvailablePowerUpsList(GameObject playerVehicle)
+    
+    private void GetAvailablePowerUps(GameObject playerVehicle)
     {
         if (playerVehicle == null) {
             return;
@@ -60,16 +35,16 @@ public class PowerUpsManager : Singleton<PowerUpsManager> {
         _availablePowerUps = _powerUpController.AvailablePowers;
 
     }
+    
+    public void AcquirePowerUp(PowerUp powerUp) => powerUp.Acquire();
+    
 
-    private string GetAvailablePowerUpsAsString() {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0, max = _availablePowerUps.Count; i < max; i++) {
-            if (i > 0) {
-                sb.Append(", ");
-            }
-            sb.Append(_availablePowerUps[i].PowerUpData.name);
-        }
-        return sb.ToString();
+    public List<PowerUp> GetRandomPowerUps(int qty)
+    {
+        qty = Mathf.Min(qty, _availablePowerUps.Count);
+        int[] indexes = Helpers.GetRandomNumbers(0, _availablePowerUps.Count, qty);
+
+        return indexes.Select(index => _availablePowerUps[index]).ToList();
     }
 
     private enum PowerUpSelectionMode {

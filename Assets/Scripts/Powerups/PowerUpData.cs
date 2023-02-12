@@ -5,6 +5,8 @@ public class PowerUpData : ScriptableObject {
     public string powerUpName;
     [Multiline(3)]
     public string powerUpDescription;
-    public GameObject model;
-    public float modelScaleMultiplier;
+
+    [Space(10)]
+    public bool isPassive; 
+    public bool isAcquire;
 }

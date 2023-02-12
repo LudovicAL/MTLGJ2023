@@ -38,6 +38,7 @@ public class PlayerStat
     }
 
     public void Add(int amount) => Current = (Max >= 0) ? Mathf.Min(Current + amount, Max) : Current + amount;
+
     public void Reset() => Current = 0;
 
     public void AddMax(int amount)

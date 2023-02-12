@@ -29,7 +29,7 @@ public class PlayerLevelManager : Singleton<PlayerLevelManager> {
     }
 
     private void XpChanged(int currentXp) {
-        if (currentXp > xpRequiredForNextLevel) {
+        if (currentXp >= xpRequiredForNextLevel) {
             LevelUp();
         }
     }
@@ -63,6 +63,12 @@ public class PlayerLevelManagerEditor : Editor {
             }
             Debug.Log(sb.ToString());
         }
+
+        if (GUILayout.Button("Level me up, please, thank you"))
+        {
+            PlayerData.Instance.Xp.Add(playerLevelManager.GetXpRequiredForLevel( playerLevelManager.GetPlayerCurrentLevel() + 1));
+        }
+        
         DrawDefaultInspector();
     }
 }
