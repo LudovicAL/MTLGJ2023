@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Random = UnityEngine.Random;
 
 public class NavFlowNode : MonoBehaviour
 {
@@ -56,6 +57,42 @@ public class NavFlowNode : MonoBehaviour
             
             neighbours[i].TrickleDownScore(score - 10, this);
         }
+    }
+
+    public NavFlowNode FindBestNeighbour()
+    {
+        int bestScore = int.MinValue;
+        NavFlowNode bestNeighbour = null;
+        
+        for (int i = 0; i < neighbours.Count; ++i)
+        {
+            if (neighbours[i].score > bestScore)
+            {
+                bestScore = neighbours[i].score;
+                bestNeighbour = neighbours[i];
+            }
+        }
+
+        return bestNeighbour;
+    }
+
+    public bool IsPositionInNode(Vector3 position)
+    {
+        Vector3 nodePos = transform.position;
+        Vector3 nodeScale = transform.localScale;
+        Vector3 toNode = nodePos - position;
+        bool inNode = Mathf.Abs(toNode.x) <= nodeScale.x/2f && Mathf.Abs(toNode.y) <= nodeScale.y;
+        return inNode;
+    }
+
+    public Vector3 GetRandomPositionInNode()
+    {
+        Vector3 nodePos = transform.position;
+        Vector3 nodeScale = transform.localScale;
+        float randomX = Random.Range(0, nodeScale.x);
+        float randomY = Random.Range(0, nodeScale.y);
+        Vector3 wantedPos = nodePos + new Vector3(randomX - nodeScale.x/2f, randomY - nodeScale.y/2f);
+        return wantedPos;
     }
     
     void OnDrawGizmos()

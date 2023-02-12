@@ -15345,7 +15345,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &408038
 Transform:
   m_ObjectHideFlags: 0
@@ -45690,7 +45690,7 @@ Transform:
   - {fileID: 7526741635775265205}
   - {fileID: 820550283}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &159192
 GameObject:
@@ -77088,7 +77088,7 @@ PrefabInstance:
     - target: {fileID: 2282292202121934699, guid: 8c77ced2a20aa6f4c9d80c4f798cb392, type: 3}
       propertyPath: manuallySetNeighbours.Array.data[0]
       value: 
-      objectReference: {fileID: 2282292202224585567}
+      objectReference: {fileID: 2282292201379030467}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -76,13 +76,13 @@ public class NavFlow : Singleton<NavFlow>
             }
         }
 
-        Vector3 nodeScale = closestToQuerier.transform.localScale;
-        float randomX = Random.Range(0, nodeScale.x);
-        float randomY = Random.Range(0, nodeScale.y);
+        NavFlowNode wantedNode = closestToQuerier;
+        if (closestToQuerier.IsPositionInNode(querierPos))
+        {
+            wantedNode = closestToQuerier.FindBestNeighbour();
+        }
 
-        Vector3 nodePos = closestToQuerier.transform.position;
-        Vector3 wantedPos = nodePos + new Vector3(randomX - nodeScale.x/2f, randomY - nodeScale.y/2f);
-        
+        Vector3 wantedPos = wantedNode.GetRandomPositionInNode();
         return wantedPos;
     }
     

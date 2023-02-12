@@ -21,11 +21,15 @@ namespace AI.ZombieStateMachine
         {
             _zombieController.animator.SetBool("isIdle", true);
             _playerTransform = GameManager.Instance.player.transform;
-            // TODO: sleep physics
+            _zombieController.locomotionRigidbody.isKinematic = true;
+            
+            Vector3 zombiePosition = _zombieController.transform.position;
+            _wantedPosition = NavFlow.Instance.FindBestPosition(zombiePosition);
         }
 
         public void OnExit()
         {
+            _zombieController.locomotionRigidbody.isKinematic = false;
             _zombieController.animator.SetBool("isIdle", false);
         }
 
@@ -33,22 +37,24 @@ namespace AI.ZombieStateMachine
         {
             if (_zombieController.target != null) return;
 
-            if (Time.frameCount % _updateInterval != 0) return;
+            Vector3 zombiePosition = _zombieController.transform.position;
+            _zombieController.MoveTowards(_wantedPosition);
+            zombiePosition = _zombieController.transform.position;
+            Vector3 toWantedPos = _wantedPosition - zombiePosition;
+            if (toWantedPos.sqrMagnitude < 1f)
+                _wantedPosition = NavFlow.Instance.FindBestPosition(zombiePosition);
             
             //How do we want to acquire targets? Distance, line of sight, sound, all the time? 
             //For now it's line on sight and only on the player but the system can handle decoys at some point
-
-            Vector3 targetPosition = _playerTransform.position;
-            Vector3 zombiePosition = _zombieController.transform.position;
-            Vector3 direction = targetPosition - zombiePosition;
-            if (Helpers.HasLineOfSight(zombiePosition, direction, "Player", 15)) // arbitrary distance
+            if (Time.frameCount % _updateInterval == 0)
             {
-                _zombieController.target = GameManager.Instance.player;
-                return;
+                Vector3 targetPosition = _playerTransform.position;
+                Vector3 direction = targetPosition - zombiePosition;
+                if (Helpers.HasLineOfSight(zombiePosition, direction, "Player", 100)) // arbitrary distance
+                {
+                    _zombieController.target = GameManager.Instance.player;
+                }
             }
-
-            _wantedPosition = NavFlow.Instance.FindBestPosition(zombiePosition);
-            _zombieController.MoveTowards(_wantedPosition);
         }
         
         

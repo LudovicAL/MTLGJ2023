@@ -23,7 +23,8 @@ namespace AI.ZombieStateMachine
         [HideInInspector] public Rigidbody locomotionRigidbody;
         [HideInInspector] public CapsuleCollider locomotionCollider;
         [HideInInspector] public ZombieMaterialController zombieMaterialController;
-        [HideInInspector] public  bool isColliding;
+        [HideInInspector] public bool isColliding;
+        [HideInInspector] public Vector3 wantedPosition;
 
         public StateMachine StateMachine { get; private set; }
 
@@ -89,9 +90,16 @@ namespace AI.ZombieStateMachine
             }
         }
 
-        public void MoveTowards(Vector3 wantedPosition)
+        public void MoveTowards(Vector3 _wantedPosition)
         {
+            wantedPosition = _wantedPosition;
             transform.position = Vector3.MoveTowards(transform.position, wantedPosition, wanderingSpeed * Time.deltaTime);
+        }
+
+        void OnDrawGizmos()
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawSphere(wantedPosition, 1f);
         }
     }
 }
