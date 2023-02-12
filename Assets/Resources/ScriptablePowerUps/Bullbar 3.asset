@@ -15,3 +15,4 @@ MonoBehaviour:
   powerUpName: Bullbar 3
   powerUpDescription: 
   model: {fileID: 1589469195356064, guid: b8c16ea362cc4b949898bd74e99768d2, type: 3}
+  modelScaleMultiplier: 100

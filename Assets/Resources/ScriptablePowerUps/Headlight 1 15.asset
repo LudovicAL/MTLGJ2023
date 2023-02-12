@@ -15,3 +15,4 @@ MonoBehaviour:
   powerUpName: Headlight 1 15
   powerUpDescription: 
   model: {fileID: 1513583518009824, guid: 9b7a087236c251849aeed3585262545a, type: 3}
+  modelScaleMultiplier: 100

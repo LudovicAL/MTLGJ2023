@@ -15,3 +15,4 @@ MonoBehaviour:
   powerUpName: Winch 1
   powerUpDescription: 
   model: {fileID: 1526246624684820, guid: c476aa474d04b454183528333f626ecd, type: 3}
+  modelScaleMultiplier: 100

@@ -15,3 +15,4 @@ MonoBehaviour:
   powerUpName: Headlight 1 17
   powerUpDescription: To see better at nigt
   model: {fileID: 1598556818826696, guid: 05849321e84fd6d4494a203e5e468659, type: 3}
+  modelScaleMultiplier: 100

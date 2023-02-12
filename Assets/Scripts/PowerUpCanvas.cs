@@ -54,7 +54,7 @@ public class PowerUpCanvas : MonoBehaviour {
             textMeshProUGUI.text = scriptablePowerUp.powerUpName;
             Transform panelRotationTransform = panelModelShowcase.transform.Find("Panel Rotation");
             GameObject model = Instantiate(scriptablePowerUp.model, panelRotationTransform);
-            model.transform.localScale = new Vector3(100.0f, 100.0f, 100.0f);
+            model.transform.localScale = new Vector3(scriptablePowerUp.modelScaleMultiplier, scriptablePowerUp.modelScaleMultiplier, scriptablePowerUp.modelScaleMultiplier);
             Button button = panelModelShowcase.GetComponentInChildren<Button>();
             button.onClick.AddListener(delegate {
                 Debug.Log("You chose " + scriptablePowerUp.powerUpName);

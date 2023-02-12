@@ -15,3 +15,4 @@ MonoBehaviour:
   powerUpName: Exhaust pipe 1 M
   powerUpDescription: 
   model: {fileID: 1261581743646426, guid: a959df6582e8c4e49bcff93573c8797d, type: 3}
+  modelScaleMultiplier: 100

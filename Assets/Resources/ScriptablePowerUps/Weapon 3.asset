@@ -15,3 +15,4 @@ MonoBehaviour:
   powerUpName: Weapon 3
   powerUpDescription: 
   model: {fileID: 1544231762631824, guid: 5b62b2e0e905e474ea019c93547ed49a, type: 3}
+  modelScaleMultiplier: 100

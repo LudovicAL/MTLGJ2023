@@ -15,3 +15,4 @@ MonoBehaviour:
   powerUpName: Engine 1
   powerUpDescription: A bigger and badder engine.
   model: {fileID: 0}
+  modelScaleMultiplier: 100

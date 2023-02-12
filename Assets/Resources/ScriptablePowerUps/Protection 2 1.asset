@@ -15,3 +15,4 @@ MonoBehaviour:
   powerUpName: Protection 2 1
   powerUpDescription: 
   model: {fileID: 1437538933801114, guid: 559c452643b09dd4795a6496246cef29, type: 3}
+  modelScaleMultiplier: 100

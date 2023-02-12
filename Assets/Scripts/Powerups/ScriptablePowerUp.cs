@@ -6,4 +6,5 @@ public class ScriptablePowerUp : ScriptableObject {
     [Multiline(3)]
     public string powerUpDescription;
     public GameObject model;
+    public float modelScaleMultiplier;
 }

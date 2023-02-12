@@ -15,3 +15,4 @@ MonoBehaviour:
   powerUpName: Roof attachments 2
   powerUpDescription: 
   model: {fileID: 1180268239970724, guid: 18b7cb21f91515544a3399e7052280a5, type: 3}
+  modelScaleMultiplier: 100

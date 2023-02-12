@@ -15,3 +15,4 @@ MonoBehaviour:
   powerUpName: Exhaust pipe 1
   powerUpDescription: An exhaust pipe for all your planet obliteration needs.
   model: {fileID: 1336035630565226, guid: a16c6c430439a1746b99a1018e5d14fa, type: 3}
+  modelScaleMultiplier: 100

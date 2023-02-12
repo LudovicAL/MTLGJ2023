@@ -15,3 +15,4 @@ MonoBehaviour:
   powerUpName: Projector 1
   powerUpDescription: 
   model: {fileID: 1610322969929134, guid: 691324df32cedb54faa2701c23885316, type: 3}
+  modelScaleMultiplier: 100

@@ -15,3 +15,4 @@ MonoBehaviour:
   powerUpName: Bullbar 1
   powerUpDescription: A standard civilian-use bullbar.
   model: {fileID: 1643331611251666, guid: 75457605913eec34db77274035ccdabf, type: 3}
+  modelScaleMultiplier: 100

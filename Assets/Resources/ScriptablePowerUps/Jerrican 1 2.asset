@@ -15,3 +15,4 @@ MonoBehaviour:
   powerUpName: Jerrican 1 2
   powerUpDescription: 
   model: {fileID: 1616875397197178, guid: 8954335f9b079674eb9abf53a91888fd, type: 3}
+  modelScaleMultiplier: 100

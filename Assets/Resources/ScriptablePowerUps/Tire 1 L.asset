@@ -15,3 +15,4 @@ MonoBehaviour:
   powerUpName: Tire 1 L
   powerUpDescription: 
   model: {fileID: 1584323937723070, guid: 316ec9cd7016bb0489fccf6e2c09f3b4, type: 3}
+  modelScaleMultiplier: 100
