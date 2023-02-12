@@ -13,7 +13,11 @@ public abstract class PowerUp: MonoBehaviour
     public GameObject[] models;
 
     public virtual void Acquire()
-    {
+    {        
+        foreach (var model in models)
+        {
+            model.SetActive(true);
+        }
         OnAcquire?.Invoke(this);
     }
 

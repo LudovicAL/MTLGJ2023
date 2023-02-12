@@ -21,6 +21,7 @@ namespace AI.ZombieStateMachine
         public void OnEnter()
         {
             PlayerData.Instance.Xp.Add(_zombieController.xpValue);
+            PlayerData.Instance.ZombiesKilled.Add(1);
             ExecuteCollision();
         }
 
