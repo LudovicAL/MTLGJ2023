@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
-public class UIController : MonoBehaviour
+public class UIDebugger : MonoBehaviour
 {
     public TMP_Text fuelDisplay;
     public TMP_Text hpDisplay;

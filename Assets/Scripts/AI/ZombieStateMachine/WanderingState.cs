@@ -20,7 +20,7 @@ namespace AI.ZombieStateMachine
         public void OnEnter()
         {
             _zombieController.animator.SetBool("isIdle", true);
-            _playerTransform = GameManager.Instance.player.transform;
+            _playerTransform = PlayerData.Instance.playerVehicle.transform;
             _zombieController.locomotionRigidbody.isKinematic = true;
             
             Vector3 zombiePosition = _zombieController.transform.position;
@@ -52,7 +52,7 @@ namespace AI.ZombieStateMachine
                 Vector3 direction = targetPosition - zombiePosition;
                 if (Helpers.HasLineOfSight(zombiePosition, direction, "Player", 100)) // arbitrary distance
                 {
-                    _zombieController.target = GameManager.Instance.player;
+                    _zombieController.target = PlayerData.Instance.playerVehicle;
                 }
             }
         }

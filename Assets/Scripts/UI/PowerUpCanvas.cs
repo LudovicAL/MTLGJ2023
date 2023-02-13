@@ -39,10 +39,10 @@ public class PowerUpCanvas : Singleton<PowerUpCanvas> {
         List<PowerUp> offeredPowerUps = PowerUpsManager.Instance.GetRandomPowerUps(3);
         if (offeredPowerUps.Count == 0) {
             Debug.Log("There are no more powerups for this vehicule");
+            ReturnToStartedGameState();
             return;
         }
 
-        //TODO: investigate why we destroy stuff.
         foreach (Transform transform in panelHorizontalLayout) {
             Destroy(transform.gameObject);
         }
@@ -71,18 +71,16 @@ public class PowerUpCanvas : Singleton<PowerUpCanvas> {
         lastTweenId = TweenManager.instance.TweenScale(panelPowerUpTransform, TweenManager.instance.tweenZoomInDefault, null);
         panelPowerUpTransform.localScale = Vector3.zero;
         panelPowerUpTransform.gameObject.SetActive(true);
-        Time.timeScale = 0;
         
     }
 
     private void ResumeGame() {
         TweenManager.instance.StopTween(lastTweenId);
-        lastTweenId = TweenManager.instance.TweenScale(panelPowerUpTransform, TweenManager.instance.tweenZoomOutDefault, DeactivatePanelPowerUps);
-        Time.timeScale = 1;
+        lastTweenId = TweenManager.instance.TweenScale(panelPowerUpTransform, TweenManager.instance.tweenZoomOutDefault, ReturnToStartedGameState);
     }
 
-    public void DeactivatePanelPowerUps() {
-        panelPowerUpTransform.gameObject.SetActive(false);
+    public void ReturnToStartedGameState() {
+        GameManager.Instance.RequestGameStateChange(GameState.Started);
     }
 }
 
@@ -93,6 +91,7 @@ class PowerUpsCanvasEditor : Editor {
         if (GUILayout.Button("GetPowerUpsOffer")) {
             PowerUpCanvas.instance.OfferPowerUps();
         }
+        DrawDefaultInspector();
     }
 }
 #endif
