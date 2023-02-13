@@ -55,6 +55,7 @@ public class MeshRendererTest : MonoBehaviour
                 z.position = transform.position + new Vector3(xPos, 0.0f, yPos) + startingOffset;
                 z.rotation = transform.rotation;
                 z.acceleration = Vector3.zero;
+                z.destination = z.position;
                 m_ZombieBoids.Add(z);
             }
         }
@@ -126,7 +127,7 @@ public class MeshRendererTest : MonoBehaviour
 
         Vector3 zombieHeightOffset = new Vector3(0.0f, 2.5f, 0.0f);
 
-        NavFlow.Instance.UpdateListOfZombies(m_ZombieBoids);
+        NavFlow.Instance.UpdateListOfZombies2(m_ZombieBoids);
 
         foreach (ZombieBoidInfo zombidBoid in m_ZombieBoids)
         {
@@ -139,7 +140,7 @@ public class MeshRendererTest : MonoBehaviour
                 //    zombidBoid.acceleration = zombidBoid.acceleration.normalized * zombieMaxAcceleration;
                 //}
 
-                //zombidBoid.acceleration = (zombidBoid.destination - zombidBoid.position) * zombieMaxAcceleration;
+                zombidBoid.acceleration = (zombidBoid.destination - zombidBoid.position) * zombieMaxAcceleration;
 
                 zombidBoid.velocity += zombidBoid.acceleration * Time.deltaTime;
                 if (zombidBoid.velocity.magnitude > zombieMaxSpeed)

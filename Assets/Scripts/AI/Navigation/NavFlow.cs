@@ -101,12 +101,52 @@ public class NavFlow : Singleton<NavFlow>
         return wantedPos;
     }
     
-    // how to call NavFlow.Instance.UpdateListOfZombies
     public void UpdateListOfZombies(List<ZombieBoidInfo> zombies)
     {
         foreach (ZombieBoidInfo info in zombies)
         {
             info.destination = FindBestPosition(info.position);
+        }
+    }
+    
+    public Vector3 FindBestPosition(Vector3 querierPos, Vector3 currentDestination)
+    {
+        // early out, maintain previous destination
+        Vector3 querierToDestination = currentDestination - querierPos;
+        if (querierToDestination.sqrMagnitude > 0.5f)
+            return currentDestination;
+        
+        NavFlowNode closestToQuerier = null;
+        float closestSqrDist = float.MaxValue;
+        
+        // could optimize with spatial partition
+        foreach (NavFlowNode node in nodes)
+        {
+            Vector3 candidateNodePos = node.transform.position;
+            float sqrDist = (querierPos - candidateNodePos).sqrMagnitude;
+
+            if (sqrDist < closestSqrDist)
+            {
+                closestSqrDist = sqrDist;
+                closestToQuerier = node;
+            }
+        }
+
+        NavFlowNode wantedNode = closestToQuerier;
+        if (closestToQuerier.IsPositionInNode(querierPos))
+        {
+            wantedNode = closestToQuerier.FindBestNeighbour();
+        }
+
+        Vector3 wantedPos = wantedNode.GetRandomPositionInNode();
+        return wantedPos;
+    }
+    
+    public void UpdateListOfZombies2(List<ZombieBoidInfo> zombies)
+    {
+        foreach (ZombieBoidInfo info in zombies)
+        {
+            info.destination = FindBestPosition(info.position, info.destination);
         }
     }
 }

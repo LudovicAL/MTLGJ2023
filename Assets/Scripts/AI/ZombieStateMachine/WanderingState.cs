@@ -50,7 +50,7 @@ namespace AI.ZombieStateMachine
             {
                 Vector3 targetPosition = _playerTransform.position;
                 Vector3 direction = targetPosition - zombiePosition;
-                if (Helpers.HasLineOfSight(zombiePosition, direction, "Player", 100)) // arbitrary distance
+                if (Helpers.HasLineOfSight(zombiePosition, direction, "Player", 60)) // arbitrary distance
                 {
                     _zombieController.target = PlayerData.Instance.playerVehicle;
                 }
