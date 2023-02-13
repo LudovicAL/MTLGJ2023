@@ -1,6 +1,10 @@
 using System;
+using System.Text;
 using UnityEngine;
 using UnityEngine.Events;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class PlayerData : Singleton<PlayerData> {
     
@@ -23,3 +27,21 @@ public class PlayerData : Singleton<PlayerData> {
         playerVehicleChanged.Invoke(go);
     }
 }
+
+#if UNITY_EDITOR
+[CustomEditor(typeof(PlayerData))]
+public class PlayerDataEditor : Editor {
+    public override void OnInspectorGUI() {
+        var playerData = (PlayerData)target;
+        if (playerData == null) {
+            return;
+        }
+
+        if (GUILayout.Button("Kill the player")) {
+            PlayerData.Instance.Hp.Add(-PlayerData.Instance.Hp.Current);
+        }
+
+        DrawDefaultInspector();
+    }
+}
+#endif
