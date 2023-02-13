@@ -40,7 +40,7 @@ public class NavFlow : Singleton<NavFlow>
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.Instance.currentState != GameState.Started) {
+        if (GameManaging.Instance.currentState != GameState.Started) {
             return;
         }
         if (refreshTimer > 0) // for perf, no need to do this every frame

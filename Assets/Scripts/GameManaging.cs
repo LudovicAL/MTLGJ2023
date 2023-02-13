@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class GameManager : Singleton<GameManager> {
+public class GameManaging : Singleton<GameManaging> {
 
     public UnityEvent gameStateChangedEvent { get; private set; } = new UnityEvent();
 

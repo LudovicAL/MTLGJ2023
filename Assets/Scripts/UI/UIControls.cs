@@ -27,16 +27,17 @@ public class UIControls : Singleton<UIControls> {
     // Start is called before the first frame update
     void Start() {
         PlayerInputConveyer.Instance.playerInput.actions["Pause"].started += PauseGame;
-        GameManager.Instance.gameStateChangedEvent.AddListener(GameStateChanged);
         GameStateChanged();
     }
 
     private void OnEnable() {
         PlayerData.Instance.Hp.OnCurrentChanged.AddListener(HpChanged);
+        GameManaging.Instance.gameStateChangedEvent.AddListener(GameStateChanged);
     }
 
     private void OnDisable() {
         PlayerData.Instance.Hp.OnCurrentChanged.RemoveListener(HpChanged);
+        GameManaging.Instance.gameStateChangedEvent.RemoveListener(GameStateChanged);
     }
 
 
@@ -46,7 +47,7 @@ public class UIControls : Singleton<UIControls> {
     }
 
     private void GameStateChanged() {
-        switch(GameManager.Instance.currentState) {
+        switch(GameManaging.Instance.currentState) {
             case GameState.Menu:
                 ActivatePanel("Panel Menu");
                 break;
@@ -99,7 +100,7 @@ public class UIControls : Singleton<UIControls> {
 
     private void StartGame(GameObject chosenVehiclePrefab) {
         VehicleSpawner.Instance.SpawnVehicle(chosenVehiclePrefab);
-        GameManager.Instance.RequestGameStateChange(GameState.Starting);
+        GameManaging.Instance.RequestGameStateChange(GameState.Starting);
     }
 
     private void ActivatePanel(string panelName) {
@@ -109,16 +110,16 @@ public class UIControls : Singleton<UIControls> {
     }
 
     private void PauseGame(InputAction.CallbackContext callbackContext) {
-        if (GameManager.Instance.currentState == GameState.Started) {
-            GameManager.Instance.RequestGameStateChange(GameState.Paused);
-        } else if (GameManager.Instance.currentState == GameState.Paused) {
-            GameManager.Instance.RequestGameStateChange(GameState.Started);
+        if (GameManaging.Instance.currentState == GameState.Started) {
+            GameManaging.Instance.RequestGameStateChange(GameState.Paused);
+        } else if (GameManaging.Instance.currentState == GameState.Paused) {
+            GameManaging.Instance.RequestGameStateChange(GameState.Started);
         }
     }
 
     private void HpChanged(int newHp) {
-        if (newHp <= 0 && GameManager.Instance.currentState != GameState.Ended) {
-            GameManager.Instance.RequestGameStateChange(GameState.Ended);
+        if (newHp <= 0 && GameManaging.Instance.currentState != GameState.Ended) {
+            GameManaging.Instance.RequestGameStateChange(GameState.Ended);
         }
     }
 }

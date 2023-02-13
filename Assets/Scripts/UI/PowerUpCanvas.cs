@@ -80,7 +80,7 @@ public class PowerUpCanvas : Singleton<PowerUpCanvas> {
     }
 
     public void ReturnToStartedGameState() {
-        GameManager.Instance.RequestGameStateChange(GameState.Started);
+        GameManaging.Instance.RequestGameStateChange(GameState.Started);
     }
 }
 

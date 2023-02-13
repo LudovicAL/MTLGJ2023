@@ -39,7 +39,7 @@ public class StartingCanvas : MonoBehaviour {
             yield return null;
         }
         if (id == countDownId) {
-            GameManager.Instance.RequestGameStateChange(GameState.Started);
+            GameManaging.Instance.RequestGameStateChange(GameState.Started);
         }
     }
 

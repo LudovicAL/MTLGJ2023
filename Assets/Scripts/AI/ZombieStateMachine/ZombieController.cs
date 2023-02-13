@@ -60,7 +60,7 @@ namespace AI.ZombieStateMachine
             StateMachine.SetState(standby);
             
             void At(IState to, IState from, Func<bool> condition) => StateMachine.AddTransition(to, from, condition);
-            Func<bool> HasGameStarted() => () => GameManager.Instance.currentState == GameState.Started;
+            Func<bool> HasGameStarted() => () => GameManaging.Instance.currentState == GameState.Started;
             Func<bool> HasTarget() => () => target != null;//Needs to be changed based on lod
             Func<bool> CollisionWithTarget() => () => isColliding || forceRagdoll;
             Func<bool> HasNoTarget() => () => target == null; //Needs to be changed based on lod

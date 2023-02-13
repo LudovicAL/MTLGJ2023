@@ -28,7 +28,8 @@ public class EndedCanvas : Singleton<EndedCanvas> {
     }
 
     public void ResetGame() {
-        if (GameManager.Instance.currentState == GameState.Ended) {
+        if (GameManaging.Instance.currentState == GameState.Ended) {
+            //TODO: ALL SINGLETON ARE NOT CORRECTLY DESTROYED AT SCENELOAD. THIS AS TO BE CORRECTED.
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }

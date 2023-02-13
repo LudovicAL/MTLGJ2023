@@ -45,7 +45,7 @@ public class CameraPlayerVisibilityHandler : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        if (GameManager.Instance.currentState != GameState.Started) {
+        if (GameManaging.Instance.currentState != GameState.Started) {
             return;
         }
         Vector3 cameraPos = cam.transform.position;
