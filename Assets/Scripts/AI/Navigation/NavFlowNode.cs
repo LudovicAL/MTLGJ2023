@@ -91,8 +91,8 @@ public class NavFlowNode : MonoBehaviour
         Vector3 nodePos = transform.position;
         Vector3 nodeScale = transform.localScale;
         float randomX = Random.Range(0, nodeScale.x);
-        float randomY = Random.Range(0, nodeScale.y);
-        Vector3 wantedPos = nodePos + new Vector3(randomX - nodeScale.x/2f, randomY - nodeScale.y/2f);
+        float randomZ = Random.Range(0, nodeScale.z);
+        Vector3 wantedPos = nodePos + new Vector3(randomX - nodeScale.x/2f, 0f,randomZ - nodeScale.z/2f);
         return wantedPos;
     }
     
