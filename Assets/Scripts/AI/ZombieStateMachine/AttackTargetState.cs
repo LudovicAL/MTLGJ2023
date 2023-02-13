@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 namespace AI.ZombieStateMachine
@@ -28,11 +29,16 @@ namespace AI.ZombieStateMachine
 
         public void Tick()
         {
-            if (Vector3.Distance(_zombieController.target.transform.position, _zombieController.transform.position) >
-                _zombieController.minDistanceToTarget + distanceOffset)
-            {
-                _zombieController.target = null;
-            }
+            Vector3 zombiePosition = _zombieController.transform.position;
+            Vector3 targetPosition = _zombieController.target.transform.position;
+            Vector3 toTarget = targetPosition - zombiePosition;
+            toTarget.y = 0f;
+            Vector3 toTargetNorm = toTarget.normalized;
+            
+            _zombieController.transform.rotation = Quaternion.Slerp(_zombieController.transform.rotation,
+                Quaternion.LookRotation(toTargetNorm), 0.1f);
+            
+            _zombieController.locomotionRigidbody.AddForce(toTargetNorm * _zombieController.force);
         }
 
         public void FixedTick()

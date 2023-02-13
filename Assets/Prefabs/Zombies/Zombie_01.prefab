@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 987057838}
   - component: {fileID: 987057837}
   - component: {fileID: 987057836}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Bip001 L Calf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -528,7 +528,7 @@ GameObject:
   - component: {fileID: 986975868}
   - component: {fileID: 986975867}
   - component: {fileID: 986975866}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Bip001 R Thigh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -659,7 +659,7 @@ GameObject:
   - component: {fileID: 987011918}
   - component: {fileID: 987011916}
   - component: {fileID: 987011917}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Bip001 L Thigh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -790,7 +790,7 @@ GameObject:
   - component: {fileID: 987022820}
   - component: {fileID: 987022818}
   - component: {fileID: 987022819}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Bip001 L UpperArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -921,7 +921,7 @@ GameObject:
   - component: {fileID: 987007578}
   - component: {fileID: 987007577}
   - component: {fileID: 987007576}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Bip001 L Forearm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1052,7 +1052,7 @@ GameObject:
   - component: {fileID: 986982848}
   - component: {fileID: 986982847}
   - component: {fileID: 986982846}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Bip001 R Calf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1245,7 +1245,7 @@ GameObject:
   - component: {fileID: 1760232644687045816}
   - component: {fileID: 987038857}
   - component: {fileID: 987038856}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Bip001 Pelvis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1330,7 +1330,7 @@ GameObject:
   - component: {fileID: 987051890}
   - component: {fileID: 987051888}
   - component: {fileID: 987051889}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Bip001 R UpperArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1556,7 +1556,7 @@ GameObject:
   - component: {fileID: 986976470}
   - component: {fileID: 986976469}
   - component: {fileID: 986976468}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Bip001 R Forearm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1843,7 +1843,7 @@ GameObject:
   - component: {fileID: 987026550}
   - component: {fileID: 987026548}
   - component: {fileID: 987026549}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Bip001 Spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2070,7 +2070,7 @@ GameObject:
   - component: {fileID: 986976578}
   - component: {fileID: 986976577}
   - component: {fileID: 986976576}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Bip001 Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2300,11 +2300,13 @@ MonoBehaviour:
   dissolveDelay: 100
   xpValue: 1
   forceRagdoll: 0
+  wanderingSpeed: 5
   animator: {fileID: 0}
   locomotionRigidbody: {fileID: 0}
   locomotionCollider: {fileID: 0}
   zombieMaterialController: {fileID: 0}
   isColliding: 0
+  wantedPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &8266962596457092161
 MonoBehaviour:
   m_ObjectHideFlags: 0

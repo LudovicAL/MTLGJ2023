@@ -48,7 +48,7 @@ namespace AI.ZombieStateMachine
             At(standby, wandering, HasGameStarted());
             At(wandering, aggressive, HasTarget());
             At(aggressive, wandering, HasNoTarget());
-            At(attackTarget, wandering, HasNoTarget());
+            At(attackTarget, aggressive, IsFarFromTarget());
             At(aggressive, attackTarget, IsCloseToTarget());
             At(wandering, attackTarget, IsCloseToTarget());
             At(ragdoll, cleanup, IsNotMoving());
@@ -65,6 +65,7 @@ namespace AI.ZombieStateMachine
             Func<bool> CollisionWithTarget() => () => isColliding || forceRagdoll;
             Func<bool> HasNoTarget() => () => target == null; //Needs to be changed based on lod
             Func<bool> IsCloseToTarget() => () => target != null && Vector3.Distance(target.transform.position, transform.position) <= minDistanceToTarget;
+            Func<bool> IsFarFromTarget() => () => target != null && Vector3.Distance(target.transform.position, transform.position) > minDistanceToTarget;
             Func<bool> IsNotMoving() => () => ragdollRigidbody.velocity.magnitude <= 0.5f;
         }
 
