@@ -9,6 +9,8 @@ public class PlayerData : Singleton<PlayerData> {
     [Tooltip("Minimum velocity magnitude required to kill a zombie")]
     public float murderSpeed = 10.0f;
 
+    public bool envCollisionDoDamage = true;
+    
     public PlayerStat ZombiesKilled = new();
     public PlayerStat Hp = new (10);
     public PlayerStat Xp = new ();

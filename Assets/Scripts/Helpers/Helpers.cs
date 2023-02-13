@@ -8,7 +8,7 @@ public static class Helpers
     public static bool HasLineOfSight(Vector3 origin, Vector3 direction, string targetTag, float maxDistance = Mathf.Infinity)
     {
         bool hasHit = Physics.Raycast(origin,
-            direction, out RaycastHit hit, maxDistance);
+            direction, out RaycastHit hit, maxDistance, ((1 << 7) | (1 << 3))); // 3 is player, 7 is building
         
         //Debug.DrawRay(origin, direction * 1000, Color.yellow);
         

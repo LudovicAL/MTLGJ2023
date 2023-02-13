@@ -435,7 +435,7 @@ GameObject:
   - component: {fileID: 4358762427772773900}
   - component: {fileID: 1842167462}
   - component: {fileID: -2541474358211508023}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Buggy
   m_TagString: Player
   m_Icon: {fileID: 0}

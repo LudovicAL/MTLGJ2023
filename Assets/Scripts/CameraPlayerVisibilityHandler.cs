@@ -25,15 +25,22 @@ public class CameraPlayerVisibilityHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = FindObjectOfType<PlayerController>().gameObject;
+        PlayerData.Instance.playerVehicleChanged.AddListener(PlayerVehicleChanged);
         cam = Camera.main;
 
         layerMask = 1 << 7;
     }
 
+    private void PlayerVehicleChanged(GameObject newVehicle) {
+        player = newVehicle;
+    }
+
     // Update is called once per frame
     void LateUpdate()
     {
+        if (GameManager.Instance.currentState != GameState.Started) {
+            return;
+        }
         Vector3 cameraPos = cam.transform.position;
         Vector3 playerPos = player.transform.position;
         Vector3 playerToCamera = cameraPos - playerPos;
@@ -52,6 +59,7 @@ public class CameraPlayerVisibilityHandler : MonoBehaviour
             if (!hiddenBuildings.ContainsKey(objectInstanceID))
             {
                 MeshRenderer buildingRenderer = hitObject.GetComponent<MeshRenderer>();
+                if (buildingRenderer == null) continue;
 
                 hiddenBuildings.Add(objectInstanceID, new BuildingInfo
                 {

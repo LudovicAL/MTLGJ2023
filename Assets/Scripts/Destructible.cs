@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -5,26 +6,32 @@ public class Destructible : MonoBehaviour
 {
     [SerializeField] private float impactMultiplier = 0.5f;
     
-    private GameObject playerObject;
-    private Rigidbody carRigidbody;
-    private Rigidbody destructibleRigidBody;
+    private Rigidbody _carRigidbody;
+    private Rigidbody _destructibleRigidBody;
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        playerObject = FindObjectOfType<PlayerController>().gameObject;
-        carRigidbody = playerObject.GetComponent<Rigidbody>();
-        destructibleRigidBody = GetComponent<Rigidbody>();
-    }
+    private void Awake() => _destructibleRigidBody = GetComponent<Rigidbody>();
 
-    private void OnCollisionEnter(Collision other)
+    private void OnEnable() => PlayerData.Instance.playerVehicleChanged.AddListener(Initialize);
+
+    private void OnDisable()
     {
-        if (other.gameObject != playerObject)
+        if (PlayerData.Instance != null)
+        {
+            PlayerData.Instance.playerVehicleChanged.RemoveListener(Initialize);
+        }
+    } 
+
+    private void Initialize(GameObject go) => _carRigidbody = go.GetComponent<Rigidbody>();
+
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (!collision.transform.CompareTag("Player"))
             return;
 
-        Vector3 carVelocity = carRigidbody.velocity;
+        Vector3 carVelocity = _carRigidbody.velocity;
         Vector3 force = new Vector3(carVelocity.x, Random.Range(5, 10), carVelocity.z);
         force *= impactMultiplier;
-        destructibleRigidBody.AddForceAtPosition(force, other.GetContact(0).point, ForceMode.Impulse);
+        _destructibleRigidBody.AddForceAtPosition(force, collision.GetContact(0).point, ForceMode.Impulse);
     }
 }

@@ -1,29 +1,29 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class GameManager : Singleton<GameManager>
-{
-    public GameObject player;
-    public GameState currentState;
+public class GameManager : Singleton<GameManager> {
 
-    private void Awake()
-    {
+    public UnityEvent gameStateChangedEvent { get; private set; } = new UnityEvent();
+
+    public GameState currentState { get; private set; } = GameState.Menu;
+
+    private void Awake() {
         Application.targetFrameRate = 60;
     }
 
-    private void OnEnable()
-    {
-        //TODO: should probably listen to the player spawner but we dont have a player spawner yet.
-        player = GameObject.FindWithTag("Player");
-
-        //TODO: this is also bad. This whole script is bad atm. The Zombie state machine needs to know the game state tho.
-        currentState = GameState.Started;
+    public void RequestGameStateChange(GameState newGameState) {
+        currentState = newGameState;
+        Time.timeScale = (newGameState == GameState.Started || newGameState == GameState.Starting) ? 1 : 0;
+        gameStateChangedEvent.Invoke();
     }
 }
 
 public enum GameState {
     Menu,
+    Starting,
     Started,
     Paused,
+    PowerUp,
     Ended
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,9 +10,9 @@ public class NavFlow : Singleton<NavFlow>
     private float refreshTimer;
     
     // Start is called before the first frame update
-    void Start()
-    {
-        player = FindObjectOfType<PlayerController>().transform;
+    void Start() {
+        PlayerData.Instance.playerVehicleChanged.AddListener(PlayerVehicleChanged);
+
         nodes = GetComponentsInChildren<NavFlowNode>();
 
         for (int i = 0; i < nodes.Length-1; ++i)
@@ -24,9 +25,16 @@ public class NavFlow : Singleton<NavFlow>
         }
     }
 
+    private void PlayerVehicleChanged(GameObject newPlayerVehicle) {
+        player = newPlayerVehicle.transform;
+    }
+
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.Instance.currentState != GameState.Started) {
+            return;
+        }
         if (refreshTimer > 0) // for perf, no need to do this every frame
         {
             refreshTimer -= Time.deltaTime;
