@@ -11395,7 +11395,7 @@ GameObject:
   - component: {fileID: 3400266785909192937}
   - component: {fileID: -5828278003154289302}
   - component: {fileID: 3078741745148664582}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Coupe 3
   m_TagString: Player
   m_Icon: {fileID: 0}

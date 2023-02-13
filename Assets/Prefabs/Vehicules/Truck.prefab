@@ -6405,7 +6405,7 @@ GameObject:
   - component: {fileID: 3935742334595799317}
   - component: {fileID: -8010173617194683402}
   - component: {fileID: 1105181706743852548}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Truck
   m_TagString: Player
   m_Icon: {fileID: 0}
