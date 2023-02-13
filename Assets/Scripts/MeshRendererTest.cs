@@ -21,7 +21,7 @@ public class MeshRendererTest : MonoBehaviour
     private Transform playerCar;
 
     private float zombieMaxAcceleration = 1.0f;
-    private float zombieMaxSpeed = 0.0f;
+    private float zombieMaxSpeed = 2.5f;
     private float zombieAccelerationRandomRange = 0.01f;
 
     private int RealZombieLimit = 50;
@@ -34,18 +34,15 @@ public class MeshRendererTest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerCar = GameObject.FindWithTag("Player").transform;
+        float zombieOffset = 2.0f;
 
-        float zombieOffset = 0.5f;
-        float zombieHeight = 1.0f;
-
-        int numberOfX = 25;
-        int numberOfY = 25;
+        int numberOfX = 5;
+        int numberOfY = 5;
 
         float halfWidth = ((float)numberOfX / 2.0f) * zombieOffset;
         float halfHeight = ((float)numberOfY / 2.0f) * zombieOffset;
 
-        Vector3 startingOffset = playerCar.forward * 50.0f;
+        Vector3 startingOffset = transform.forward * 50.0f;
 
         for (int x = 0; x < numberOfX; ++x)
         {
@@ -55,7 +52,7 @@ public class MeshRendererTest : MonoBehaviour
                 float yPos = (y * zombieOffset);
 
                 ZombieBoidInfo z = new ZombieBoidInfo();
-                z.position = transform.position + new Vector3(xPos, zombieHeight, yPos) + startingOffset;
+                z.position = transform.position + new Vector3(xPos, 0.0f, yPos) + startingOffset;
                 z.rotation = transform.rotation;
                 z.acceleration = Vector3.zero;
                 m_ZombieBoids.Add(z);
@@ -100,6 +97,16 @@ public class MeshRendererTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (playerCar == null)
+        {
+            GameObject carObject = GameObject.FindWithTag("Player");
+            if (carObject != null)
+            {
+                playerCar = carObject.transform;
+            }
+            return;
+        }
+
         if (pooledZombiesSpawned < RealZombieLimit)
         {
             GameObject zombieSpawn = GameObject.Instantiate(zombie, transform);
@@ -115,16 +122,20 @@ public class MeshRendererTest : MonoBehaviour
 
         Vector3 zombieHeightOffset = new Vector3(0.0f, 2.5f, 0.0f);
 
+        NavFlow.Instance.UpdateListOfZombies(m_ZombieBoids);
+
         foreach (ZombieBoidInfo zombidBoid in m_ZombieBoids)
         {
             if (!zombidBoid.zombieDead && zombidBoid.realZombieObject == null)
             {
-                zombidBoid.acceleration += new Vector3(Random.Range(-zombieAccelerationRandomRange, zombieAccelerationRandomRange), 0.0f, Random.Range(-zombieAccelerationRandomRange, zombieAccelerationRandomRange));
+                //zombidBoid.acceleration += new Vector3(Random.Range(-zombieAccelerationRandomRange, zombieAccelerationRandomRange), 0.0f, Random.Range(-zombieAccelerationRandomRange, zombieAccelerationRandomRange));
 
-                if (zombidBoid.acceleration.magnitude > zombieMaxAcceleration)
-                {
-                    zombidBoid.acceleration = zombidBoid.acceleration.normalized * zombieMaxAcceleration;
-                }
+                //if (zombidBoid.acceleration.magnitude > zombieMaxAcceleration)
+                //{
+                //    zombidBoid.acceleration = zombidBoid.acceleration.normalized * zombieMaxAcceleration;
+                //}
+
+                zombidBoid.acceleration = (zombidBoid.destination - zombidBoid.position) * zombieMaxAcceleration;
 
                 zombidBoid.velocity += zombidBoid.acceleration * Time.deltaTime;
                 if (zombidBoid.velocity.magnitude > zombieMaxSpeed)
@@ -266,16 +277,17 @@ public class MeshRendererTest : MonoBehaviour
             }
         }
 
+        Vector3 zombieHeight = new Vector3(0.0f, 2.0f, 0.0f);
         foreach (ZombieBoidInfo zombidBoid in m_ZombieBoids)
         {
             if (zombidBoid.realZombieObject == null)
             {
-                Matrix4x4 m = Matrix4x4.TRS(zombidBoid.position, zombidBoid.rotation, Vector3.one * 2.0f);
+                Matrix4x4 m = Matrix4x4.TRS(zombidBoid.position + zombieHeight, zombidBoid.rotation, Vector3.one * 2.0f);
                 Graphics.DrawMesh(meshToDraw, m, fakeZombieMaterial, 0);
             }
             else
             {
-                Matrix4x4 m = Matrix4x4.TRS(zombidBoid.position, zombidBoid.rotation, Vector3.one * 2.0f);
+                Matrix4x4 m = Matrix4x4.TRS(zombidBoid.position + zombieHeight, zombidBoid.rotation, Vector3.one * 1.0f);
                 Graphics.DrawMesh(meshToDraw, m, fakeSpawnedZombieMaterial, 0);
             }
         }

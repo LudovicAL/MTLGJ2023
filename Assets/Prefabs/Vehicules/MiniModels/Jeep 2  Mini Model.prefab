@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: -5802990150088178083}
   m_Layer: 5
   m_Name: Jeep 2  Mini Model
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
