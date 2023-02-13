@@ -1,70 +1,123 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class MeshRendererTest : MonoBehaviour
 {
+    public GameObject zombie;
+
     public Mesh meshToDraw;
     public Material materialToDraw;
     public Material fakeZombieMaterial;
+    public Material fakeSpawnedZombieMaterial;
     List<ZombieBoidInfo> m_ZombieBoids = new List<ZombieBoidInfo>();
     List<ZombieBoidInfo> m_PotentialRealZombies = new List<ZombieBoidInfo>();
     List<ZombieBoidInfo> m_TriagedPotentialRealZombies = new List<ZombieBoidInfo>();
+    List<ZombieBoidInfo> m_NotRealZombies = new List<ZombieBoidInfo>();
 
-    List<ZombieBoidInfo> m_PreviousFrameRealZombies = new List<ZombieBoidInfo>();
-    List<ZombieBoidInfo> m_CurrentFrameRealZombies = new List<ZombieBoidInfo>();
+    public List<GameObject> m_PooledZombies = new List<GameObject>();
 
     private Transform playerCar;
+
+    private float zombieMaxAcceleration = 1.0f;
+    private float zombieMaxSpeed = 0.0f;
+    private float zombieAccelerationRandomRange = 0.01f;
+
+    private int RealZombieLimit = 50;
+    private float RealZombieRadius = 10;//40;
+
+    private float zombieDistanceBuffer = 3.0f;
+
+    private int pooledZombiesSpawned = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         playerCar = GameObject.FindWithTag("Player").transform;
 
-        float halfWidth = 75.0f;
-        float halfHeight = 75.0f;
+        float zombieOffset = 0.5f;
         float zombieHeight = 1.0f;
 
-        int numberOfX = 200;
-        int numberOfY = 200;
+        int numberOfX = 25;
+        int numberOfY = 25;
 
-        float xOffset = (2.0f * halfWidth) / (float)numberOfX;
-        float yOffset = (2.0f * halfHeight) / (float)numberOfY;
+        float halfWidth = ((float)numberOfX / 2.0f) * zombieOffset;
+        float halfHeight = ((float)numberOfY / 2.0f) * zombieOffset;
 
-        for (int x = 0; x < 100; ++x)
+        Vector3 startingOffset = playerCar.forward * 50.0f;
+
+        for (int x = 0; x < numberOfX; ++x)
         {
-            for (int y = 0; y < 100; ++y)
+            for (int y = 0; y < numberOfY; ++y)
             {
-                float xPos = (x - halfWidth) * xOffset;
-                float yPos = (y - halfHeight) * yOffset;
+                float xPos = (x * zombieOffset);
+                float yPos = (y * zombieOffset);
 
                 ZombieBoidInfo z = new ZombieBoidInfo();
-                z.position = transform.position + new Vector3(xPos, zombieHeight, yPos);
+                z.position = transform.position + new Vector3(xPos, zombieHeight, yPos) + startingOffset;
                 z.rotation = transform.rotation;
                 z.acceleration = Vector3.zero;
                 m_ZombieBoids.Add(z);
             }
         }
+
+        /*
+        for (int x = 0; x < RealZombieLimit; ++x)
+        {
+            GameObject zombieSpawn = GameObject.Instantiate(zombie, transform);
+            AI.ZombieStateMachine.ZombieController zombieController = zombieSpawn.GetComponent<AI.ZombieStateMachine.ZombieController>();
+            //Put zombies into "sleep" mode for pooling.
+            m_PooledZombies.Add(zombieSpawn);
+        }
+        */
     }
 
-    private float zombieMaxAcceleration = 1.0f;
-    private float zombieMaxSpeed = 10.0f;
-    private float zombieAccelerationRandomRange = 0.01f;
+    public GameObject RequestPooledZombie(Vector3 position)
+    {
+        if (m_PooledZombies.Count > 0)
+        {
+            GameObject zombie = m_PooledZombies[0];
+            m_PooledZombies.RemoveAt(0);
 
-    private int RealZombieLimit = 200;
-    private float RealZombieRadius = 40;
+            zombie.transform.position = position;
+            zombie.GetComponent<AI.ZombieStateMachine.ZombieController>().locomotionRigidbody.isKinematic = false;
+
+            return zombie;
+        }
+        return null;
+    }
+
+    public void ReturnPooledZombie(GameObject zombie)
+    {
+        zombie.GetComponent<AI.ZombieStateMachine.ZombieController>().locomotionRigidbody.isKinematic = true;
+        zombie.transform.position = Vector3.down * 100.0f; //HACK
+
+        m_PooledZombies.Add(zombie);
+    }
+
 
     // Update is called once per frame
     void Update()
     {
+        if (pooledZombiesSpawned < RealZombieLimit)
+        {
+            GameObject zombieSpawn = GameObject.Instantiate(zombie, transform);
+            zombieSpawn.GetComponent<AI.ZombieStateMachine.ZombieController>().locomotionRigidbody.isKinematic = true;
+            zombieSpawn.transform.position = Vector3.down * 100.0f; //HACK
+            m_PooledZombies.Add(zombieSpawn);
+            ++pooledZombiesSpawned;
+        }
+
         m_PotentialRealZombies.Clear();
         m_TriagedPotentialRealZombies.Clear();
+        m_NotRealZombies.Clear();
+
         Vector3 zombieHeightOffset = new Vector3(0.0f, 2.5f, 0.0f);
 
         foreach (ZombieBoidInfo zombidBoid in m_ZombieBoids)
         {
-            zombidBoid.isRealZombie = false;
-            if (!zombidBoid.zombieDead)
+            if (!zombidBoid.zombieDead && zombidBoid.realZombieObject == null)
             {
                 zombidBoid.acceleration += new Vector3(Random.Range(-zombieAccelerationRandomRange, zombieAccelerationRandomRange), 0.0f, Random.Range(-zombieAccelerationRandomRange, zombieAccelerationRandomRange));
 
@@ -78,10 +131,10 @@ public class MeshRendererTest : MonoBehaviour
                 {
                     zombidBoid.velocity = zombidBoid.velocity.normalized * zombieMaxSpeed;
                 }
-            }
 
-            zombidBoid.position += zombidBoid.velocity * Time.deltaTime;
-            zombidBoid.rotation.SetLookRotation(zombidBoid.velocity);
+                zombidBoid.position += zombidBoid.velocity * Time.deltaTime;
+                zombidBoid.rotation.SetLookRotation(zombidBoid.velocity);
+            }
 
             //if ((playerCar.position - zombidBoid.position).magnitude < 2.0f)
             //{
@@ -102,6 +155,14 @@ public class MeshRendererTest : MonoBehaviour
                     m_PotentialRealZombies.Add(zombidBoid);
                 }
             }
+            else
+            {
+                if (zombidBoid.realZombieObject != null)
+                {
+                    ReturnPooledZombie(zombidBoid.realZombieObject);
+                    zombidBoid.realZombieObject = null;
+                }
+            }
         }
 
         float cutOffDistance = 999999.9f;
@@ -110,7 +171,10 @@ public class MeshRendererTest : MonoBehaviour
             foreach (ZombieBoidInfo potentialZombidBoid in m_PotentialRealZombies)
             {
                 if (potentialZombidBoid.zombieDistanceFromPlayer > cutOffDistance)
+                {
+                    m_NotRealZombies.Add(potentialZombidBoid);
                     continue;
+                }    
 
                 if (m_TriagedPotentialRealZombies.Count == 0)
                 {
@@ -122,7 +186,7 @@ public class MeshRendererTest : MonoBehaviour
                     bool zombieAdded = false;
                     foreach (ZombieBoidInfo triagedPotentialZombidBoid in m_TriagedPotentialRealZombies)
                     {
-                        if (potentialZombidBoid.zombieDistanceFromPlayer < triagedPotentialZombidBoid.zombieDistanceFromPlayer)
+                        if (potentialZombidBoid.zombieDistanceFromPlayer < (triagedPotentialZombidBoid.zombieDistanceFromPlayer + zombieDistanceBuffer))
                         {
                             m_TriagedPotentialRealZombies.Insert(index, potentialZombidBoid);
                             zombieAdded = true;
@@ -133,15 +197,23 @@ public class MeshRendererTest : MonoBehaviour
                             break;
                     }
 
-                    if (!zombieAdded && index < RealZombieLimit)
+                    if (!zombieAdded)
                     {
-                        m_TriagedPotentialRealZombies.Add(potentialZombidBoid);
+                        if (index < RealZombieLimit)
+                        {
+                            m_TriagedPotentialRealZombies.Add(potentialZombidBoid);
+                        }
+                        else
+                        {
+                            m_NotRealZombies.Add(potentialZombidBoid);
+                        }
                     }
                 }
                
 
                 if (m_TriagedPotentialRealZombies.Count > RealZombieLimit)
                 {
+                    m_NotRealZombies.Add(m_TriagedPotentialRealZombies[RealZombieLimit]);
                     m_TriagedPotentialRealZombies.RemoveAt(RealZombieLimit);
                     cutOffDistance = m_TriagedPotentialRealZombies[RealZombieLimit - 1].zombieDistanceFromPlayer;
                 }
@@ -150,28 +222,61 @@ public class MeshRendererTest : MonoBehaviour
 
             foreach (ZombieBoidInfo triagedPotentialZombidBoid in m_TriagedPotentialRealZombies)
             {
-                triagedPotentialZombidBoid.isRealZombie = true;
+                if (triagedPotentialZombidBoid.realZombieObject == null)
+                {
+                    triagedPotentialZombidBoid.realZombieObject = RequestPooledZombie(triagedPotentialZombidBoid.position);
+                    if (triagedPotentialZombidBoid.realZombieObject)
+                    {
+                        triagedPotentialZombidBoid.realZombieObject.transform.position = triagedPotentialZombidBoid.position;
+                    }
+                }
+                else
+                {
+                    //Debug.Log("Keeping my zombie!");
+                    triagedPotentialZombidBoid.position = triagedPotentialZombidBoid.realZombieObject.transform.position;
+                }
             }
         }
         else
         {
             foreach (ZombieBoidInfo potentialZombidBoid in m_PotentialRealZombies)
             {
-                potentialZombidBoid.isRealZombie = true;
+                if (potentialZombidBoid.realZombieObject == null)
+                {
+                    potentialZombidBoid.realZombieObject = RequestPooledZombie(potentialZombidBoid.position);
+                    if (potentialZombidBoid.realZombieObject)
+                    {
+                        potentialZombidBoid.realZombieObject.transform.position = potentialZombidBoid.position;
+                    }
+                }
+                else
+                {
+                    //Debug.Log("Keeping my zombie!");
+                    potentialZombidBoid.position = potentialZombidBoid.realZombieObject.transform.position;
+                }
+            }
+        }
+
+        foreach (ZombieBoidInfo zombidBoid in m_NotRealZombies)
+        {
+            if (zombidBoid.realZombieObject)
+            {
+                ReturnPooledZombie(zombidBoid.realZombieObject);
+                zombidBoid.realZombieObject = null;
             }
         }
 
         foreach (ZombieBoidInfo zombidBoid in m_ZombieBoids)
         {
-            if (zombidBoid.isRealZombie)
+            if (zombidBoid.realZombieObject == null)
             {
                 Matrix4x4 m = Matrix4x4.TRS(zombidBoid.position, zombidBoid.rotation, Vector3.one * 2.0f);
-                Graphics.DrawMesh(meshToDraw, m, materialToDraw, 0);
+                Graphics.DrawMesh(meshToDraw, m, fakeZombieMaterial, 0);
             }
             else
             {
                 Matrix4x4 m = Matrix4x4.TRS(zombidBoid.position, zombidBoid.rotation, Vector3.one * 2.0f);
-                Graphics.DrawMesh(meshToDraw, m, fakeZombieMaterial, 0);
+                Graphics.DrawMesh(meshToDraw, m, fakeSpawnedZombieMaterial, 0);
             }
         }
     }
@@ -186,5 +291,27 @@ public class ZombieBoidInfo
     public Vector3 velocity;
     public bool zombieDead = false;
     public float zombieDistanceFromPlayer = 0.0f;
-    public bool isRealZombie = false;
+    public GameObject realZombieObject;
+}
+
+[CustomEditor(typeof(MeshRendererTest))]
+public class MeshRendererTestEditor: Editor
+{
+
+    MeshRendererTest _meshRendererTest;
+
+    private void Awake()
+    {
+        _meshRendererTest = (MeshRendererTest)target;
+    }
+
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+
+        if (GUILayout.Button("Spawn zombie"))
+        {
+            _meshRendererTest.m_PooledZombies.Add(GameObject.Instantiate(_meshRendererTest.zombie, _meshRendererTest.transform));
+        }
+    }
 }
