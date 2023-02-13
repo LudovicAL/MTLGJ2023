@@ -32,7 +32,7 @@ public class PowerUpCanvas : Singleton<PowerUpCanvas> {
     }
     
     void OnDisable() {
-        PlayerLevelManager.Instance.playerLeveledUpEvent.AddListener(OfferPowerUps);
+        PlayerLevelManager.Instance.playerLeveledUpEvent.RemoveListener(OfferPowerUps);
     }
 
     public void OfferPowerUps() {

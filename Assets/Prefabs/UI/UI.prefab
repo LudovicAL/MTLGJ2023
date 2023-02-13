@@ -2570,7 +2570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd833e8d5835ee04db8e5d755a701421, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panelPowerUpTransform: {fileID: 1875312383278054206}
+  panelPowerUpTransform: {fileID: 1488122795799212504}
   panelHorizontalLayout: {fileID: 1875312383278054206}
   panelModelShowcasePrefab: {fileID: 4925092048165900596, guid: 0992404c8aeb5b14da242ca38cb7108c, type: 3}
 --- !u!1 &5363584259791034846
