@@ -24,8 +24,8 @@ public class MeshRendererTest : MonoBehaviour
     private float zombieMaxSpeed = 2.5f;
     private float zombieAccelerationRandomRange = 0.01f;
 
-    private int RealZombieLimit = 50;
-    private float RealZombieRadius = 20;//40;
+    public int RealZombieLimit = 100;
+    public float RealZombieRadius = 40;
 
     private float zombieDistanceBuffer = 3.0f;
 
@@ -139,7 +139,7 @@ public class MeshRendererTest : MonoBehaviour
                 //    zombidBoid.acceleration = zombidBoid.acceleration.normalized * zombieMaxAcceleration;
                 //}
 
-                zombidBoid.acceleration = (zombidBoid.destination - zombidBoid.position) * zombieMaxAcceleration;
+                //zombidBoid.acceleration = (zombidBoid.destination - zombidBoid.position) * zombieMaxAcceleration;
 
                 zombidBoid.velocity += zombidBoid.acceleration * Time.deltaTime;
                 if (zombidBoid.velocity.magnitude > zombieMaxSpeed)
