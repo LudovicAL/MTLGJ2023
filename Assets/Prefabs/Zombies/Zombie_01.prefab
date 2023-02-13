@@ -2294,8 +2294,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   ragdollRigidbody: {fileID: 987038856}
-  force: 500
-  jumpForce: 100
+  force: 10
+  jumpForce: 2
   minDistanceToTarget: 4
   dissolveDelay: 100
   xpValue: 1
@@ -2335,7 +2335,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1760232644686883686}
   serializedVersion: 4
-  m_Mass: 60
+  m_Mass: 1
   m_Drag: 0.33
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
