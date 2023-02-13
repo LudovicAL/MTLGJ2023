@@ -2740,7 +2740,7 @@ GameObject:
   - component: {fileID: 486602}
   - component: {fileID: 3354390}
   - component: {fileID: 2356170}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HardwareStore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3117,7 +3117,7 @@ GameObject:
   - component: {fileID: 411318}
   - component: {fileID: 3322138}
   - component: {fileID: 2358676}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Dinner01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3836,7 +3836,7 @@ GameObject:
   - component: {fileID: 3307042}
   - component: {fileID: 2384824}
   - component: {fileID: 512804927}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Dinner01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4023,7 +4023,7 @@ GameObject:
   - component: {fileID: 420072}
   - component: {fileID: 3340458}
   - component: {fileID: 2364008}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Dinner01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7453,7 +7453,7 @@ GameObject:
   - component: {fileID: 416050}
   - component: {fileID: 3316504}
   - component: {fileID: 2355798}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plaza01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9856,7 +9856,7 @@ GameObject:
   - component: {fileID: 417690}
   - component: {fileID: 3377530}
   - component: {fileID: 2346622}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Building3B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10412,7 +10412,7 @@ GameObject:
   - component: {fileID: 464918}
   - component: {fileID: 3335496}
   - component: {fileID: 2383942}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Building3I (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12134,7 +12134,7 @@ GameObject:
   - component: {fileID: 3365106}
   - component: {fileID: 2321038}
   - component: {fileID: 1091378697}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plaza01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13578,7 +13578,7 @@ GameObject:
   - component: {fileID: 412662}
   - component: {fileID: 3300828}
   - component: {fileID: 2310628}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Building3I (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16335,7 +16335,7 @@ GameObject:
   - component: {fileID: 470852}
   - component: {fileID: 3328146}
   - component: {fileID: 2377248}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Building3G (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16536,7 +16536,7 @@ GameObject:
   - component: {fileID: 433272}
   - component: {fileID: 3369160}
   - component: {fileID: 2390570}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Mart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18766,7 +18766,7 @@ GameObject:
   - component: {fileID: 463064}
   - component: {fileID: 3397306}
   - component: {fileID: 2302126}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Building3D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19983,7 +19983,7 @@ GameObject:
   - component: {fileID: 430190}
   - component: {fileID: 3359160}
   - component: {fileID: 2395926}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cafe01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22898,7 +22898,7 @@ GameObject:
   - component: {fileID: 475884}
   - component: {fileID: 3364524}
   - component: {fileID: 2323632}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Building3G (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24231,7 +24231,7 @@ GameObject:
   - component: {fileID: 493310}
   - component: {fileID: 3349038}
   - component: {fileID: 2346440}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Building3I (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24544,7 +24544,7 @@ GameObject:
   - component: {fileID: 460500}
   - component: {fileID: 3312324}
   - component: {fileID: 2337654}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Building3F
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26698,7 +26698,7 @@ GameObject:
   - component: {fileID: 431486}
   - component: {fileID: 3359586}
   - component: {fileID: 2385632}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plaza01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27813,7 +27813,7 @@ GameObject:
   - component: {fileID: 424250}
   - component: {fileID: 3335256}
   - component: {fileID: 2360878}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Building3A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31138,7 +31138,7 @@ GameObject:
   - component: {fileID: 473888}
   - component: {fileID: 3309956}
   - component: {fileID: 2310982}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bar01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34730,7 +34730,7 @@ GameObject:
   - component: {fileID: 3324814}
   - component: {fileID: 2363820}
   - component: {fileID: 1787234194}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Mart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41209,7 +41209,7 @@ GameObject:
   - component: {fileID: 445356}
   - component: {fileID: 3387604}
   - component: {fileID: 2349164}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BeerBanner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42079,7 +42079,7 @@ GameObject:
   - component: {fileID: 493448}
   - component: {fileID: 3350902}
   - component: {fileID: 2366820}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Building3G (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42475,7 +42475,7 @@ GameObject:
   - component: {fileID: 410906}
   - component: {fileID: 3379312}
   - component: {fileID: 2336198}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Building3H
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42941,7 +42941,7 @@ GameObject:
   - component: {fileID: 3335018}
   - component: {fileID: 2322968}
   - component: {fileID: 117637459}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Building3I (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43974,7 +43974,7 @@ GameObject:
   - component: {fileID: 422244}
   - component: {fileID: 3327868}
   - component: {fileID: 2350620}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HardwareStore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44445,7 +44445,7 @@ GameObject:
   - component: {fileID: 428682}
   - component: {fileID: 3366488}
   - component: {fileID: 2387318}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Building3I (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47805,7 +47805,7 @@ GameObject:
   - component: {fileID: 451178}
   - component: {fileID: 3378524}
   - component: {fileID: 2320254}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Building3G
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51868,7 +51868,7 @@ GameObject:
   - component: {fileID: 462498}
   - component: {fileID: 3318124}
   - component: {fileID: 2373630}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Building3A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52791,7 +52791,7 @@ GameObject:
   - component: {fileID: 464000}
   - component: {fileID: 3342200}
   - component: {fileID: 2377084}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Building2C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66463,7 +66463,7 @@ GameObject:
   - component: {fileID: 443398}
   - component: {fileID: 3335602}
   - component: {fileID: 2357984}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Building2B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72219,7 +72219,7 @@ GameObject:
   - component: {fileID: 3371462}
   - component: {fileID: 2326410}
   - component: {fileID: 1826650619}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HardwareStore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74566,7 +74566,7 @@ GameObject:
   m_Component:
   - component: {fileID: 697748225}
   - component: {fileID: 697748226}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GameObject (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74713,7 +74713,7 @@ GameObject:
   m_Component:
   - component: {fileID: 983342634}
   - component: {fileID: 983342635}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GameObject (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74766,7 +74766,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1025998449}
   - component: {fileID: 1025998450}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GameObject (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74859,7 +74859,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2506066118475167955}
   - component: {fileID: 3273057377396690574}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GameObject (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74912,7 +74912,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2602010741790066803}
   - component: {fileID: 4431895716077640440}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GameObject (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74965,7 +74965,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2837612359431930956}
   - component: {fileID: 171508899236785490}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GameObject (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75018,7 +75018,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1215335320906436793}
   - component: {fileID: 7807748227701045478}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GameObject (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75071,7 +75071,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7840760227045540893}
   - component: {fileID: 517962281838290190}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GameObject (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75124,7 +75124,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7209494382696661076}
   - component: {fileID: 3242456067591643104}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GameObject (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
