@@ -113,6 +113,7 @@ public class MeshRendererTest : MonoBehaviour
         if (pooledZombiesSpawned < RealZombieLimit)
         {
             GameObject zombieSpawn = GameObject.Instantiate(zombie, transform);
+            zombieSpawn.SetActive(false);
             //zombieSpawn.GetComponent<AI.ZombieStateMachine.ZombieController>().locomotionRigidbody.isKinematic = true;
             //zombieSpawn.transform.position = Vector3.down * 100.0f; //HACK
             m_PooledZombies.Add(zombieSpawn);
