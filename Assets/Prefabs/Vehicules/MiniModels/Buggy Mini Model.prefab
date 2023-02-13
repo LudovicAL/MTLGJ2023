@@ -391,7 +391,7 @@ GameObject:
   - component: {fileID: -9028403845020460062}
   m_Layer: 5
   m_Name: Buggy Mini Model
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -244,7 +244,7 @@ GameObject:
   - component: {fileID: 3285090330464949551}
   m_Layer: 5
   m_Name: Coupe 3  Mini Model
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
