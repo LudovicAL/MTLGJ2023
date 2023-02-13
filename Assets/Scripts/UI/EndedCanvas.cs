@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
-public class EndedCanvas : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
+public class EndedCanvas : MonoBehaviour {
+    [SerializeField]
+    private TextMeshProUGUI textKillCount;
+    [SerializeField]
+    private TextMeshProUGUI textLevel;
+
+
+
+    private void OnEnable() {
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void ResetGame() {
+
     }
 }
