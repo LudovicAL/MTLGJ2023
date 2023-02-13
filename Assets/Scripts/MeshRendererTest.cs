@@ -25,7 +25,7 @@ public class MeshRendererTest : MonoBehaviour
     private float zombieAccelerationRandomRange = 0.01f;
 
     private int RealZombieLimit = 50;
-    private float RealZombieRadius = 10;//40;
+    private float RealZombieRadius = 20;//40;
 
     private float zombieDistanceBuffer = 3.0f;
 
@@ -34,10 +34,10 @@ public class MeshRendererTest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        float zombieOffset = 2.0f;
+        float zombieOffset = 5.0f;
 
-        int numberOfX = 5;
-        int numberOfY = 5;
+        int numberOfX = 25;
+        int numberOfY = 25;
 
         float halfWidth = ((float)numberOfX / 2.0f) * zombieOffset;
         float halfHeight = ((float)numberOfY / 2.0f) * zombieOffset;
@@ -76,9 +76,11 @@ public class MeshRendererTest : MonoBehaviour
         {
             GameObject zombie = m_PooledZombies[0];
             m_PooledZombies.RemoveAt(0);
+            zombie.SetActive(true);
 
-            zombie.transform.position = position;
-            zombie.GetComponent<AI.ZombieStateMachine.ZombieController>().locomotionRigidbody.isKinematic = false;
+            //zombie.transform.position = position;
+            zombie.GetComponent<AI.ZombieStateMachine.ZombieController>().locomotionRigidbody.position = position;
+            //zombie.GetComponent<AI.ZombieStateMachine.ZombieController>().locomotionRigidbody.isKinematic = false;
 
             return zombie;
         }
@@ -87,9 +89,10 @@ public class MeshRendererTest : MonoBehaviour
 
     public void ReturnPooledZombie(GameObject zombie)
     {
-        zombie.GetComponent<AI.ZombieStateMachine.ZombieController>().locomotionRigidbody.isKinematic = true;
-        zombie.transform.position = Vector3.down * 100.0f; //HACK
+        //zombie.GetComponent<AI.ZombieStateMachine.ZombieController>().locomotionRigidbody.isKinematic = true;
+        //zombie.transform.position = Vector3.down * 100.0f; //HACK
 
+        zombie.SetActive(false);
         m_PooledZombies.Add(zombie);
     }
 
@@ -110,8 +113,8 @@ public class MeshRendererTest : MonoBehaviour
         if (pooledZombiesSpawned < RealZombieLimit)
         {
             GameObject zombieSpawn = GameObject.Instantiate(zombie, transform);
-            zombieSpawn.GetComponent<AI.ZombieStateMachine.ZombieController>().locomotionRigidbody.isKinematic = true;
-            zombieSpawn.transform.position = Vector3.down * 100.0f; //HACK
+            //zombieSpawn.GetComponent<AI.ZombieStateMachine.ZombieController>().locomotionRigidbody.isKinematic = true;
+            //zombieSpawn.transform.position = Vector3.down * 100.0f; //HACK
             m_PooledZombies.Add(zombieSpawn);
             ++pooledZombiesSpawned;
         }
@@ -287,8 +290,8 @@ public class MeshRendererTest : MonoBehaviour
             }
             else
             {
-                Matrix4x4 m = Matrix4x4.TRS(zombidBoid.position + zombieHeight, zombidBoid.rotation, Vector3.one * 1.0f);
-                Graphics.DrawMesh(meshToDraw, m, fakeSpawnedZombieMaterial, 0);
+                //Matrix4x4 m = Matrix4x4.TRS(zombidBoid.position + zombieHeight, zombidBoid.rotation, Vector3.one * 1.0f);
+                //Graphics.DrawMesh(meshToDraw, m, fakeSpawnedZombieMaterial, 0);
             }
         }
     }
