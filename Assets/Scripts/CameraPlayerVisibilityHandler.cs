@@ -52,6 +52,7 @@ public class CameraPlayerVisibilityHandler : MonoBehaviour
             if (!hiddenBuildings.ContainsKey(objectInstanceID))
             {
                 MeshRenderer buildingRenderer = hitObject.GetComponent<MeshRenderer>();
+                if (buildingRenderer == null) continue;
 
                 hiddenBuildings.Add(objectInstanceID, new BuildingInfo
                 {
