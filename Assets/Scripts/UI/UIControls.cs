@@ -26,11 +26,19 @@ public class UIControls : Singleton<UIControls> {
 
     // Start is called before the first frame update
     void Start() {
-        PlayerData.Instance.Hp.OnCurrentChanged.AddListener(HpChanged);
         PlayerInputConveyer.Instance.playerInput.actions["Pause"].started += PauseGame;
         GameManager.Instance.gameStateChangedEvent.AddListener(GameStateChanged);
         GameStateChanged();
     }
+
+    private void OnEnable() {
+        PlayerData.Instance.Hp.OnCurrentChanged.AddListener(HpChanged);
+    }
+
+    private void OnDisable() {
+        PlayerData.Instance.Hp.OnCurrentChanged.RemoveListener(HpChanged);
+    }
+
 
     // Update is called once per frame
     void Update() {

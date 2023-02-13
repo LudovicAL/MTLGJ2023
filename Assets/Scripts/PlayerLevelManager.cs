@@ -18,7 +18,14 @@ public class PlayerLevelManager : Singleton<PlayerLevelManager> {
 
     private void Start() {
         xpRequiredForNextLevel = GetXpRequiredForLevel(currentLevel + 1);
+    }
+
+    private void OnEnable() {
         PlayerData.Instance.Xp.OnCurrentChanged.AddListener(XpChanged);
+    }
+
+    private void OnDisable() {
+        PlayerData.Instance.Xp.OnCurrentChanged.RemoveListener(XpChanged);
     }
 
     private void LevelUp() {

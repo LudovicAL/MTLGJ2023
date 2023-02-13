@@ -26,6 +26,15 @@ public class PlayerData : Singleton<PlayerData> {
         playerVehicle = go;
         playerVehicleChanged.Invoke(go);
     }
+
+    public void ResetPlayerData() {
+        playerVehicle = null;
+        murderSpeed = 10.0f;
+        ZombiesKilled = new();
+        Hp = new(10);
+        Xp = new();
+        Fuel = new(100);
+    }
 }
 
 #if UNITY_EDITOR

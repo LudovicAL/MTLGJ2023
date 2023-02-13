@@ -11,7 +11,7 @@ public class NavFlow : Singleton<NavFlow>
     
     // Start is called before the first frame update
     void Start() {
-        PlayerData.Instance.playerVehicleChanged.AddListener(PlayerVehicleChanged);
+        
 
         nodes = GetComponentsInChildren<NavFlowNode>();
 
@@ -23,6 +23,14 @@ public class NavFlow : Singleton<NavFlow>
             nodes[i].AddNeighbour(nodes[i+1]);
             nodes[i+1].AddNeighbour(nodes[i]);
         }
+    }
+
+    private void OnEnable() {
+        PlayerData.Instance.playerVehicleChanged.AddListener(PlayerVehicleChanged);
+    }
+
+    private void OnDisable() {
+        PlayerData.Instance.playerVehicleChanged.RemoveListener(PlayerVehicleChanged);
     }
 
     private void PlayerVehicleChanged(GameObject newPlayerVehicle) {

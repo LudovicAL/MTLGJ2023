@@ -25,10 +25,17 @@ public class CameraPlayerVisibilityHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayerData.Instance.playerVehicleChanged.AddListener(PlayerVehicleChanged);
         cam = Camera.main;
 
         layerMask = 1 << 7;
+    }
+
+    private void OnEnable() {
+        PlayerData.Instance.playerVehicleChanged.AddListener(PlayerVehicleChanged);
+    }
+
+    private void OnDisable() {
+        PlayerData.Instance.playerVehicleChanged.RemoveListener(PlayerVehicleChanged);
     }
 
     private void PlayerVehicleChanged(GameObject newVehicle) {

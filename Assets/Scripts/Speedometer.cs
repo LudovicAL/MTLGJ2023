@@ -18,10 +18,17 @@ public class Speedometer : MonoBehaviour {
         if (apparentSpeedMultiplier == 0.0f) {
             Debug.Log("For the speedometer to work properly, enter an Apparent Speed Multiplier value.");
         }
-        PlayerData.Instance.playerVehicleChanged.AddListener(PlayerVehiculeChanged);
         if (PlayerData.Instance.playerVehicle != null) {
             PlayerVehiculeChanged(PlayerData.Instance.playerVehicle);
         }
+    }
+
+    private void OnEnable() {
+        PlayerData.Instance.playerVehicleChanged.AddListener(PlayerVehiculeChanged);
+    }
+
+    private void OnDisable() {
+        PlayerData.Instance.playerVehicleChanged.RemoveListener(PlayerVehiculeChanged);
     }
 
     // Update is called once per frame
