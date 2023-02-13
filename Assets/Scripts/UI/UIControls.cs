@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class UIControls : Singleton<UIControls> {
@@ -25,6 +26,8 @@ public class UIControls : Singleton<UIControls> {
 
     // Start is called before the first frame update
     void Start() {
+        PlayerData.Instance.Hp.OnCurrentChanged.AddListener(HpChanged);
+        PlayerInputConveyer.Instance.playerInput.actions["Pause"].started += PauseGame;
         GameManager.Instance.gameStateChangedEvent.AddListener(GameStateChanged);
         GameStateChanged();
     }
@@ -94,6 +97,20 @@ public class UIControls : Singleton<UIControls> {
     private void ActivatePanel(string panelName) {
         foreach (GameObject panel in panelList) {
             panel.SetActive((panel.name == panelName) ? true : false);
+        }
+    }
+
+    private void PauseGame(InputAction.CallbackContext callbackContext) {
+        if (GameManager.Instance.currentState == GameState.Started) {
+            GameManager.Instance.RequestGameStateChange(GameState.Paused);
+        } else if (GameManager.Instance.currentState == GameState.Paused) {
+            GameManager.Instance.RequestGameStateChange(GameState.Started);
+        }
+    }
+
+    private void HpChanged(int newHp) {
+        if (newHp <= 0 && GameManager.Instance.currentState != GameState.Ended) {
+            GameManager.Instance.RequestGameStateChange(GameState.Ended);
         }
     }
 }
