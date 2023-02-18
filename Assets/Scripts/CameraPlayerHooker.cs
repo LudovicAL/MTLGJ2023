@@ -20,7 +20,7 @@ public class CameraPlayerHooker : MonoBehaviour {
     }
 
     private void OnDisable() {
-        PlayerData.Instance.playerVehicleChanged.RemoveListener(PlayerVehiculeChanged);
+        PlayerData.Instance?.playerVehicleChanged.RemoveListener(PlayerVehiculeChanged);
     }
 
     private void PlayerVehiculeChanged(GameObject playerVehicle) {
