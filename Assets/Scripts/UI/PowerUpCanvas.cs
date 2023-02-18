@@ -67,6 +67,7 @@ public class PowerUpCanvas : Singleton<PowerUpCanvas> {
     }
 
     private void PauseGame() {
+        Time.timeScale = 0;
         TweenManager.instance.StopTween(lastTweenId);
         lastTweenId = TweenManager.instance.TweenScale(panelPowerUpTransform, TweenManager.instance.tweenZoomInDefault, null);
         panelPowerUpTransform.localScale = Vector3.zero;
@@ -75,6 +76,7 @@ public class PowerUpCanvas : Singleton<PowerUpCanvas> {
     }
 
     private void ResumeGame() {
+        Time.timeScale = 1;
         TweenManager.instance.StopTween(lastTweenId);
         lastTweenId = TweenManager.instance.TweenScale(panelPowerUpTransform, TweenManager.instance.tweenZoomOutDefault, ReturnToStartedGameState);
     }
