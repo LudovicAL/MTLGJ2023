@@ -40,7 +40,7 @@ namespace AI.ZombieStateMachine
 
         private void ExecuteCollision()
         {
-            if (_zombieController.target == null || _zombieController.forceRagdoll) return;
+            if (_zombieController.target == null) return;
             
             float impactForce = Random.Range(_minForce, _maxForce);
             float verticalImpact = Random.Range(_minVerticalForce, _maxVerticalForce);
