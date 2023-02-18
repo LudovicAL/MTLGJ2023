@@ -28,7 +28,7 @@ public class Speedometer : MonoBehaviour {
     }
 
     private void OnDisable() {
-        PlayerData.Instance.playerVehicleChanged.RemoveListener(PlayerVehiculeChanged);
+        PlayerData.Instance?.playerVehicleChanged.RemoveListener(PlayerVehiculeChanged);
     }
 
     // Update is called once per frame
