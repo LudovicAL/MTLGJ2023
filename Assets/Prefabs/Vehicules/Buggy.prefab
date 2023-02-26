@@ -435,6 +435,7 @@ GameObject:
   - component: {fileID: 4358762427772773900}
   - component: {fileID: 1842167462}
   - component: {fileID: -2541474358211508023}
+  - component: {fileID: 8224372754341848143}
   m_Layer: 3
   m_Name: Buggy
   m_TagString: Player
@@ -632,6 +633,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac19bfb468a344349b18bcd545fb2eaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8224372754341848143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1290928810107584100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b980c5a093d1f5b499fe54b70b256f79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1291103298237330788
