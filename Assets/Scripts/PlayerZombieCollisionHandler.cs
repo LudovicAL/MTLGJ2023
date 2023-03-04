@@ -5,15 +5,15 @@ using UnityEngine;
 
 public class PlayerZombieCollisionHandler : MonoBehaviour
 {
-    Rigidbody rigidbody;
-    MeshCollider meshCollider;
-    Collider[] hitResults = new Collider[20];
+    Rigidbody m_rigidbody;
+    MeshCollider m_meshCollider;
+    Collider[] m_hitResults = new Collider[20];
 
     // Start is called before the first frame update
     void Start()
     {
-        rigidbody = GetComponent<Rigidbody>();
-        meshCollider = GetComponent<MeshCollider>();
+        m_rigidbody = GetComponent<Rigidbody>();
+        m_meshCollider = GetComponent<MeshCollider>();
 
     }
 
@@ -21,10 +21,10 @@ public class PlayerZombieCollisionHandler : MonoBehaviour
     void FixedUpdate()
     {
         Vector3 currentPos = transform.position;
-        int hitCount = Physics.OverlapBoxNonAlloc(currentPos, meshCollider.bounds.extents, hitResults, transform.rotation, 1 << 6);
+        int hitCount = Physics.OverlapBoxNonAlloc(currentPos, m_meshCollider.bounds.extents, m_hitResults, transform.rotation, 1 << 6);
         for (int i = 0; i < hitCount; i++)
         {
-            ZombieController zombie = hitResults[i].gameObject.GetComponent<ZombieController>();
+            ZombieController zombie = m_hitResults[i].gameObject.GetComponent<ZombieController>();
             zombie.forceRagdoll = true;
         }
     }
