@@ -745,7 +745,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zombie: {fileID: 1760232644686883686, guid: eddb23a05e1d7704e9ebec871ea49dd8, type: 3}
-  meshToDraw: {fileID: 4300000, guid: 05859f9fa9baa9849a0565a027a38943, type: 3}
+  meshToDraw: {fileID: 4300094, guid: 60e663e407bcf354994536be3cd8a1ac, type: 3}
   materialToDraw: {fileID: 2100000, guid: c978e186592a68543b322aa118af5a36, type: 2}
   fakeZombieMaterial: {fileID: 2100000, guid: 2b31685618cedc247acdea43a85292f7, type: 2}
   fakeSpawnedZombieMaterial: {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}

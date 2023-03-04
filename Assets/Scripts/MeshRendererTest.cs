@@ -79,8 +79,8 @@ public class MeshRendererTest : MonoBehaviour
             m_PooledZombies.RemoveAt(0);
             zombie.SetActive(true);
 
-            //zombie.transform.position = position;
-            zombie.GetComponent<AI.ZombieStateMachine.ZombieController>().locomotionRigidbody.position = position;
+            zombie.transform.position = position;
+            //zombie.GetComponent<AI.ZombieStateMachine.ZombieController>().locomotionRigidbody.position = position;
             //zombie.GetComponent<AI.ZombieStateMachine.ZombieController>().locomotionRigidbody.isKinematic = false;
 
             return zombie;
@@ -125,7 +125,9 @@ public class MeshRendererTest : MonoBehaviour
         m_TriagedPotentialRealZombies.Clear();
         m_NotRealZombies.Clear();
 
-        Vector3 zombieHeightOffset = new Vector3(0.0f, 2.5f, 0.0f);
+        Vector3 zombieHeightOffset = new Vector3(0.0f, 1f, 0.0f);
+        Quaternion meshRotation = Quaternion.Euler(-90, 0, 0);
+        float deltaTime = Time.deltaTime;
 
         NavFlow.Instance.UpdateListOfZombies2(m_ZombieBoids);
 
@@ -142,14 +144,14 @@ public class MeshRendererTest : MonoBehaviour
 
                 zombidBoid.acceleration = (zombidBoid.destination - zombidBoid.position) * zombieMaxAcceleration;
 
-                zombidBoid.velocity += zombidBoid.acceleration * Time.deltaTime;
-                if (zombidBoid.velocity.magnitude > zombieMaxSpeed)
+                zombidBoid.velocity += zombidBoid.acceleration * deltaTime;
+                if (zombidBoid.velocity.sqrMagnitude > zombieMaxSpeed * zombieMaxSpeed)
                 {
                     zombidBoid.velocity = zombidBoid.velocity.normalized * zombieMaxSpeed;
                 }
 
-                zombidBoid.position += zombidBoid.velocity * Time.deltaTime;
-                zombidBoid.rotation.SetLookRotation(zombidBoid.velocity);
+                zombidBoid.position += zombidBoid.velocity * deltaTime;
+                zombidBoid.rotation = Quaternion.LookRotation(zombidBoid.velocity) * meshRotation;
             }
 
             //if ((playerCar.position - zombidBoid.position).magnitude < 2.0f)
@@ -282,19 +284,18 @@ public class MeshRendererTest : MonoBehaviour
             }
         }
 
-        Vector3 zombieHeight = new Vector3(0.0f, 2.0f, 0.0f);
         foreach (ZombieBoidInfo zombidBoid in m_ZombieBoids)
         {
             if (zombidBoid.realZombieObject == null)
             {
-                Matrix4x4 m = Matrix4x4.TRS(zombidBoid.position + zombieHeight, zombidBoid.rotation, Vector3.one * 2.0f);
+                Matrix4x4 m = Matrix4x4.TRS(zombidBoid.position, zombidBoid.rotation, Vector3.one * 1.6f);
                 Graphics.DrawMesh(meshToDraw, m, fakeZombieMaterial, 0);
             }
-            else
-            {
-                //Matrix4x4 m = Matrix4x4.TRS(zombidBoid.position + zombieHeight, zombidBoid.rotation, Vector3.one * 1.0f);
-                //Graphics.DrawMesh(meshToDraw, m, fakeSpawnedZombieMaterial, 0);
-            }
+            //else
+            //{
+            //    Matrix4x4 m = Matrix4x4.TRS(zombidBoid.position + zombieHeight, zombidBoid.rotation, Vector3.one * 1.0f);
+            //    Graphics.DrawMesh(meshToDraw, m, fakeSpawnedZombieMaterial, 0);
+            //}
         }
     }
 }
